@@ -7,6 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://cfad6sojk4je1" path="res://Map/assets/InfinitoPIXEL.png" id="4_6wep3"]
 [ext_resource type="Script" uid="uid://cvdt7vyupq7t2" path="res://minigames/FlapBird/player_flap.gd" id="6_ybypa"]
 [ext_resource type="Texture2D" uid="uid://can3tm2fjkypg" path="res://player/bird.png" id="7_ue8sp"]
+[ext_resource type="Script" uid="uid://cflapgameover1" path="res://minigames/FlapBird/flap_game_over.gd" id="8_gameover"]
+[ext_resource type="Texture2D" uid="uid://tryagainbtn01" path="res://screens/buttons/Try Again Button.png" id="9_retry"]
+[ext_resource type="Texture2D" uid="uid://lobbybtn00001" path="res://screens/buttons/Button Lobby.png" id="10_lobby"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uxgr3"]
 radius = 18.0
@@ -296,6 +299,56 @@ limit_left = 0
 limit_top = 0
 limit_right = 1650
 limit_bottom = 700
+
+[node name="GameOverScreen" type="CanvasLayer" parent="."]
+layer = 10
+process_mode = 3
+script = ExtResource("8_gameover")
+
+[node name="Panel" type="Panel" parent="GameOverScreen"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -110.0
+offset_right = 160.0
+offset_bottom = 110.0
+
+[node name="Title" type="Label" parent="GameOverScreen/Panel"]
+layout_mode = 0
+anchor_right = 1.0
+offset_top = 16.0
+offset_bottom = 52.0
+theme_override_font_sizes/font_size = 28
+text = "GAME OVER"
+horizontal_alignment = 1
+
+[node name="Buttons" type="HBoxContainer" parent="GameOverScreen/Panel"]
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -80.0
+offset_top = -80.0
+offset_right = 80.0
+offset_bottom = -16.0
+theme_override_constants/separation = 16
+
+[node name="RetryButton" type="TextureButton" parent="GameOverScreen/Panel/Buttons"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture_normal = ExtResource("9_retry")
+
+[node name="LobbyButton" type="TextureButton" parent="GameOverScreen/Panel/Buttons"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture_normal = ExtResource("10_lobby")
+
+[connection signal="pressed" from="GameOverScreen/Panel/Buttons/RetryButton" to="GameOverScreen" method="_on_retry_pressed"]
+[connection signal="pressed" from="GameOverScreen/Panel/Buttons/LobbyButton" to="GameOverScreen" method="_on_lobby_pressed"]
 
 [connection signal="body_entered" from="Sprite2D/Sprite2D/Area2D" to="PlayerFlap" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Sprite2D/Sprite2D9/Area2D" to="PlayerFlap" method="_on_area_2d_body_entered"]

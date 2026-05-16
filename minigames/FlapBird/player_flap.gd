@@ -24,4 +24,5 @@ func _physics_process(delta):
 
 
 func die():
-	get_tree().reload_current_scene()
+	set_physics_process(false)
+	get_tree().get_first_node_in_group("flap_game_over").show()

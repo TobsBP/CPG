@@ -39,6 +39,8 @@ var _renzo_hp := 5
 @onready var buff_label: Label = $UI/BuffLabel
 @onready var renzo: CharacterBody2D = $Renzo
 @onready var renzo_anim: AnimatedSprite2D = $Renzo/AnimatedSprite2D
+@onready var victory_panel: Panel = $UI/Victory
+@onready var victory_score: Label = $UI/Victory/VictoryScore
 
 func _ready() -> void:
 	_update_ui()
@@ -113,6 +115,10 @@ func _renzo_die() -> void:
 	await get_tree().create_timer(1.8).timeout
 	if is_instance_valid(renzo):
 		renzo.queue_free()
+	victory_score.text = "Pontuacao Final: %d" % _score
+	victory_panel.show()
+	set_process(false)
+	player.set_physics_process(false)
 
 func _spawn_item() -> void:
 	var kind := _weighted_random()
