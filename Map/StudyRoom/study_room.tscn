@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://d1ucxt6cg1t68" path="res://player/player.tscn" id="2_vxvti"]
 
 [node name="StudyRoom" type="Node2D" unique_id=1360594180]
+position = Vector2(4, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1428835121]
 position = Vector2(526, 320)
@@ -42,5 +43,13 @@ polygon = PackedVector2Array(0, 5, 0, -9, 411, -204, 424, -190)
 position = Vector2(491, 142)
 polygon = PackedVector2Array(-2, -4, -31, 12, -26, 14, -26, 47, -26, 47, 69, 86, 94, 74, 91, 35, 21, -2)
 
+[node name="Area2" type="Area2D" parent="Colissions" unique_id=135625772]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Colissions/Area2" unique_id=789958204]
+position = Vector2(903, 370)
+polygon = PackedVector2Array(0, -1, 4, -95, -38, -115, -44, -19)
+
 [node name="Player" parent="." unique_id=146193485 instance=ExtResource("2_vxvti")]
-position = Vector2(491, 347)
+position = Vector2(493, 347)
+
+[connection signal="body_entered" from="Colissions/Area2" to="Player" method="_on_area_2_body_entered"]
