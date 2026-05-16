@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://jqmqdkidmpie"]
+
+[ext_resource type="Script" uid="uid://bp50fjlvt0mlb" path="res://Map/JudgmentHall/falling_item.gd" id="1_script"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_col"]
+radius = 28.0
+
+[node name="FallingItem" type="Area2D" unique_id=923388076]
+collision_layer = 2
+script = ExtResource("1_script")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1295342810]
+shape = SubResource("CircleShape2D_col")
+
+[node name="ItemLabel" type="Label" parent="." unique_id=1720628802]
+offset_left = -30.0
+offset_top = -24.0
+offset_right = 30.0
+offset_bottom = 24.0
+theme_override_font_sizes/font_size = 36
+text = "4"
+horizontal_alignment = 1
+vertical_alignment = 1
