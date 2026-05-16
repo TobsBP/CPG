@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://s20eglmx2lgm"]
 
-[ext_resource type="Texture2D" uid="uid://bpkgicu0ew02k" path="res://Map/assets/Sala_de_aula.png" id="1_ykd7e"]
 [ext_resource type="PackedScene" uid="uid://d1ucxt6cg1t68" path="res://player/player.tscn" id="2_vxvti"]
 [ext_resource type="PackedScene" uid="uid://b5t8fsooxtesq" path="res://teacher/Soned.tscn" id="3_6gcom"]
 [ext_resource type="PackedScene" uid="uid://cceo18ixkt0nb" path="res://teacher/Chris.tscn" id="4_r1ur4"]
@@ -9,12 +8,15 @@
 [ext_resource type="PackedScene" uid="uid://bsv42pg4nrsmd" path="res://teacher/Renzo.tscn" id="7_bb6jf"]
 [ext_resource type="PackedScene" uid="uid://cb56nl8ct6jsg" path="res://dialog/dialog_box.tscn" id="8_r1ur4"]
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6gcom"]
+load_path = "res://.godot/imported/Sala_de_aula.png-b12d67572c1df19a9cd840382bf0f64c.ctex"
+
 [node name="StudyRoom" type="Node2D" unique_id=1360594180]
 position = Vector2(4, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1428835121]
 position = Vector2(526, 320)
-texture = ExtResource("1_ykd7e")
+texture = SubResource("CompressedTexture2D_6gcom")
 
 [node name="Colissions" type="Node2D" parent="." unique_id=1491245821]
 
