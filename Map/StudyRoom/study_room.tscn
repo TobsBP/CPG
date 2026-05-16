@@ -19,7 +19,7 @@ polygon = PackedVector2Array(5, 0, -9, 169, 45, 190, 65, 182, 233, 260, 232, 284
 
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Colissions/wall1" unique_id=1914714238]
 position = Vector2(50, 246)
-polygon = PackedVector2Array(33, -21, 65, -6, 98, 11, 168, 43, 204, 63, 223, 75, 242, 81, 311, 107, 357, 130, 365, 168, 289, 202, -84, 35)
+polygon = PackedVector2Array(33, -21, 65, -6, 102, 3, 175, 32, 217, 52, 230, 61, 247, 72, 318, 103, 366, 129, 371, 172, 299, 207, -84, 35)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Colissions/wall1" unique_id=1776412818]
 position = Vector2(-28, 121)
