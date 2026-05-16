@@ -2,11 +2,75 @@
 
 [ext_resource type="Texture2D" uid="uid://u8wg37u38k1q" path="res://Map/assets/FlipbirdBackGround.png" id="1_2ek7k"]
 [ext_resource type="Texture2D" uid="uid://1tgsk8fviwx2" path="res://Map/assets/Lapis1.png" id="2_m3451"]
+[ext_resource type="Script" uid="uid://qbu7mdcj7c80" path="res://death_area.gd" id="3_6wep3"]
 [ext_resource type="Texture2D" uid="uid://dp6y4qc5w70me" path="res://Map/assets/lapis2.png" id="3_uhlgt"]
 [ext_resource type="Texture2D" uid="uid://cfad6sojk4je1" path="res://Map/assets/InfinitoPIXEL.png" id="4_6wep3"]
+[ext_resource type="Script" uid="uid://cvdt7vyupq7t2" path="res://minigames/FlapBird/player_flap.gd" id="6_ybypa"]
+[ext_resource type="Texture2D" uid="uid://can3tm2fjkypg" path="res://player/bird.png" id="7_ue8sp"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uxgr3"]
+radius = 18.0
+height = 38.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ewy7j"]
+atlas = ExtResource("7_ue8sp")
+region = Rect2(50, 0, 50, 76)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i8pry"]
+atlas = ExtResource("7_ue8sp")
+region = Rect2(100, 0, 50, 76)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nqcy3"]
+atlas = ExtResource("7_ue8sp")
+region = Rect2(150, 0, 50, 76)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bk32p"]
+atlas = ExtResource("7_ue8sp")
+region = Rect2(200, 0, 50, 76)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v5phm"]
+atlas = ExtResource("7_ue8sp")
+region = Rect2(250, 0, 50, 76)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7eos6"]
+atlas = ExtResource("7_ue8sp")
+region = Rect2(300, 0, 50, 76)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yofbu"]
+atlas = ExtResource("7_ue8sp")
+region = Rect2(350, 0, 50, 76)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j1pxs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ewy7j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i8pry")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nqcy3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bk32p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v5phm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7eos6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yofbu")
+}],
+"loop": true,
+"name": &"flying",
+"speed": 5.0
+}]
 
 [node name="FlapBird" type="Node2D" unique_id=589440116]
-position = Vector2(-2, -4)
+position = Vector2(512, -62)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1827811900]
 position = Vector2(321, 414.00003)
@@ -14,13 +78,17 @@ scale = Vector2(1.2192982, 0.9345549)
 texture = ExtResource("1_2ek7k")
 
 [node name="Sprite2D" type="Sprite2D" parent="Sprite2D" unique_id=1875992405]
-position = Vector2(-551.9567, 231.12607)
+position = Vector2(-554.41724, 231.12607)
 scale = Vector2(0.15439574, 0.24074776)
 texture = ExtResource("2_m3451")
 flip_v = true
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite2D/Sprite2D" unique_id=2019878173]
-position = Vector2(-169.98268, -266.67615)
+[node name="Area2D" type="Area2D" parent="Sprite2D/Sprite2D" unique_id=1115657141]
+script = ExtResource("3_6wep3")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite2D/Sprite2D/Area2D" unique_id=2019878173]
+position = Vector2(-169.98335, -240.00854)
+scale = Vector2(0.99999994, 0.99999994)
 polygon = PackedVector2Array(15.935913, -35.556885, 191.23053, -328.90063, 324.02954, -22.2229, 334.65344, 915.58813, 15.935913, 911.14355)
 
 [node name="Sprite2D9" type="Sprite2D" parent="Sprite2D" unique_id=669849937]
@@ -29,8 +97,12 @@ scale = Vector2(0.15439574, 0.24074776)
 texture = ExtResource("2_m3451")
 flip_v = true
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite2D/Sprite2D9" unique_id=184365945]
-position = Vector2(0.00032421623, -551.13074)
+[node name="Area2D" type="Area2D" parent="Sprite2D/Sprite2D9" unique_id=922483788]
+script = ExtResource("3_6wep3")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite2D/Sprite2D9/Area2D" unique_id=184365945]
+position = Vector2(0.00024414063, -551.13086)
+scale = Vector2(0.99999994, 0.99999994)
 polygon = PackedVector2Array(5.3120117, 4.44458, -154.04688, 293.34387, -154.04688, 1248.9332, 154.04688, 1231.1549, 132.79883, 288.89905)
 
 [node name="Sprite2D7" type="Sprite2D" parent="Sprite2D" unique_id=1409765438]
@@ -39,8 +111,12 @@ scale = Vector2(0.15439574, 0.17006557)
 texture = ExtResource("2_m3451")
 flip_v = true
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite2D/Sprite2D7" unique_id=1761063372]
-position = Vector2(-10.623917, -589.3738)
+[node name="Area2D" type="Area2D" parent="Sprite2D/Sprite2D7" unique_id=200803551]
+script = ExtResource("3_6wep3")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite2D/Sprite2D7/Area2D" unique_id=1761063372]
+position = Vector2(-10.623901, -589.37354)
+scale = Vector2(0.99999994, 0.99999994)
 polygon = PackedVector2Array(-15.936035, -12.58374, -148.73486, 364.9275, -154.04688, 1258.3711, 175.29468, 1258.3711, 143.42285, 314.59277)
 
 [node name="Sprite2D3" type="Sprite2D" parent="Sprite2D" unique_id=1797306690]
@@ -48,8 +124,11 @@ position = Vector2(-551.9568, -184.04485)
 scale = Vector2(0.15439574, 0.3083742)
 texture = ExtResource("2_m3451")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite2D/Sprite2D3" unique_id=1168489518]
-position = Vector2(10.624243, 565.59406)
+[node name="Area2D" type="Area2D" parent="Sprite2D/Sprite2D3" unique_id=1983466078]
+script = ExtResource("3_6wep3")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite2D/Sprite2D3/Area2D" unique_id=1168489518]
+position = Vector2(10.624268, 565.5941)
 polygon = PackedVector2Array(-15.935852, 10.409668, -164.67072, -346.99017, -175.29462, -1231.8151, -175.29462, -1231.8151, 143.42291, -1207.5258, 154.04688, -329.64063)
 
 [node name="Sprite2D10" type="Sprite2D" parent="Sprite2D" unique_id=236559150]
@@ -57,8 +136,11 @@ position = Vector2(59.870605, -188.9522)
 scale = Vector2(0.15439574, 0.28918287)
 texture = ExtResource("2_m3451")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite2D/Sprite2D10" unique_id=1190903955]
-position = Vector2(-5.3119583, 546.0951)
+[node name="Area2D" type="Area2D" parent="Sprite2D/Sprite2D10" unique_id=1364398398]
+script = ExtResource("3_6wep3")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite2D/Sprite2D10/Area2D" unique_id=1190903955]
+position = Vector2(-5.3117676, 546.09503)
 polygon = PackedVector2Array(-37.183594, -37.00171, -159.3584, -336.7162, -159.3584, -1235.8595, 169.98291, -1195.1575, 148.73486, -344.11652, 47.807617, -40.701904, 10.624023, 3.7001953)
 
 [node name="Sprite2D5" type="Sprite2D" parent="Sprite2D" unique_id=164868038]
@@ -66,8 +148,11 @@ position = Vector2(-243.58264, -181.90475)
 scale = Vector2(0.15439574, 0.3083742)
 texture = ExtResource("2_m3451")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite2D/Sprite2D5" unique_id=1266991137]
-position = Vector2(-26.5598, 534.3646)
+[node name="Area2D" type="Area2D" parent="Sprite2D/Sprite2D5" unique_id=1759076517]
+script = ExtResource("3_6wep3")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite2D/Sprite2D5/Area2D" unique_id=1266991137]
+position = Vector2(-26.5598, 534.3647)
 polygon = PackedVector2Array(21.247803, -17.349487, -132.79883, -322.70087, -148.73486, -1197.1161, 196.54248, -1179.7666, 207.1665, -288.0019)
 
 [node name="Sprite2D12" type="Sprite2D" parent="Sprite2D" unique_id=97541695]
@@ -75,8 +160,11 @@ position = Vector2(221.43892, -185.2071)
 scale = Vector2(0.15439574, 0.306575)
 texture = ExtResource("2_m3451")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite2D/Sprite2D12" unique_id=1638218977]
-position = Vector2(10.623919, 499.40878)
+[node name="Area2D" type="Area2D" parent="Sprite2D/Sprite2D12" unique_id=1606649253]
+script = ExtResource("3_6wep3")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite2D/Sprite2D12/Area2D" unique_id=1638218977]
+position = Vector2(10.624023, 499.40875)
 polygon = PackedVector2Array(-10.624023, 13.96106, -26.55957, 20.94165, -132.79883, -265.26013, -148.73486, -1130.846, 148.73486, -1130.846, 132.79883, -265.26013)
 
 [node name="Sprite2D2" type="Sprite2D" parent="Sprite2D" unique_id=1911688497]
@@ -85,8 +173,11 @@ scale = Vector2(0.20145668, 0.3305829)
 texture = ExtResource("3_uhlgt")
 flip_v = true
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite2D/Sprite2D2" unique_id=284732021]
-position = Vector2(8.142137, -540.54425)
+[node name="Area2D" type="Area2D" parent="Sprite2D/Sprite2D2" unique_id=104897283]
+script = ExtResource("3_6wep3")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite2D/Sprite2D2/Area2D" unique_id=284732021]
+position = Vector2(8.142151, -540.5442)
 polygon = PackedVector2Array(4.071167, 12.947144, -138.41626, 323.6792, -162.84265, 1149.0612, 146.55847, 1171.7186, 170.98486, 307.49524)
 
 [node name="Sprite2D11" type="Sprite2D" parent="Sprite2D" unique_id=585022446]
@@ -95,8 +186,12 @@ scale = Vector2(0.1689064, 0.26226008)
 texture = ExtResource("3_uhlgt")
 flip_v = true
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite2D/Sprite2D11" unique_id=444805297]
-position = Vector2(14.5668335, -546.7238)
+[node name="Area2D" type="Area2D" parent="Sprite2D/Sprite2D11" unique_id=184173750]
+script = ExtResource("3_6wep3")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite2D/Sprite2D11/Area2D" unique_id=444805297]
+position = Vector2(14.566895, -546.7239)
+scale = Vector2(1, 0.99999994)
 polygon = PackedVector2Array(9.7109375, -12.240112, -145.66846, 285.6018, -145.66846, 1166.8876, 131.10156, 1166.8876, 121.39014, 277.44177)
 
 [node name="Sprite2D6" type="Sprite2D" parent="Sprite2D" unique_id=1055526093]
@@ -105,8 +200,11 @@ scale = Vector2(0.18093804, 0.2563461)
 texture = ExtResource("3_uhlgt")
 flip_v = true
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite2D/Sprite2D6" unique_id=601664019]
-position = Vector2(0, -517.5954)
+[node name="Area2D" type="Area2D" parent="Sprite2D/Sprite2D6" unique_id=1066328928]
+script = ExtResource("3_6wep3")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite2D/Sprite2D6/Area2D" unique_id=601664019]
+position = Vector2(0, -517.5952)
 polygon = PackedVector2Array(9.06543, -12.522461, -135.98193, 267.14575, -154.1128, 1156.2407, 163.17847, 1172.9373, 163.17847, 283.84253)
 
 [node name="Sprite2D14" type="Sprite2D" parent="Sprite2D" unique_id=2089480899]
@@ -115,8 +213,11 @@ scale = Vector2(0.18093804, 0.15599884)
 texture = ExtResource("3_uhlgt")
 flip_v = true
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite2D/Sprite2D14" unique_id=197627327]
-position = Vector2(13.5982, -548.7369)
+[node name="Area2D" type="Area2D" parent="Sprite2D/Sprite2D14" unique_id=1402088841]
+script = ExtResource("3_6wep3")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite2D/Sprite2D14/Area2D" unique_id=197627327]
+position = Vector2(13.598145, -548.73706)
 polygon = PackedVector2Array(-13.598633, -6.859131, -167.71143, 342.96045, -149.58057, 1172.9241, 167.71094, 1172.9241, 135.98193, 246.9314)
 
 [node name="Sprite2D4" type="Sprite2D" parent="Sprite2D" unique_id=782648480]
@@ -124,8 +225,12 @@ position = Vector2(-409.2517, -225.77594)
 scale = Vector2(0.20145668, 0.24075834)
 texture = ExtResource("3_uhlgt")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite2D/Sprite2D4" unique_id=1500838259]
-position = Vector2(28.497478, 528.88434)
+[node name="Area2D" type="Area2D" parent="Sprite2D/Sprite2D4" unique_id=1271514342]
+script = ExtResource("3_6wep3")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite2D/Sprite2D4/Area2D" unique_id=1500838259]
+position = Vector2(28.497498, 528.88434)
+scale = Vector2(1, 1.0000001)
 polygon = PackedVector2Array(-12.213257, -13.333252, -158.77173, -279.99768, -170.98486, -1226.6565, 154.70056, -1177.768, 130.27417, -319.9973)
 
 [node name="Sprite2D8" type="Sprite2D" parent="Sprite2D" unique_id=291443872]
@@ -133,8 +238,11 @@ position = Vector2(-98.41717, -126.26332)
 scale = Vector2(0.20145668, 0.3977939)
 texture = ExtResource("3_uhlgt")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite2D/Sprite2D8" unique_id=500479138]
-position = Vector2(16.284271, 548.7407)
+[node name="Area2D" type="Area2D" parent="Sprite2D/Sprite2D8" unique_id=1202331624]
+script = ExtResource("3_6wep3")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite2D/Sprite2D8/Area2D" unique_id=500479138]
+position = Vector2(16.284302, 548.7408)
 polygon = PackedVector2Array(28.497559, -2.6899414, -179.12695, -320.09875, -170.98486, -1215.8374, 158.77173, -1178.1787, 166.91382, -295.88965)
 
 [node name="Sprite2D13" type="Sprite2D" parent="Sprite2D" unique_id=44058079]
@@ -142,19 +250,65 @@ position = Vector2(419.09363, -133.75351)
 scale = Vector2(0.20145668, 0.3977939)
 texture = ExtResource("3_uhlgt")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite2D/Sprite2D13" unique_id=896953508]
-position = Vector2(8.142137, 532.60126)
-polygon = PackedVector2Array(4.071289, 8.069702, -175.05615, -325.47864, -146.5586, -1159.3495, 154.70068, -1159.3495, 162.84277, -260.9209)
+[node name="Area2D" type="Area2D" parent="Sprite2D/Sprite2D13" unique_id=88331034]
+script = ExtResource("3_6wep3")
 
-[node name="LineOfDeath" type="CollisionPolygon2D" parent="Sprite2D" unique_id=967455256]
-position = Vector2(-679.89923, -392.70038)
-polygon = PackedVector2Array(-2.460382, 16.050455, 1363.8994, 13.910399, 1363.8994, -46.011177, -51.669018, -42.801094, -48.388443, 795.03094, -50.028732, 795.03094, 1388.5037, 827.1318, 1402.4462, -52.431347, 1362.259, -48.151234, 1364.7195, 6.420202, 1364.7195, 782.1906, -4.9208136, 770.4203)
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite2D/Sprite2D13/Area2D" unique_id=896953508]
+position = Vector2(8.142334, 532.60126)
+polygon = PackedVector2Array(4.071289, 8.069702, -175.05615, -325.47864, -146.5586, -1159.3495, 154.70068, -1159.3495, 162.84277, -260.9209)
 
 [node name="TheITEM" type="Sprite2D" parent="Sprite2D" unique_id=458997489]
 position = Vector2(596.2446, -78.11209)
 scale = Vector2(2.1659184, -4.598565)
 texture = ExtResource("4_6wep3")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite2D/TheITEM" unique_id=920384379]
-position = Vector2(-0.37865874, 1.3961245)
+[node name="Area2D" type="Area2D" parent="Sprite2D/TheITEM" unique_id=1831147932]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite2D/TheITEM/Area2D" unique_id=920384379]
+position = Vector2(-0.3786621, 1.3961258)
 polygon = PackedVector2Array(1.1359558, -1.1634369, -7.194519, 5.5844955, -14.7677, -0.6980667, -10.223785, -7.911377, -0.3786621, -3.2576294, 9.466461, -6.74794, 15.146332, -0.2326889, 7.5731506, 4.8864365)
+
+[node name="Area2D" type="Area2D" parent="Sprite2D" unique_id=1925814835]
+script = ExtResource("3_6wep3")
+
+[node name="LineOfDeath" type="CollisionPolygon2D" parent="Sprite2D/Area2D" unique_id=967455256]
+position = Vector2(-679.8993, -392.7004)
+scale = Vector2(1.0000001, 1)
+polygon = PackedVector2Array(-2.460382, 16.050455, 1363.8994, 13.910399, 1363.8994, -46.011177, -51.669018, -42.801094, -48.388443, 795.03094, -50.028732, 795.03094, 1388.5037, 827.1318, 1402.4462, -52.431347, 1362.259, -48.151234, 1364.7195, 6.420202, 1364.7195, 782.1906, -4.9208136, 770.4203)
+
+[node name="PlayerFlap" type="CharacterBody2D" parent="." unique_id=713245050]
+position = Vector2(-482, 419)
+script = ExtResource("6_ybypa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerFlap" unique_id=1804913065]
+position = Vector2(-4, -1)
+shape = SubResource("CapsuleShape2D_uxgr3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PlayerFlap/CollisionShape2D" unique_id=537752857]
+position = Vector2(-4, 1.0000095)
+scale = Vector2(0.76, 0.657895)
+sprite_frames = SubResource("SpriteFrames_j1pxs")
+animation = &"flying"
+
+[node name="Camera2D" type="Camera2D" parent="PlayerFlap" unique_id=173888411]
+position = Vector2(4, 1)
+limit_left = 0
+limit_top = 0
+limit_right = 1650
+limit_bottom = 700
+
+[connection signal="body_entered" from="Sprite2D/Sprite2D/Area2D" to="PlayerFlap" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Sprite2D/Sprite2D9/Area2D" to="PlayerFlap" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Sprite2D/Sprite2D7/Area2D" to="PlayerFlap" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Sprite2D/Sprite2D3/Area2D" to="PlayerFlap" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Sprite2D/Sprite2D10/Area2D" to="PlayerFlap" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Sprite2D/Sprite2D5/Area2D" to="PlayerFlap" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Sprite2D/Sprite2D12/Area2D" to="PlayerFlap" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Sprite2D/Sprite2D2/Area2D" to="PlayerFlap" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Sprite2D/Sprite2D11/Area2D" to="PlayerFlap" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Sprite2D/Sprite2D6/Area2D" to="PlayerFlap" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Sprite2D/Sprite2D14/Area2D" to="PlayerFlap" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Sprite2D/Sprite2D4/Area2D" to="PlayerFlap" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Sprite2D/Sprite2D8/Area2D" to="PlayerFlap" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Sprite2D/Sprite2D13/Area2D" to="PlayerFlap" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Sprite2D/Area2D" to="PlayerFlap" method="_on_area_2d_body_entered"]
