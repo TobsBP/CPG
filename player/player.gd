@@ -27,8 +27,20 @@ func _update_animation(direction: Vector2) -> void:
 		return
 
 	animated_sprite.flip_h = false
+	var is_diagonal := direction.x != 0.0 and direction.y != 0.0
 
-	if abs(direction.x) >= abs(direction.y):
+	if is_diagonal:
+		if direction.y < 0:
+			if direction.x > 0:
+				animated_sprite.play("up_right")
+			else:
+				animated_sprite.play("up_left")
+		else:
+			if direction.x > 0:
+				animated_sprite.play("down_right")
+			else:
+				animated_sprite.play("down_left")
+	elif abs(direction.x) >= abs(direction.y):
 		if direction.x > 0:
 			animated_sprite.flip_h = true
 			animated_sprite.play("left")
