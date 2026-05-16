@@ -137,3 +137,9 @@ func _game_over() -> void:
 	$UI/GameOver.show()
 	$UI/GameOver/FinalScore.text = "Pontuação Final: %d" % _score
 	set_process(false)
+
+func _on_retry_pressed() -> void:
+	get_tree().reload_current_scene()
+
+func _on_lobby_pressed() -> void:
+	get_tree().change_scene_to_file("res://Map/StudyRoom/study_room.tscn")

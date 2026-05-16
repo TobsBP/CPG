@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bsv42pg4nrsmd"]
 
-[ext_resource type="Script" uid="uid://bkvx41c1dy6ip" path="res://teacher/teacher.gd" id="2_script"]
+[ext_resource type="Script" uid="uid://crenzogd00001" path="res://teacher/renzo.gd" id="2_script"]
 [ext_resource type="Texture2D" uid="uid://bua3ovtmc2dg2" path="res://teacher/Characters_32x32(6).png" id="1_qaenn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j6kqv"]

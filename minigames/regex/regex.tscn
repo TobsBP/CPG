@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://cyrx1game001" path="res://minigames/regex/regex_game.gd" id="1_script"]
 [ext_resource type="Texture2D" uid="uid://n1gswbl2t4s8" path="res://minigames/regex/Guitar Version 2.png" id="2_gglga"]
 [ext_resource type="PackedScene" uid="uid://cpausescrtsn1" path="res://screens/pause/pause_screen.tscn" id="3_pause"]
+[ext_resource type="Texture2D" uid="uid://tryagainbtn01" path="res://screens/buttons/Try Again Button.png" id="4_retry"]
+[ext_resource type="Texture2D" uid="uid://lobbybtn00001" path="res://screens/buttons/Button Lobby.png" id="5_lobby"]
 
 [node name="Regex" type="Node2D" unique_id=711585319]
 script = ExtResource("1_script")
@@ -82,9 +84,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -200.0
-offset_top = -110.0
+offset_top = -130.0
 offset_right = 200.0
-offset_bottom = 110.0
+offset_bottom = 130.0
 
 [node name="Title" type="Label" parent="UI/GameOver" unique_id=200000031]
 layout_mode = 0
@@ -103,6 +105,31 @@ offset_bottom = 100.0
 theme_override_font_sizes/font_size = 20
 text = "Pontuacao Final: 0"
 horizontal_alignment = 1
+
+[node name="Buttons" type="HBoxContainer" parent="UI/GameOver"]
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -80.0
+offset_top = -80.0
+offset_right = 80.0
+offset_bottom = -16.0
+theme_override_constants/separation = 16
+
+[node name="RetryButton" type="TextureButton" parent="UI/GameOver/Buttons"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture_normal = ExtResource("4_retry")
+
+[node name="LobbyButton" type="TextureButton" parent="UI/GameOver/Buttons"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture_normal = ExtResource("5_lobby")
+
+[connection signal="pressed" from="UI/GameOver/Buttons/RetryButton" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="UI/GameOver/Buttons/LobbyButton" to="." method="_on_lobby_pressed"]
 
 [node name="GuitarVersion2" type="Sprite2D" parent="." unique_id=1230763145]
 position = Vector2(574.25, 321.25)
