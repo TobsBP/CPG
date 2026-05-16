@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://ckkjnb7txs1tc"]
+
+[ext_resource type="Texture2D" uid="uid://coo8xc5pdjkal" path="res://minigames/dodge/glass/glasses rotate.png" id="1_0u0hw"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hcm22"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i5tbu"]
+atlas = ExtResource("1_0u0hw")
+region = Rect2(0, 0, 66, 65)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x2xpu"]
+atlas = ExtResource("1_0u0hw")
+region = Rect2(66, 0, 66, 65)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ly4pl"]
+atlas = ExtResource("1_0u0hw")
+region = Rect2(0, 65, 66, 65)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i75xc"]
+atlas = ExtResource("1_0u0hw")
+region = Rect2(66, 65, 66, 65)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d6pd5"]
+atlas = ExtResource("1_0u0hw")
+region = Rect2(0, 130, 66, 65)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xyh8h"]
+atlas = ExtResource("1_0u0hw")
+region = Rect2(66, 130, 66, 65)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y76xg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i5tbu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x2xpu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ly4pl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i75xc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d6pd5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xyh8h")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Glass" type="CharacterBody2D" unique_id=1678236312]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1577525469]
+shape = SubResource("CapsuleShape2D_hcm22")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2094726301]
+position = Vector2(-16, -9)
+sprite_frames = SubResource("SpriteFrames_y76xg")
+frame_progress = 0.32011595
+speed_scale = 0.5
