@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cvwrfokt5v8ue"]
 
 [ext_resource type="PackedScene" uid="uid://d1ucxt6cg1t68" path="res://player/player.tscn" id="1_player"]
-[ext_resource type="PackedScene" uid="uid://bq3kpgisx4iak" path="res://tower/tower.tscn" id="2_tower"]
+[ext_resource type="PackedScene" uid="uid://bq3kpgisx4iak" path="res://tower/Math Tower/calc_tower.tscn" id="2_tower"]
 [ext_resource type="PackedScene" uid="uid://w87xccmn35ig" path="res://life/life.tscn" id="3_epypp"]
 [ext_resource type="PackedScene" uid="uid://d0t6gr416cnj1" path="res://enemies/integral/integral.tscn" id="4_enemy"]
 [ext_resource type="PackedScene" uid="uid://cceo18ixkt0nb" path="res://teacher/Chris.tscn" id="5_chris"]
