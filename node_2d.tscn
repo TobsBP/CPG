@@ -2,6 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://d1ucxt6cg1t68" path="res://player/player.tscn" id="1_player"]
 [ext_resource type="PackedScene" uid="uid://bq3kpgisx4iak" path="res://tower/tower.tscn" id="2_tower"]
+[ext_resource type="PackedScene" uid="uid://w87xccmn35ig" path="res://life/life.tscn" id="3_epypp"]
+[ext_resource type="PackedScene" uid="uid://d0t6gr416cnj1" path="res://enemies/integral/integral.tscn" id="4_enemy"]
 
 [sub_resource type="TileSet" id="TileSet_y32ns"]
 tile_shape = 1
@@ -9,12 +11,39 @@ tile_size = Vector2i(16, 8)
 
 [node name="Node2D" type="Node2D" unique_id=1165621342]
 
+[node name="Tower_00" parent="." unique_id=1500003702 instance=ExtResource("2_tower")]
+position = Vector2(56, 5)
+rotation = -1.5707964
+
+[node name="Tower_01" parent="." unique_id=2087905375 instance=ExtResource("2_tower")]
+position = Vector2(110, 48)
+
+[node name="Towe_02" parent="." unique_id=454108416 instance=ExtResource("2_tower")]
+z_index = 1
+position = Vector2(6, 47)
+rotation = -3.1415927
+
+[node name="Tower_03" parent="." unique_id=1988149059 instance=ExtResource("2_tower")]
+position = Vector2(59, 93)
+rotation = 1.5707964
+
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1578503062]
 tile_set = SubResource("TileSet_y32ns")
 
 [node name="Player" parent="." unique_id=1607444959 instance=ExtResource("1_player")]
-position = Vector2(0, 50)
+position = Vector2(-34, 70)
 
-[node name="Tower" parent="." unique_id=454108416 instance=ExtResource("2_tower")]
-z_index = 1
-position = Vector2(30, 44)
+[node name="CharacterBody2D" parent="." unique_id=1654760741 instance=ExtResource("3_epypp")]
+position = Vector2(56, 47)
+
+[node name="EnemyTop" parent="." unique_id=1718232930 instance=ExtResource("4_enemy")]
+position = Vector2(56, -80)
+
+[node name="EnemyBottom" parent="." unique_id=600055163 instance=ExtResource("4_enemy")]
+position = Vector2(56, 174)
+
+[node name="EnemyLeft" parent="." unique_id=273431357 instance=ExtResource("4_enemy")]
+position = Vector2(-80, 47)
+
+[node name="EnemyRight" parent="." unique_id=760304152 instance=ExtResource("4_enemy")]
+position = Vector2(192, 47)
