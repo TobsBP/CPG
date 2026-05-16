@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://bq3kpgisx4iak"]
+
+[ext_resource type="Script" path="res://tower/tower.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://dg1m7yvx8xrgt" path="res://tower/tower.png" id="1_758mn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3fjlj"]
+size = Vector2(19, 12)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4ulc0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_758mn")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="Node2D" type="CharacterBody2D" unique_id=1500003702]
+script = ExtResource("1_script")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1350563734]
+position = Vector2(-0.5, 1)
+shape = SubResource("RectangleShape2D_3fjlj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1179346546]
+position = Vector2(5, 1)
+sprite_frames = SubResource("SpriteFrames_4ulc0")
+animation = &"idle"

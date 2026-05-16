@@ -4,6 +4,9 @@ const SPEED = 200.0
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
+func _ready() -> void:
+	add_to_group("player")
+
 func _physics_process(_delta: float) -> void:
 	var direction := Vector2(
 		Input.get_axis("ui_left", "ui_right"),
