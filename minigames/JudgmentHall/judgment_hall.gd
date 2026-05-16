@@ -31,6 +31,7 @@ var _slowed := false
 var _slow_timer := 0.0
 var _active_items: Array[Node] = []
 var _renzo_teleporting := false
+var _renzo_hp := 5
 
 @onready var player: Node2D = $Player
 @onready var score_label: Label = $UI/TopBar/ScoreLabel
@@ -78,9 +79,15 @@ func _spawn_laser(from_pos: Vector2, direction: Vector2) -> void:
 func _renzo_take_hit() -> void:
 	if _renzo_teleporting:
 		return
-	_renzo_teleporting = true
+
+	_renzo_hp -= 1
 	_score += 50
 
+	if _renzo_hp <= 0:
+		_renzo_die()
+		return
+
+	_renzo_teleporting = true
 	renzo_anim.play("teleport")
 	await get_tree().create_timer(0.8).timeout
 	if not is_instance_valid(renzo):
@@ -99,6 +106,13 @@ func _renzo_take_hit() -> void:
 
 	renzo_anim.play("default")
 	_renzo_teleporting = false
+
+func _renzo_die() -> void:
+	_renzo_teleporting = true
+	renzo_anim.play("death")
+	await get_tree().create_timer(1.8).timeout
+	if is_instance_valid(renzo):
+		renzo.queue_free()
 
 func _spawn_item() -> void:
 	var kind := _weighted_random()
