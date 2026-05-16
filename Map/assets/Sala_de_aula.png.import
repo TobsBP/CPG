@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvgvgrnk4awpc"
-path="res://.godot/imported/isometric-sandbox-sheet.png-eab51521b70eaa171c6cb6870bf5268e.ctex"
+uid="uid://bpkgicu0ew02k"
+path="res://.godot/imported/Sala_de_aula.png-b12d67572c1df19a9cd840382bf0f64c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Map/assets/isometric-sandbox-32x32/isometric-sandbox-32x32/isometric-sandbox-sheet.png"
-dest_files=["res://.godot/imported/isometric-sandbox-sheet.png-eab51521b70eaa171c6cb6870bf5268e.ctex"]
+source_file="res://Map/assets/Sala_de_aula.png"
+dest_files=["res://.godot/imported/Sala_de_aula.png-b12d67572c1df19a9cd840382bf0f64c.ctex"]
 
 [params]
 
