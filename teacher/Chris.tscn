@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://cceo18ixkt0nb"]
+
+[ext_resource type="Script" uid="uid://bkvx41c1dy6ip" path="res://teacher/teacher.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://bua3ovtmc2dg2" path="res://teacher/Characters_32x32(6).png" id="2_b3fa0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_normu"]
+atlas = ExtResource("2_b3fa0")
+region = Rect2(0, 624, 50, 78)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pdb0p"]
+atlas = ExtResource("2_b3fa0")
+region = Rect2(0, 390, 50, 78)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r0g0j"]
+atlas = ExtResource("2_b3fa0")
+region = Rect2(0, 156, 50, 78)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_normu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_normu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pdb0p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r0g0j")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pdb0p"]
+radius = 28.62
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=436781843]
+script = ExtResource("1_script")
+teacher_name = "Chris"
+dialogue_lines = Array[String](["Olá! Eu sou o professor Chris.", "Fique atento às integrais — elas vão atrás do cérebro!", "Pressione ENTER para avançar o diálogo."])
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=346157945]
+sprite_frames = SubResource("SpriteFrames_normu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=210997278]
+shape = SubResource("CircleShape2D_pdb0p")

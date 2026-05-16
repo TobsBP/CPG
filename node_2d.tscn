@@ -4,6 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://bq3kpgisx4iak" path="res://tower/tower.tscn" id="2_tower"]
 [ext_resource type="PackedScene" uid="uid://w87xccmn35ig" path="res://life/life.tscn" id="3_epypp"]
 [ext_resource type="PackedScene" uid="uid://d0t6gr416cnj1" path="res://enemies/integral/integral.tscn" id="4_enemy"]
+[ext_resource type="PackedScene" uid="uid://cceo18ixkt0nb" path="res://teacher/Chris.tscn" id="5_chris"]
+[ext_resource type="PackedScene" uid="uid://cb56nl8ct6jsg" path="res://dialog/dialog_box.tscn" id="6_dialog"]
+[ext_resource type="PackedScene" uid="uid://b5t8fsooxtesq" path="res://teacher/Soned.tscn" id="7_d21ai"]
 
 [sub_resource type="TileSet" id="TileSet_y32ns"]
 tile_shape = 1
@@ -47,3 +50,11 @@ position = Vector2(-80, 47)
 
 [node name="EnemyRight" parent="." unique_id=760304152 instance=ExtResource("4_enemy")]
 position = Vector2(192, 47)
+
+[node name="Chris" parent="." unique_id=1118885094 instance=ExtResource("5_chris")]
+position = Vector2(-148, 58)
+
+[node name="DialogBox" parent="." unique_id=1130678522 instance=ExtResource("6_dialog")]
+
+[node name="Soned" parent="." unique_id=257366994 instance=ExtResource("7_d21ai")]
+position = Vector2(-57, -7)
