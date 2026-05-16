@@ -299,7 +299,6 @@ animations = [{
 }]
 
 [node name="JudgmentHall" type="Node2D" unique_id=1011578155]
-position = Vector2(-2, 41)
 script = ExtResource("1_script")
 
 [node name="SPace" type="Sprite2D" parent="." unique_id=1928781838]
@@ -403,12 +402,8 @@ collision_mask = 4
 motion_mode = 0
 script = ExtResource("2_playerscript")
 
-[node name="Camera2D2" type="Camera2D" parent="Player" unique_id=2086906007]
-position = Vector2(26, 7)
-limit_left = 0
-limit_top = 0
-limit_right = 1180
-limit_bottom = 660
+[node name="Camera2D" type="Camera2D" parent="." unique_id=147166951]
+position = Vector2(576, 324)
 
 [node name="WallLeft" type="StaticBody2D" parent="." unique_id=1977117999]
 position = Vector2(-10, 324)
@@ -577,7 +572,4 @@ position = Vector2(0, 7)
 sprite_frames = SubResource("SpriteFrames_en0yj")
 animation = &"death"
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1117276163]
-position = Vector2(2, 0)
-autoplay = true
 [node name="PauseScreen" parent="." instance=ExtResource("7_pause")]
