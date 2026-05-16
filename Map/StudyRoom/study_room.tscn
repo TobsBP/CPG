@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ce0egjdvm68tb" path="res://teacher/Jonas.tscn" id="5_1sctq"]
 [ext_resource type="PackedScene" uid="uid://bker25lj7f8yt" path="res://teacher/Ynoguti.tscn" id="6_aje4m"]
 [ext_resource type="PackedScene" uid="uid://bsv42pg4nrsmd" path="res://teacher/Renzo.tscn" id="7_bb6jf"]
+[ext_resource type="PackedScene" uid="uid://d3waohanuu1c4" path="res://teacher/mosca.tscn" id="8_1sctq"]
 [ext_resource type="PackedScene" uid="uid://cb56nl8ct6jsg" path="res://dialog/dialog_box.tscn" id="8_r1ur4"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6gcom"]
@@ -78,5 +79,8 @@ position = Vector2(365, 315)
 
 [node name="DialogBox" parent="." unique_id=2142205419 instance=ExtResource("8_r1ur4")]
 visible = false
+
+[node name="Mosca" parent="." unique_id=1666583189 instance=ExtResource("8_1sctq")]
+position = Vector2(423, 398)
 
 [connection signal="body_entered" from="Colissions/Area2" to="Player" method="_on_area_2_body_entered"]

@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://cx1ocfdfbreb6"]
+
+[ext_resource type="Texture2D" uid="uid://be7pd65fql2y5" path="res://minigames/dodge/potion/Potion.png" id="1_vxybs"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2tgsd"]
+radius = 8.0
+height = 16.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0jvhb"]
+atlas = ExtResource("1_vxybs")
+region = Rect2(0, 0, 22, 25)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_igcey"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0jvhb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Potion" type="CharacterBody2D" unique_id=869698228]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=695533054]
+shape = SubResource("CapsuleShape2D_2tgsd")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=313773418]
+position = Vector2(-4, -4)
+sprite_frames = SubResource("SpriteFrames_igcey")

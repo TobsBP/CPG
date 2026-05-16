@@ -24,11 +24,10 @@ func _physics_process(delta: float) -> void:
 
 func _update_animation(dir_x: float) -> void:
 	if dir_x > 0:
-		anim.flip_h = true
-		anim.play("left")
+		anim.flip_h = false
+		anim.play("rigth")
 	elif dir_x < 0:
 		anim.flip_h = false
 		anim.play("left")
 	else:
-		anim.flip_h = false
-		anim.play("down")
+		anim.stop()

@@ -1,14 +1,14 @@
 extends Node2D
 
-const BASE_SPAWN_INTERVAL := 1.5
-const BASE_FALL_SPEED := 120.0
+const BASE_SPAWN_INTERVAL := 0.3
+const BASE_FALL_SPEED := 300.0
 const HELMET_DURATION := 3.0
 const SPEED_DURATION := 4.0
 const SLOW_DURATION := 5.0
 const SLOW_SCALE := 0.35
 
-# Weights: hazard=65%, helmet=10%, speed=10%, life=10%, glasses=5%
-const SPAWN_WEIGHTS := [65, 10, 10, 10, 5]
+# Weights: hazard, helmet, speed, life, glasses, qi
+const SPAWN_WEIGHTS := [70, 5, 5, 5, 5, 10]
 
 @export var falling_item_scene: PackedScene = preload("res://minigames/dodge/falling_item.tscn")
 
@@ -109,6 +109,9 @@ func _on_item_collected(node: Node, type: int) -> void:
 			_slowed = true
 			_slow_timer = SLOW_DURATION
 			_set_all_speed_scale(SLOW_SCALE)
+		5:  # QI
+			_score += 50
+			_update_ui()
 
 func _on_item_missed(node: Node) -> void:
 	_active_items.erase(node)

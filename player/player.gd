@@ -36,31 +36,17 @@ func _update_animation(direction: Vector2) -> void:
 		animated_sprite.stop()
 		return
 
-	animated_sprite.flip_h = false
 	var is_diagonal := direction.x != 0.0 and direction.y != 0.0
 
 	if is_diagonal:
-		if direction.y < 0:
-			if direction.x > 0:
-				animated_sprite.play("up_right")
-			else:
-				animated_sprite.play("up_left")
+		if direction.y < 0.0:
+			animated_sprite.play("up_right" if direction.x > 0.0 else "up_left")
 		else:
-			if direction.x > 0:
-				animated_sprite.play("down_right")
-			else:
-				animated_sprite.play("down_left")
+			animated_sprite.play("down_right" if direction.x > 0.0 else "down_left")
 	elif abs(direction.x) >= abs(direction.y):
-		if direction.x > 0:
-			animated_sprite.flip_h = true
-			animated_sprite.play("left")
-		else:
-			animated_sprite.play("left")
+		animated_sprite.play("rigth" if direction.x > 0.0 else "left")
 	else:
-		if direction.y > 0:
-			animated_sprite.play("down")
-		else:
-			animated_sprite.play("up")
+		animated_sprite.play("down" if direction.y > 0.0 else "up")
 
 func _on_area_2_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
