@@ -3,7 +3,6 @@ extends CharacterBody2D
 const DETECTION_RANGE = 50.0
 const FIRE_RATE = 2.0
 
-@export var shoot_direction: Vector2 = Vector2.RIGHT
 @export var shot_scene: PackedScene = preload("res://tower/shot/shot.tscn")
 
 var _fire_timer := 0.0
@@ -31,6 +30,7 @@ func _process(delta: float) -> void:
 func _shoot() -> void:
 	var shot := shot_scene.instantiate() as CharacterBody2D
 	get_tree().current_scene.add_child(shot)
-	shot.global_position = global_position + shoot_direction.normalized() * 25.0
+	var direction := Vector2.RIGHT.rotated(rotation)
+	shot.global_position = global_position + direction * 25.0
 	shot.add_collision_exception_with(self)
-	shot.launch(shoot_direction.normalized())
+	shot.launch(direction)

@@ -8,8 +8,8 @@ func _ready() -> void:
 	add_to_group("enemy")
 	animated_sprite.play("default")
 	collision_layer = 4  # layer 3 — não interage com torres
-	collision_mask = 1   # só colide com layer 1 (cérebro)
-
+	collision_mask = 1   # só colide com layer 1 cérebro
+	
 func _physics_process(_delta: float) -> void:
 	var brain := get_tree().get_first_node_in_group("life") as Node2D
 	if brain == null:
