@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://d1ucxt6cg1t68" path="res://player/player.tscn" id="2_jyy57"]
 [ext_resource type="PackedScene" uid="uid://bq3kpgisx4iak" path="res://tower/Math Tower/calc_tower.tscn" id="3_egjn7"]
 [ext_resource type="PackedScene" uid="uid://w87xccmn35ig" path="res://life/life.tscn" id="4_ohqk8"]
+[ext_resource type="PackedScene" uid="uid://byrn7qpy2pkqc" path="res://tower/pc/pc.tscn" id="5_gdy0l"]
 
 [node name="FightRoom" type="Node2D" unique_id=32640050]
 
@@ -56,3 +57,6 @@ skew = 0.2617994
 [node name="CharacterBody2D" parent="." unique_id=1654760741 instance=ExtResource("4_ohqk8")]
 position = Vector2(543, 345)
 scale = Vector2(3, 3)
+
+[node name="Pc" parent="." unique_id=927379330 instance=ExtResource("5_gdy0l")]
+position = Vector2(774, 470)

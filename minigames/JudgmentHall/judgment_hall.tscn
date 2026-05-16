@@ -6,9 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://c2l3cicglpndr" path="res://minigames/JudgmentHall/RockTile.png" id="4_rock"]
 [ext_resource type="PackedScene" uid="uid://d1ucxt6cg1t68" path="res://player/player.tscn" id="5_player"]
 [ext_resource type="Texture2D" uid="uid://usqm0ydla622" path="res://teacher/renzo.png" id="6_qqdi2"]
-[ext_resource type="PackedScene" uid="uid://cpausescrtsn1" path="res://screens/pause/pause_screen.tscn" id="7_pause"]
-[ext_resource type="Texture2D" uid="uid://tryagainbtn01" path="res://screens/buttons/Try Again Button.png" id="8_retry"]
-[ext_resource type="Texture2D" uid="uid://lobbybtn00001" path="res://screens/buttons/Button Lobby.png" id="9_lobby"]
+[ext_resource type="PackedScene" uid="uid://k4px3hutf1rr" path="res://screens/pause/pause_screen.tscn" id="7_pause"]
+[ext_resource type="Texture2D" uid="uid://h7viqf240860" path="res://screens/buttons/Try Again Button.png" id="8_retry"]
+[ext_resource type="Texture2D" uid="uid://dcf70vf207g3w" path="res://screens/buttons/Button Lobby.png" id="9_lobby"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ground"]
 size = Vector2(1152, 64)
@@ -494,7 +494,7 @@ theme_override_font_sizes/font_size = 20
 text = "Pontuacao Final: 0"
 horizontal_alignment = 1
 
-[node name="Buttons" type="HBoxContainer" parent="UI/GameOver"]
+[node name="Buttons" type="HBoxContainer" parent="UI/GameOver" unique_id=611617915]
 layout_mode = 0
 anchor_left = 0.5
 anchor_top = 1.0
@@ -506,18 +506,15 @@ offset_right = 80.0
 offset_bottom = -16.0
 theme_override_constants/separation = 16
 
-[node name="RetryButton" type="TextureButton" parent="UI/GameOver/Buttons"]
+[node name="RetryButton" type="TextureButton" parent="UI/GameOver/Buttons" unique_id=1444951726]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture_normal = ExtResource("8_retry")
 
-[node name="LobbyButton" type="TextureButton" parent="UI/GameOver/Buttons"]
+[node name="LobbyButton" type="TextureButton" parent="UI/GameOver/Buttons" unique_id=894491566]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture_normal = ExtResource("9_lobby")
-
-[connection signal="pressed" from="UI/GameOver/Buttons/RetryButton" to="." method="_on_retry_pressed"]
-[connection signal="pressed" from="UI/GameOver/Buttons/LobbyButton" to="." method="_on_lobby_pressed"]
 
 [node name="Victory" type="Panel" parent="UI" unique_id=1711880330]
 visible = false
@@ -572,4 +569,8 @@ position = Vector2(0, 7)
 sprite_frames = SubResource("SpriteFrames_en0yj")
 animation = &"death"
 
-[node name="PauseScreen" parent="." instance=ExtResource("7_pause")]
+[node name="PauseScreen" parent="." unique_id=22995449 instance=ExtResource("7_pause")]
+visible = false
+
+[connection signal="pressed" from="UI/GameOver/Buttons/RetryButton" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="UI/GameOver/Buttons/LobbyButton" to="." method="_on_lobby_pressed"]
