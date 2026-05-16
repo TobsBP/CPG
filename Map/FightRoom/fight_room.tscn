@@ -2,6 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://367npad6x4px" path="res://Map/assets/v9.png" id="1_jyy57"]
 [ext_resource type="PackedScene" uid="uid://d1ucxt6cg1t68" path="res://player/player.tscn" id="2_jyy57"]
+[ext_resource type="PackedScene" uid="uid://bq3kpgisx4iak" path="res://tower/tower.tscn" id="3_egjn7"]
+[ext_resource type="PackedScene" uid="uid://w87xccmn35ig" path="res://life/life.tscn" id="4_ohqk8"]
 
 [node name="FightRoom" type="Node2D" unique_id=32640050]
 
@@ -44,3 +46,30 @@ polygon = PackedVector2Array(7.9536743, -4.196167e-05, 14.581726, 203.956, -29.1
 
 [node name="Player" parent="." unique_id=146193485 instance=ExtResource("2_jyy57")]
 position = Vector2(554, 205)
+
+[node name="Node2D" parent="." unique_id=1500003702 instance=ExtResource("3_egjn7")]
+position = Vector2(335.99997, 259)
+rotation = -2.4783676
+scale = Vector2(4, 4)
+
+[node name="Node2D2" parent="." unique_id=1293642686 instance=ExtResource("3_egjn7")]
+position = Vector2(332, 422)
+rotation = -3.7873645
+scale = Vector2(3, 3)
+skew = -0.2617994
+
+[node name="Node2D3" parent="." unique_id=1836849349 instance=ExtResource("3_egjn7")]
+position = Vector2(786, 419)
+rotation = 0.7679449
+scale = Vector2(3, 3)
+skew = 0.2617994
+
+[node name="Node2D4" parent="." unique_id=492747779 instance=ExtResource("3_egjn7")]
+position = Vector2(757, 296)
+rotation = -0.699877
+scale = Vector2(3, 3)
+skew = -0.38397244
+
+[node name="CharacterBody2D" parent="." unique_id=1654760741 instance=ExtResource("4_ohqk8")]
+position = Vector2(543, 345)
+scale = Vector2(3, 3)
