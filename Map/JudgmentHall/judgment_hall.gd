@@ -6,7 +6,6 @@ const SHIELD_DURATION := 3.0
 const SLOW_DURATION := 5.0
 const SLOW_SCALE := 0.35
 
-# Weights: hazard=70%, shield=10%, slow=10%, life=10%
 const SPAWN_WEIGHTS := [70, 10, 10, 10]
 
 @export var falling_item_scene: PackedScene = preload("res://Map/JudgmentHall/falling_item.tscn")
@@ -27,11 +26,6 @@ var _active_items: Array[Node] = []
 @onready var buff_label: Label = $UI/BuffLabel
 
 func _ready() -> void:
-	# Use scene camera instead of player's own camera
-	var player_cam := player.get_node_or_null("Camera2D")
-	if player_cam:
-		player_cam.enabled = false
-	$Camera2D.make_current()
 	_update_ui()
 
 func _process(delta: float) -> void:
@@ -59,17 +53,17 @@ func _process(delta: float) -> void:
 	_update_buff_display()
 
 func _spawn_item() -> void:
-	var type := _weighted_random()
+	var kind := _weighted_random()
 	var node := falling_item_scene.instantiate()
 	add_child(node)
 	node.position.x = randf_range(40.0, 1112.0)
 	node.position.y = -30.0
 	var speed := BASE_FALL_SPEED + _difficulty * 20.0
-	node.setup(type, speed)
+	node.call("setup", kind, speed)
 	if _slowed:
-		node.speed_scale = SLOW_SCALE
-	node.collected.connect(_on_item_collected)
-	node.missed.connect(_on_item_missed)
+		node.set("speed_scale", SLOW_SCALE)
+	node.connect("collected", _on_item_collected)
+	node.connect("missed", _on_item_missed)
 	_active_items.append(node)
 
 func _weighted_random() -> int:
@@ -84,24 +78,24 @@ func _weighted_random() -> int:
 			return i
 	return 0
 
-func _on_item_collected(node: Node, type: int) -> void:
+func _on_item_collected(node: Node, kind: int) -> void:
 	_active_items.erase(node)
-	match type:
-		0:  # HAZARD
+	match kind:
+		0:
 			if _shielded:
 				return
 			_lives -= 1
 			_update_ui()
 			if _lives <= 0:
 				_game_over()
-		1:  # SHIELD
+		1:
 			_shielded = true
 			_shield_timer = SHIELD_DURATION
-		2:  # SLOW
+		2:
 			_slowed = true
 			_slow_timer = SLOW_DURATION
 			_set_all_speed_scale(SLOW_SCALE)
-		3:  # LIFE
+		3:
 			_lives = mini(_lives + 1, 5)
 			_update_ui()
 
@@ -111,22 +105,22 @@ func _on_item_missed(node: Node) -> void:
 func _set_all_speed_scale(scale: float) -> void:
 	for item in _active_items:
 		if is_instance_valid(item):
-			item.speed_scale = scale
+			item.set("speed_scale", scale)
 
 func _update_ui() -> void:
 	score_label.text = "Pontos: %d" % _score
-	lives_label.text = "Vidas: %s" % "❤ ".repeat(_lives).strip_edges()
+	lives_label.text = "Vidas: %s" % "# ".repeat(_lives).strip_edges()
 
 func _update_buff_display() -> void:
 	var parts: Array[String] = []
 	if _shielded:
-		parts.append("🛡 %.1fs" % _shield_timer)
+		parts.append("[S] %.1fs" % _shield_timer)
 	if _slowed:
-		parts.append("🕶 %.1fs" % _slow_timer)
+		parts.append("[~] %.1fs" % _slow_timer)
 	buff_label.text = " | ".join(parts)
 
 func _game_over() -> void:
 	$UI/GameOver.show()
-	$UI/GameOver/FinalScore.text = "Pontuação Final: %d" % _score
+	$UI/GameOver/FinalScore.text = "Pontuacao Final: %d" % _score
 	set_process(false)
 	player.set_physics_process(false)
