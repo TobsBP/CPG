@@ -1,11 +1,9 @@
 [gd_scene format=3 uid="uid://ddodgegame001"]
 
 [ext_resource type="Script" uid="uid://bbkm40chl6veo" path="res://minigames/dodge/dodge_game.gd" id="1_script"]
-[ext_resource type="Script" uid="uid://bjw3pqfe86qtx" path="res://minigames/dodge/dodge_player.gd" id="2_player"]
 [ext_resource type="Texture2D" uid="uid://ib64aatbol4v" path="res://minigames/dodge/tela_blueprint.png" id="2_r7ste"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_player"]
-size = Vector2(32, 40)
+[ext_resource type="PackedScene" uid="uid://d1ucxt6cg1t68" path="res://player/player.tscn" id="3_r7ste"]
+[ext_resource type="Script" uid="uid://bjw3pqfe86qtx" path="res://minigames/dodge/dodge_player.gd" id="4_dodge_player"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wleft"]
 size = Vector2(20, 700)
@@ -26,24 +24,6 @@ script = ExtResource("1_script")
 position = Vector2(581, 295.49997)
 scale = Vector2(2.9514287, 2.8350785)
 texture = ExtResource("2_r7ste")
-
-[node name="Player" type="CharacterBody2D" parent="." unique_id=1644552176]
-position = Vector2(576, 560)
-collision_mask = 4
-script = ExtResource("2_player")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1132649288]
-shape = SubResource("RectangleShape2D_player")
-
-[node name="PlayerLabel" type="Label" parent="Player" unique_id=653241602]
-offset_left = -20.0
-offset_top = -24.0
-offset_right = 20.0
-offset_bottom = 24.0
-theme_override_font_sizes/font_size = 36
-text = "🎓"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=691671111]
 position = Vector2(576, 324)
@@ -152,3 +132,7 @@ offset_bottom = 100.0
 theme_override_font_sizes/font_size = 20
 text = "Pontuação Final: 0"
 horizontal_alignment = 1
+
+[node name="Player" parent="." unique_id=146193485 instance=ExtResource("3_r7ste")]
+position = Vector2(617, 463)
+script = ExtResource("4_dodge_player")
