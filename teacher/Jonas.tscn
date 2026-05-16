@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ce0egjdvm68tb"]
 
-[ext_resource type="Script" uid="uid://bkvx41c1dy6ip" path="res://teacher/teacher.gd" id="2_script"]
+[ext_resource type="Script" uid="uid://cjonasgd00001" path="res://teacher/jonas.gd" id="2_script"]
 [ext_resource type="Texture2D" uid="uid://bua3ovtmc2dg2" path="res://teacher/Characters_32x32(6).png" id="1_ewb84"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j6683"]

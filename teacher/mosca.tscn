@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://d3waohanuu1c4"]
 
+[ext_resource type="Script" uid="uid://cmoscagd00001" path="res://teacher/mosca.gd" id="2_script"]
 [ext_resource type="Texture2D" uid="uid://bua3ovtmc2dg2" path="res://teacher/Characters_32x32(6).png" id="1_866ql"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j76rx"]
@@ -36,6 +37,9 @@ radius = 19.0
 height = 58.0
 
 [node name="Mosca" type="CharacterBody2D" unique_id=1666583189]
+script = ExtResource("2_script")
+teacher_name = "Mosca"
+dialogue_lines = Array[String](["Ola! Eu sou o professor Mosca.", "Aprendam expressoes regulares!"])
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1522138515]
 sprite_frames = SubResource("SpriteFrames_pqjjq")
