@@ -8,7 +8,18 @@ const SLOW_SCALE := 0.35
 
 const SPAWN_WEIGHTS := [70, 10, 10, 10]
 
+# Posicoes no topo de cada plataforma onde Renzo pode teleportar
+const RENZO_POSITIONS := [
+	Vector2(200, 455),
+	Vector2(576, 455),
+	Vector2(950, 455),
+	Vector2(340, 345),
+	Vector2(810, 345),
+	Vector2(576, 235),
+]
+
 @export var falling_item_scene: PackedScene = preload("res://minigames/JudgmentHall/falling_item.tscn")
+@export var shot_scene: PackedScene = preload("res://player/shot/shot.tscn")
 
 var _lives := 3
 var _score := 0
@@ -19,14 +30,19 @@ var _shield_timer := 0.0
 var _slowed := false
 var _slow_timer := 0.0
 var _active_items: Array[Node] = []
+var _renzo_teleporting := false
 
 @onready var player: Node2D = $Player
 @onready var score_label: Label = $UI/TopBar/ScoreLabel
 @onready var lives_label: Label = $UI/TopBar/LivesLabel
 @onready var buff_label: Label = $UI/BuffLabel
+@onready var renzo: CharacterBody2D = $Renzo
+@onready var renzo_anim: AnimatedSprite2D = $Renzo/AnimatedSprite2D
 
 func _ready() -> void:
 	_update_ui()
+	renzo_anim.play("default")
+	player.connect("shoot_laser", _spawn_laser)
 
 func _process(delta: float) -> void:
 	_score += int(delta * 5)
@@ -51,6 +67,38 @@ func _process(delta: float) -> void:
 
 	score_label.text = "Pontos: %d" % _score
 	_update_buff_display()
+
+func _spawn_laser(from_pos: Vector2, direction: Vector2) -> void:
+	var laser := shot_scene.instantiate()
+	add_child(laser)
+	laser.global_position = from_pos + direction * 40
+	laser.call("init", direction)
+	laser.connect("hit_renzo", _renzo_take_hit)
+
+func _renzo_take_hit() -> void:
+	if _renzo_teleporting:
+		return
+	_renzo_teleporting = true
+	_score += 50
+
+	renzo_anim.play("teleport")
+	await get_tree().create_timer(0.8).timeout
+	if not is_instance_valid(renzo):
+		_renzo_teleporting = false
+		return
+
+	var current := renzo.position
+	var options := RENZO_POSITIONS.filter(func(p: Vector2) -> bool:
+		return p.distance_to(current) > 10.0)
+	renzo.position = options[randi() % options.size()]
+
+	await get_tree().create_timer(0.8).timeout
+	if not is_instance_valid(renzo):
+		_renzo_teleporting = false
+		return
+
+	renzo_anim.play("default")
+	_renzo_teleporting = false
 
 func _spawn_item() -> void:
 	var kind := _weighted_random()

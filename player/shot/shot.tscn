@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://bp3eq2dibv871"]
+
+[ext_resource type="Script" uid="uid://bo2l5uwx0amu8" path="res://player/shot/shot.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://bhyunu2ejk5ht" path="res://minigames/JudgmentHall/lazer.png" id="2_lazer"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tn88r"]
+atlas = ExtResource("2_lazer")
+region = Rect2(50, 186, 50, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q12gd"]
+atlas = ExtResource("2_lazer")
+region = Rect2(100, 186, 50, 93)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_64ybm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tn88r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q12gd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_body"]
+size = Vector2(20, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_area"]
+size = Vector2(20, 6)
+
+[node name="Shot" type="CharacterBody2D" unique_id=101674763]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_script")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1913358341]
+sprite_frames = SubResource("SpriteFrames_64ybm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1910100112]
+shape = SubResource("RectangleShape2D_body")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=941033227]
+collision_layer = 16
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1699470171]
+shape = SubResource("RectangleShape2D_area")
