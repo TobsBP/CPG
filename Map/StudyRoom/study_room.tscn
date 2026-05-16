@@ -2,6 +2,12 @@
 
 [ext_resource type="Texture2D" uid="uid://bpkgicu0ew02k" path="res://Map/assets/Sala_de_aula.png" id="1_ykd7e"]
 [ext_resource type="PackedScene" uid="uid://d1ucxt6cg1t68" path="res://player/player.tscn" id="2_vxvti"]
+[ext_resource type="PackedScene" uid="uid://b5t8fsooxtesq" path="res://teacher/Soned.tscn" id="3_6gcom"]
+[ext_resource type="PackedScene" uid="uid://cceo18ixkt0nb" path="res://teacher/Chris.tscn" id="4_r1ur4"]
+[ext_resource type="PackedScene" uid="uid://ce0egjdvm68tb" path="res://teacher/Jonas.tscn" id="5_1sctq"]
+[ext_resource type="PackedScene" uid="uid://bker25lj7f8yt" path="res://teacher/Ynoguti.tscn" id="6_aje4m"]
+[ext_resource type="PackedScene" uid="uid://bsv42pg4nrsmd" path="res://teacher/Renzo.tscn" id="7_bb6jf"]
+[ext_resource type="PackedScene" uid="uid://cb56nl8ct6jsg" path="res://dialog/dialog_box.tscn" id="8_r1ur4"]
 
 [node name="StudyRoom" type="Node2D" unique_id=1360594180]
 position = Vector2(4, 0)
@@ -51,5 +57,24 @@ polygon = PackedVector2Array(0, -1, 4, -95, -38, -115, -44, -19)
 
 [node name="Player" parent="." unique_id=146193485 instance=ExtResource("2_vxvti")]
 position = Vector2(493, 347)
+
+[node name="Soned" parent="." unique_id=257366994 instance=ExtResource("3_6gcom")]
+position = Vector2(665, 436)
+
+[node name="Chris" parent="." unique_id=436781843 instance=ExtResource("4_r1ur4")]
+position = Vector2(540, 472)
+rotation = -0.06283186
+
+[node name="Jonas" parent="." unique_id=1308902939 instance=ExtResource("5_1sctq")]
+position = Vector2(716, 338)
+
+[node name="Ynoguti" parent="." unique_id=110407667 instance=ExtResource("6_aje4m")]
+position = Vector2(557, 256)
+
+[node name="Renzo" parent="." unique_id=1396681111 instance=ExtResource("7_bb6jf")]
+position = Vector2(365, 315)
+
+[node name="DialogBox" parent="." unique_id=2142205419 instance=ExtResource("8_r1ur4")]
+visible = false
 
 [connection signal="body_entered" from="Colissions/Area2" to="Player" method="_on_area_2_body_entered"]

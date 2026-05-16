@@ -29,9 +29,12 @@ func start(speaker_name: String, lines: Array[String], speaker_world_pos: Vector
 func _position_above(world_pos: Vector2) -> void:
 	var screen_pos: Vector2 = get_viewport().get_canvas_transform() * world_pos
 	var panel: Control = $Panel
+	# Salva tamanho antes de resetar anchors
+	var saved_size := panel.size
 	panel.set_anchors_preset(Control.PRESET_TOP_LEFT)
-	# Centraliza o balão horizontalmente e posiciona acima da cabeça
-	panel.position = screen_pos - Vector2(panel.size.x / 2.0, panel.size.y + 10.0)
+	panel.size = saved_size
+	# Centraliza horizontalmente, posiciona acima da cabeça do professor
+	panel.position = screen_pos - Vector2(saved_size.x / 2.0, saved_size.y + 10.0)
 
 func _show_line(index: int) -> void:
 	_full_text = _lines[index]
