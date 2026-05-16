@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://s20eglmx2lgm"]
 
 [ext_resource type="Texture2D" uid="uid://bpkgicu0ew02k" path="res://Map/assets/Sala_de_aula.png" id="1_ykd7e"]
+[ext_resource type="PackedScene" uid="uid://d1ucxt6cg1t68" path="res://player/player.tscn" id="2_vxvti"]
 
 [node name="StudyRoom" type="Node2D" unique_id=1360594180]
 
@@ -40,3 +41,6 @@ polygon = PackedVector2Array(0, 5, 0, -9, 411, -204, 424, -190)
 [node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="Colissions/wall1" unique_id=539530696]
 position = Vector2(491, 142)
 polygon = PackedVector2Array(-2, -4, -31, 12, -26, 14, -26, 47, -26, 47, 69, 86, 94, 74, 91, 35, 21, -2)
+
+[node name="Player" parent="." unique_id=146193485 instance=ExtResource("2_vxvti")]
+position = Vector2(491, 347)
