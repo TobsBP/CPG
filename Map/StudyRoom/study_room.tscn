@@ -83,4 +83,7 @@ visible = false
 [node name="Mosca" parent="." unique_id=1666583189 instance=ExtResource("8_1sctq")]
 position = Vector2(423, 398)
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=2043244732]
+autoplay = true
+
 [connection signal="body_entered" from="Colissions/Area2" to="Player" method="_on_area_2_body_entered"]

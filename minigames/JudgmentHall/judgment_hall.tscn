@@ -504,3 +504,6 @@ polygon = PackedVector2Array(0, 1, 18, 2, 28, -22, 27, -56, -10, -54, -18, -21)
 position = Vector2(0, 7)
 sprite_frames = SubResource("SpriteFrames_en0yj")
 animation = &"death"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1117276163]
+autoplay = true

@@ -8,7 +8,7 @@
 [node name="FightRoom" type="Node2D" unique_id=32640050]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1505408342]
-position = Vector2(546.74994, 302)
+position = Vector2(520, 277.00003)
 scale = Vector2(0.75436676, 0.7109375)
 texture = ExtResource("1_jyy57")
 
@@ -47,6 +47,13 @@ polygon = PackedVector2Array(7.9536743, -4.196167e-05, 14.581726, 203.956, -29.1
 [node name="Player" parent="." unique_id=146193485 instance=ExtResource("2_jyy57")]
 position = Vector2(554, 205)
 
+[node name="Camera2D2" type="Camera2D" parent="Player" unique_id=1990326371]
+position = Vector2(2, 6)
+limit_left = 0
+limit_top = 0
+limit_right = 1040
+limit_bottom = 540
+
 [node name="Node2D3" parent="." unique_id=1836849349 instance=ExtResource("3_egjn7")]
 position = Vector2(323, 396.99997)
 rotation = -0.07679449
@@ -56,3 +63,6 @@ skew = 0.2617994
 [node name="CharacterBody2D" parent="." unique_id=1654760741 instance=ExtResource("4_ohqk8")]
 position = Vector2(543, 345)
 scale = Vector2(3, 3)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1759589897]
+autoplay = true
