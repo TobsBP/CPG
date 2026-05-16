@@ -4,9 +4,130 @@
 [ext_resource type="Texture2D" uid="uid://1tgsk8fviwx2" path="res://Map/assets/Lapis1.png" id="2_m3451"]
 [ext_resource type="Script" uid="uid://qbu7mdcj7c80" path="res://death_area.gd" id="3_6wep3"]
 [ext_resource type="Texture2D" uid="uid://dp6y4qc5w70me" path="res://Map/assets/lapis2.png" id="3_uhlgt"]
-[ext_resource type="Texture2D" uid="uid://cfad6sojk4je1" path="res://Map/assets/InfinitoPIXEL.png" id="4_6wep3"]
+[ext_resource type="Texture2D" uid="uid://dawh787vph2pn" path="res://Map/assets/infinite.png" id="5_6wep3"]
 [ext_resource type="Script" uid="uid://cvdt7vyupq7t2" path="res://minigames/FlapBird/player_flap.gd" id="6_ybypa"]
 [ext_resource type="Texture2D" uid="uid://can3tm2fjkypg" path="res://player/bird.png" id="7_ue8sp"]
+[ext_resource type="Script" uid="uid://bsllfbcsn7gpr" path="res://minigames/FlapBird/animated_sprite_2d.gd" id="8_ybypa"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ybypa"]
+atlas = ExtResource("5_6wep3")
+region = Rect2(0, 0, 36, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ue8sp"]
+atlas = ExtResource("5_6wep3")
+region = Rect2(0, 31, 36, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uxgr3"]
+atlas = ExtResource("5_6wep3")
+region = Rect2(0, 62, 36, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ncvf8"]
+atlas = ExtResource("5_6wep3")
+region = Rect2(0, 93, 36, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j1pxs"]
+atlas = ExtResource("5_6wep3")
+region = Rect2(0, 124, 36, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xdt1k"]
+atlas = ExtResource("5_6wep3")
+region = Rect2(0, 155, 36, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lv753"]
+atlas = ExtResource("5_6wep3")
+region = Rect2(0, 186, 36, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_74314"]
+atlas = ExtResource("5_6wep3")
+region = Rect2(0, 217, 36, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w575b"]
+atlas = ExtResource("5_6wep3")
+region = Rect2(0, 248, 36, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_inrcs"]
+atlas = ExtResource("5_6wep3")
+region = Rect2(0, 279, 36, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vccng"]
+atlas = ExtResource("5_6wep3")
+region = Rect2(0, 310, 36, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_clh5o"]
+atlas = ExtResource("5_6wep3")
+region = Rect2(0, 341, 36, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wkuph"]
+atlas = ExtResource("5_6wep3")
+region = Rect2(0, 372, 36, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tyenj"]
+atlas = ExtResource("5_6wep3")
+region = Rect2(0, 403, 36, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ds8iu"]
+atlas = ExtResource("5_6wep3")
+region = Rect2(0, 434, 36, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gqxi2"]
+atlas = ExtResource("5_6wep3")
+region = Rect2(0, 465, 36, 31)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l52il"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ybypa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ue8sp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uxgr3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ncvf8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j1pxs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xdt1k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lv753")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_74314")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w575b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_inrcs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vccng")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_clh5o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wkuph")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tyenj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ds8iu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gqxi2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 [ext_resource type="Script" uid="uid://cflapgameover1" path="res://minigames/FlapBird/flap_game_over.gd" id="8_gameover"]
 [ext_resource type="Texture2D" uid="uid://tryagainbtn01" path="res://screens/buttons/Try Again Button.png" id="9_retry"]
 [ext_resource type="Texture2D" uid="uid://lobbybtn00001" path="res://screens/buttons/Button Lobby.png" id="10_lobby"]
@@ -68,7 +189,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_yofbu")
 }],
 "loop": true,
-"name": &"flying",
+"name": &"default",
 "speed": 5.0
 }]
 
@@ -260,16 +381,18 @@ script = ExtResource("3_6wep3")
 position = Vector2(8.142334, 532.60126)
 polygon = PackedVector2Array(4.071289, 8.069702, -175.05615, -325.47864, -146.5586, -1159.3495, 154.70068, -1159.3495, 162.84277, -260.9209)
 
-[node name="TheITEM" type="Sprite2D" parent="Sprite2D" unique_id=458997489]
+[node name="TheITEM" type="AnimatedSprite2D" parent="Sprite2D" unique_id=426877779]
 position = Vector2(596.2446, -78.11209)
 scale = Vector2(2.1659184, -4.598565)
-texture = ExtResource("4_6wep3")
+sprite_frames = SubResource("SpriteFrames_l52il")
+frame_progress = 0.83669525
+script = ExtResource("8_ybypa")
 
 [node name="Area2D" type="Area2D" parent="Sprite2D/TheITEM" unique_id=1831147932]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite2D/TheITEM/Area2D" unique_id=920384379]
 position = Vector2(-0.3786621, 1.3961258)
-polygon = PackedVector2Array(1.1359558, -1.1634369, -7.194519, 5.5844955, -14.7677, -0.6980667, -10.223785, -7.911377, -0.3786621, -3.2576294, 9.466461, -6.74794, 15.146332, -0.2326889, 7.5731506, 4.8864365)
+polygon = PackedVector2Array(-0.3786621, 5.3518105, -7.194519, 5.5844955, -18.55426, 3.2576218, -18.175598, -5.1191216, -14.389038, -10.470936, 0.7573242, -10.703625, 17.796936, -10.005558, 16.66101, 3.2576218, 7.5731506, 4.8864365)
 
 [node name="Area2D" type="Area2D" parent="Sprite2D" unique_id=1925814835]
 script = ExtResource("3_6wep3")
@@ -291,15 +414,19 @@ shape = SubResource("CapsuleShape2D_uxgr3")
 position = Vector2(-4, 1.0000095)
 scale = Vector2(0.76, 0.657895)
 sprite_frames = SubResource("SpriteFrames_j1pxs")
-animation = &"flying"
+autoplay = "default"
+frame_progress = 0.7060105
+script = ExtResource("8_ybypa")
 
 [node name="Camera2D" type="Camera2D" parent="PlayerFlap" unique_id=173888411]
-position = Vector2(4, 1)
+position = Vector2(4, 0)
 limit_left = 0
 limit_top = 0
 limit_right = 1650
 limit_bottom = 700
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=68533929]
+autoplay = true
 [node name="GameOverScreen" type="CanvasLayer" parent="."]
 layer = 10
 process_mode = 3

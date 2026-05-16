@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bhyunu2ejk5ht" path="res://minigames/JudgmentHall/lazer.png" id="3_yw30f"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yw30f"]
-radius = 16.0
+radius = 19.104973
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rkbax"]
 atlas = ExtResource("3_g1dw6")
@@ -316,8 +316,3 @@ shape = SubResource("CircleShape2D_yw30f")
 position = Vector2(1, -5)
 sprite_frames = SubResource("SpriteFrames_kb6p2")
 animation = &"shoting"
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=2001234567]
-zoom = Vector2(2, 2)
-position_smoothing_enabled = true
-position_smoothing_speed = 8.0
