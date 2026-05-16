@@ -1,13 +1,14 @@
 [gd_scene format=3 uid="uid://b2twf8vyvojl8"]
 
-[ext_resource type="Texture2D" uid="uid://ca4omwfqfl1p6" path="res://Map/assets/v3.png" id="1_ma72x"]
+[ext_resource type="Texture2D" uid="uid://367npad6x4px" path="res://Map/assets/v9.png" id="1_jyy57"]
+[ext_resource type="PackedScene" uid="uid://d1ucxt6cg1t68" path="res://player/player.tscn" id="2_jyy57"]
 
 [node name="FightRoom" type="Node2D" unique_id=32640050]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1505408342]
 position = Vector2(546.74994, 302)
 scale = Vector2(0.75436676, 0.7109375)
-texture = ExtResource("1_ma72x")
+texture = ExtResource("1_jyy57")
 
 [node name="Colissions" type="Node2D" parent="Sprite2D" unique_id=1774328935]
 
@@ -15,24 +16,31 @@ texture = ExtResource("1_ma72x")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite2D/Colissions/Box" unique_id=1896425498]
 position = Vector2(-578.96234, -119.56043)
-polygon = PackedVector2Array(-1.3256226, 0, 592.55, -254.59338, 595.2012, -49.23076, 331.4038, 74.54947, 326.10132, -43.6044, 275.72797, -21.098907, 283.68164, 98.46155, 3.9768372, 206.76923, 3.9768372, 206.76923)
+polygon = PackedVector2Array(-1.3256226, 0, 164.37627, -75.956024, 178.95805, 130.8132, 2.6512299, 215.20877, 3.9768372, 206.76923)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Sprite2D/Colissions/Box" unique_id=246922472]
 position = Vector2(8.285156, -364.30768)
-polygon = PackedVector2Array(2.651245, -2.8131866, 9.279297, 198.32965, 213.42407, 309.45053, 235.95947, 306.63733, 230.65704, 203.95602, 278.3792, 218.02197, 273.07672, 334.7692, 299.589, 351.64832, 310.19397, 346.02194, 562.0608, 457.14282, 562.0608, 248.96701)
+polygon = PackedVector2Array(2.651245, -2.8131866, 9.279297, 198.32965, 233.30829, 305.23074, 310.19397, 346.02194, 562.0608, 457.14282, 562.0608, 248.96701)
 
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Sprite2D/Colissions/Box" unique_id=1256390835]
 position = Vector2(1.6570998, 357.27472)
-polygon = PackedVector2Array(0, 0, 226.68018, -108.30774, 479.87268, 22.505493, 681.3662, 26.72522, 681.3662, 26.72522, 682.6918, -129.40662, 478.547, -220.8352, 567.3633, -263.03296, 750.2982, -111.12091, 730.41394, 98.46149, 125.93341, 88.61536)
+polygon = PackedVector2Array(-19.884277, -7.03302, 226.68018, -108.30774, 479.87268, 22.505493, 681.3662, 26.72522, 681.3662, 26.72522, 682.6918, -129.40662, 463.96533, -223.64838, 563.3865, -286.94507, 750.2982, -111.12091, 730.41394, 98.46149, 125.93341, 88.61536)
 
 [node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Sprite2D/Colissions/Box" unique_id=1222586453]
 position = Vector2(4.30833, 364.30768)
-polygon = PackedVector2Array(5.30249, -1.4066162, -234.63385, -111.12091, -234.63385, -111.12091, -487.82635, 15.472534, -686.66864, 18.285706, -689.3199, -139.25275, -487.82635, -225.05493, -577.9682, -275.69232, -729.0883, -139.25275, -729.0883, 102.681274, -220.0521, 111.12085)
+polygon = PackedVector2Array(0, -18.285767, -234.63385, -111.12091, -234.63385, -111.12091, -296.93777, -84.39563, -487.82635, 15.472534, -686.66864, 18.285706, -689.3199, -139.25275, -471.91898, -227.86816, -566.03766, -284.13187, -729.0883, -139.25275, -729.0883, 102.681274, -220.0521, 111.12085)
 
 [node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="Sprite2D/Colissions/Box" unique_id=386817063]
 position = Vector2(-491.47174, 140.65933)
-polygon = PackedVector2Array(0, 4.2197876, 151.12013, -82.98898, 263.79742, -30.945007, 261.14618, 115.34064, 226.68019, 113.93408, 229.3314, -9.84613, 188.23735, -32.351624, 184.26051, 78.769226, 169.67873, 84.39563, 147.14326, 71.73627, 38.442825, 137.84613, -184.26051, 233.4945, -186.91174, 92.835144)
+polygon = PackedVector2Array(58.327072, 21.098938, -196.19104, 137.84613, -194.86543, 85.802185, 3.9768372, -8.439514)
 
 [node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="Sprite2D/Colissions/Box" unique_id=95303347]
 position = Vector2(677.7208, 226.46152)
-polygon = PackedVector2Array(-1.3255615, 5.626404, -342.00867, -167.38458, -342.00867, -167.38458, -446.7323, -116.74719, -446.7323, 33.75824, -406.96387, 26.72528, -412.2663, -101.27472, -372.49792, -116.74719, -368.521, 2.8132324, -336.7063, -9.84613, 0, 150.5055)
+polygon = PackedVector2Array(3.9768066, 4.2197876, -185.58618, -101.27472, -246.56445, -68.923035, 5.30249, 56.263733)
+
+[node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="Sprite2D/Colissions/Box" unique_id=812012066]
+position = Vector2(0.3314847, -371.34064)
+polygon = PackedVector2Array(7.9536743, -4.196167e-05, 14.581726, 203.956, -29.163574, 229.27466, -31.814758, 236.30765, -401.6614, 378.37357, -412.26633, 181.4505)
+
+[node name="Player" parent="." unique_id=146193485 instance=ExtResource("2_jyy57")]
+position = Vector2(554, 205)

@@ -51,3 +51,7 @@ func _update_animation(direction: Vector2) -> void:
 			animated_sprite.play("down")
 		else:
 			animated_sprite.play("up")
+
+func _on_area_2_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		get_tree().change_scene_to_file("res://Map/FightRoom/fight_room.tscn")
