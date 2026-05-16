@@ -1,0 +1,227 @@
+[gd_scene format=3 uid="uid://buig7gyquyl5v"]
+
+[ext_resource type="Script" uid="uid://b47th7oacqnhk" path="res://Map/JudgmentHall/judgment_hall.gd" id="1_script"]
+[ext_resource type="Script" uid="uid://70v0eqn30u46" path="res://Map/JudgmentHall/platform_player.gd" id="2_playerscript"]
+[ext_resource type="Texture2D" uid="uid://kn4oc8nbdgny" path="res://Map/JudgmentHall/SPace.jpg" id="3_bg"]
+[ext_resource type="Texture2D" uid="uid://c2l3cicglpndr" path="res://Map/JudgmentHall/RockTile.png" id="4_rock"]
+[ext_resource type="PackedScene" uid="uid://d1ucxt6cg1t68" path="res://player/player.tscn" id="5_player"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wall"]
+size = Vector2(20, 700)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ground"]
+size = Vector2(1152, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p240"]
+size = Vector2(240, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p192"]
+size = Vector2(192, 32)
+
+[node name="JudgmentHall" type="Node2D" unique_id=1011578155]
+script = ExtResource("1_script")
+
+[node name="SPace" type="Sprite2D" parent="." unique_id=1928781838]
+position = Vector2(576, 324)
+scale = Vector2(0.69895834, 0.7212963)
+texture = ExtResource("3_bg")
+
+[node name="Ground" type="StaticBody2D" parent="." unique_id=100000001]
+position = Vector2(576, 620)
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=100000002]
+shape = SubResource("RectangleShape2D_ground")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground" unique_id=100000003]
+texture_repeat = 2
+texture = ExtResource("4_rock")
+region_enabled = true
+region_rect = Rect2(0, 0, 1152, 64)
+
+[node name="P1" type="StaticBody2D" parent="." unique_id=100000004]
+position = Vector2(200, 510)
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="P1" unique_id=100000005]
+shape = SubResource("RectangleShape2D_p240")
+
+[node name="Sprite2D" type="Sprite2D" parent="P1" unique_id=100000006]
+texture_repeat = 2
+texture = ExtResource("4_rock")
+region_enabled = true
+region_rect = Rect2(0, 0, 240, 32)
+
+[node name="P2" type="StaticBody2D" parent="." unique_id=100000007]
+position = Vector2(576, 510)
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="P2" unique_id=100000008]
+shape = SubResource("RectangleShape2D_p192")
+
+[node name="Sprite2D" type="Sprite2D" parent="P2" unique_id=100000009]
+texture_repeat = 2
+texture = ExtResource("4_rock")
+region_enabled = true
+region_rect = Rect2(0, 0, 192, 32)
+
+[node name="P3" type="StaticBody2D" parent="." unique_id=100000010]
+position = Vector2(950, 510)
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="P3" unique_id=100000011]
+shape = SubResource("RectangleShape2D_p240")
+
+[node name="Sprite2D" type="Sprite2D" parent="P3" unique_id=100000012]
+texture_repeat = 2
+texture = ExtResource("4_rock")
+region_enabled = true
+region_rect = Rect2(0, 0, 240, 32)
+
+[node name="P4" type="StaticBody2D" parent="." unique_id=100000013]
+position = Vector2(340, 400)
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="P4" unique_id=100000014]
+shape = SubResource("RectangleShape2D_p240")
+
+[node name="Sprite2D" type="Sprite2D" parent="P4" unique_id=100000015]
+texture_repeat = 2
+texture = ExtResource("4_rock")
+region_enabled = true
+region_rect = Rect2(0, 0, 240, 32)
+
+[node name="P5" type="StaticBody2D" parent="." unique_id=100000016]
+position = Vector2(810, 400)
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="P5" unique_id=100000017]
+shape = SubResource("RectangleShape2D_p240")
+
+[node name="Sprite2D" type="Sprite2D" parent="P5" unique_id=100000018]
+texture_repeat = 2
+texture = ExtResource("4_rock")
+region_enabled = true
+region_rect = Rect2(0, 0, 240, 32)
+
+[node name="P6" type="StaticBody2D" parent="." unique_id=100000019]
+position = Vector2(576, 290)
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="P6" unique_id=100000020]
+shape = SubResource("RectangleShape2D_p192")
+
+[node name="Sprite2D" type="Sprite2D" parent="P6" unique_id=100000021]
+texture_repeat = 2
+texture = ExtResource("4_rock")
+region_enabled = true
+region_rect = Rect2(0, 0, 192, 32)
+
+[node name="Player" parent="." unique_id=1828644854 instance=ExtResource("5_player")]
+position = Vector2(200, 560)
+motion_mode = 0
+collision_layer = 1
+collision_mask = 4
+script = ExtResource("2_playerscript")
+
+[node name="Camera2D" parent="Player"]
+enabled = false
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=147166951]
+position = Vector2(576, 324)
+
+[node name="WallLeft" type="StaticBody2D" parent="." unique_id=1977117999]
+position = Vector2(-10, 324)
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallLeft" unique_id=1284353567]
+shape = SubResource("RectangleShape2D_wall")
+
+[node name="WallRight" type="StaticBody2D" parent="." unique_id=535234052]
+position = Vector2(1162, 324)
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallRight" unique_id=55133452]
+shape = SubResource("RectangleShape2D_wall")
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1855084292]
+
+[node name="TopBar" type="Panel" parent="UI" unique_id=1676103495]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 44.0
+
+[node name="ScoreLabel" type="Label" parent="UI/TopBar" unique_id=631046450]
+layout_mode = 0
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 10.0
+offset_top = -12.0
+offset_right = 300.0
+offset_bottom = 12.0
+theme_override_font_sizes/font_size = 18
+text = "Pontos: 0"
+
+[node name="LivesLabel" type="Label" parent="UI/TopBar" unique_id=1778384706]
+layout_mode = 0
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -220.0
+offset_top = -12.0
+offset_right = -10.0
+offset_bottom = 12.0
+theme_override_font_sizes/font_size = 18
+text = "Vidas: # # #"
+horizontal_alignment = 2
+
+[node name="BuffLabel" type="Label" parent="UI" unique_id=1133956918]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -200.0
+offset_top = 50.0
+offset_right = 200.0
+offset_bottom = 80.0
+theme_override_font_sizes/font_size = 18
+horizontal_alignment = 1
+
+[node name="GameOver" type="Panel" parent="UI" unique_id=1711880320]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -110.0
+offset_right = 200.0
+offset_bottom = 110.0
+
+[node name="Title" type="Label" parent="UI/GameOver" unique_id=1297385655]
+layout_mode = 0
+anchor_right = 1.0
+offset_top = 20.0
+offset_bottom = 56.0
+theme_override_font_sizes/font_size = 28
+text = "GAME OVER"
+horizontal_alignment = 1
+
+[node name="FinalScore" type="Label" parent="UI/GameOver" unique_id=650300993]
+layout_mode = 0
+anchor_right = 1.0
+offset_top = 66.0
+offset_bottom = 100.0
+theme_override_font_sizes/font_size = 20
+text = "Pontuacao Final: 0"
+horizontal_alignment = 1
