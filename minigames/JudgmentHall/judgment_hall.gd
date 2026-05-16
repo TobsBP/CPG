@@ -1,9 +1,9 @@
 extends Node2D
 
-const BASE_SPAWN_INTERVAL := 1.2
-const BASE_FALL_SPEED := 130.0
-const SHIELD_DURATION := 3.0
-const SLOW_DURATION := 5.0
+const BASE_SPAWN_INTERVAL := 0.5
+const BASE_FALL_SPEED := 150.0
+const SHIELD_DURATION := 1.0
+const SLOW_DURATION := 1.0
 const SLOW_SCALE := 0.35
 
 const SPAWN_WEIGHTS := [70, 10, 10, 10]
@@ -21,7 +21,7 @@ const RENZO_POSITIONS := [
 @export var falling_item_scene: PackedScene = preload("res://minigames/JudgmentHall/falling_item.tscn")
 @export var shot_scene: PackedScene = preload("res://player/shot/shot.tscn")
 
-var _lives := 3
+var _lives := 2
 var _score := 0
 var _spawn_timer := 0.0
 var _difficulty := 0.0
@@ -47,7 +47,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	_score += int(delta * 5)
-	_difficulty += delta * 0.015
+	_difficulty += delta * 0.003
 	_spawn_timer += delta
 
 	var interval := maxf(0.4, BASE_SPAWN_INTERVAL - _difficulty)

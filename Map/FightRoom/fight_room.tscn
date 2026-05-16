@@ -8,7 +8,7 @@
 [node name="FightRoom" type="Node2D" unique_id=32640050]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1505408342]
-position = Vector2(520, 277.00003)
+position = Vector2(515, 275)
 scale = Vector2(0.75436676, 0.7109375)
 texture = ExtResource("1_jyy57")
 
@@ -45,14 +45,15 @@ position = Vector2(0.3314847, -371.34064)
 polygon = PackedVector2Array(7.9536743, -4.196167e-05, 14.581726, 203.956, -29.163574, 229.27466, -31.814758, 236.30765, -401.6614, 378.37357, -412.26633, 181.4505)
 
 [node name="Player" parent="." unique_id=146193485 instance=ExtResource("2_jyy57")]
-position = Vector2(554, 205)
+position = Vector2(557, 216)
 
 [node name="Camera2D2" type="Camera2D" parent="Player" unique_id=1990326371]
-position = Vector2(2, 6)
+position = Vector2(2, -5)
+zoom = Vector2(3, 3)
 limit_left = 0
 limit_top = 0
-limit_right = 1040
-limit_bottom = 540
+limit_right = 1030
+limit_bottom = 548
 
 [node name="Node2D3" parent="." unique_id=1836849349 instance=ExtResource("3_egjn7")]
 position = Vector2(323, 396.99997)
