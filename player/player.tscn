@@ -103,3 +103,8 @@ shape = SubResource("CircleShape2D_yw30f")
 position = Vector2(1, -5)
 sprite_frames = SubResource("SpriteFrames_kb6p2")
 animation = &"up"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2001234567]
+zoom = Vector2(3, 3)
+position_smoothing_enabled = true
+position_smoothing_speed = 8.0

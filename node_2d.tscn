@@ -1,4 +1,7 @@
-[gd_scene format=3 uid="uid://b0edfygc0fgk2"]
+[gd_scene format=3 uid="uid://cvwrfokt5v8ue"]
+
+[ext_resource type="PackedScene" uid="uid://d1ucxt6cg1t68" path="res://player/player.tscn" id="1_player"]
+[ext_resource type="PackedScene" uid="uid://bq3kpgisx4iak" path="res://tower/tower.tscn" id="2_tower"]
 
 [sub_resource type="TileSet" id="TileSet_y32ns"]
 tile_shape = 1
@@ -8,3 +11,10 @@ tile_size = Vector2i(16, 8)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1578503062]
 tile_set = SubResource("TileSet_y32ns")
+
+[node name="Player" parent="." unique_id=1607444959 instance=ExtResource("1_player")]
+position = Vector2(0, 50)
+
+[node name="Tower" parent="." unique_id=454108416 instance=ExtResource("2_tower")]
+z_index = 1
+position = Vector2(30, 44)
