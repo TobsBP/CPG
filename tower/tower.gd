@@ -11,6 +11,7 @@ var _player_in_range := false
 
 func _ready() -> void:
 	$AnimatedSprite2D.play("idle")
+	collision_layer = 2  # layer 2 — invisível para as integrais
 
 func _process(delta: float) -> void:
 	var player := get_tree().get_first_node_in_group("player") as Node2D

@@ -22,6 +22,7 @@ animations = [{
 }]
 
 [node name="Node2D" type="CharacterBody2D" unique_id=972002692]
+script = ExtResource("2_1t7ve")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1239509949]
 position = Vector2(0, -1.5)
@@ -29,4 +30,3 @@ shape = SubResource("RectangleShape2D_1t7ve")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2000403911]
 sprite_frames = SubResource("SpriteFrames_d4ci3")
-script = ExtResource("2_1t7ve")

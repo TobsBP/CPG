@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://d1ucxt6cg1t68" path="res://player/player.tscn" id="1_player"]
 [ext_resource type="PackedScene" uid="uid://bq3kpgisx4iak" path="res://tower/tower.tscn" id="2_tower"]
 [ext_resource type="PackedScene" uid="uid://w87xccmn35ig" path="res://life/life.tscn" id="3_epypp"]
+[ext_resource type="PackedScene" uid="uid://d0t6gr416cnj1" path="res://enemies/integral/integral.tscn" id="4_enemy"]
 
 [sub_resource type="TileSet" id="TileSet_y32ns"]
 tile_shape = 1
@@ -34,3 +35,15 @@ position = Vector2(-34, 70)
 
 [node name="CharacterBody2D" parent="." unique_id=1654760741 instance=ExtResource("3_epypp")]
 position = Vector2(56, 47)
+
+[node name="EnemyTop" parent="." instance=ExtResource("4_enemy")]
+position = Vector2(56, -80)
+
+[node name="EnemyBottom" parent="." instance=ExtResource("4_enemy")]
+position = Vector2(56, 174)
+
+[node name="EnemyLeft" parent="." instance=ExtResource("4_enemy")]
+position = Vector2(-80, 47)
+
+[node name="EnemyRight" parent="." instance=ExtResource("4_enemy")]
+position = Vector2(192, 47)
