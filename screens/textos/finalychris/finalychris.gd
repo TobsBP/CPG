@@ -4,8 +4,8 @@ extends Node2D
 func _ready():
 	label.add_theme_font_size_override("font_size", 36)
 	label.add_theme_color_override("font_color", Color.WHITE)
-	await _digitar("Parabens...\nVc concluiu todos os deasafios dos professores...\nAgora vc já consegue hackear o Elon Musk...")
-	await get_tree().create_timer(2.0).timeout  # espera 2 segundos
+	await _digitar("Nossa...\nObrigado!...\nFinalmente alguem conseguiu ajudar a resolver esse problema...\nAgora posso comer meu brownie em paz...\n+1 Aura de Professor")
+	await get_tree().create_timer(2.0).timeout
 	get_tree().change_scene_to_file("res://Map/StudyRoom/study_room.tscn")
 
 func _digitar(t: String):
