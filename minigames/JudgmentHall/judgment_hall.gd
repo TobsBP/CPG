@@ -188,10 +188,8 @@ func _update_buff_display() -> void:
 	buff_label.text = " | ".join(parts)
 
 func _game_over() -> void:
-	$UI/GameOver.show()
-	$UI/GameOver/FinalScore.text = "Pontuacao Final: %d" % _score
-	set_process(false)
-	player.set_physics_process(false)
+	GameManager.last_scene_path = get_tree().current_scene.scene_file_path
+	get_tree().change_scene_to_file("res://screens/game_over.tscn")
 
 func _on_retry_pressed() -> void:
 	get_tree().reload_current_scene()

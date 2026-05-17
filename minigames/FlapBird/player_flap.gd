@@ -25,4 +25,5 @@ func _physics_process(delta):
 
 func die():
 	set_physics_process(false)
-	get_tree().get_first_node_in_group("flap_game_over").show()
+	GameManager.last_scene_path = get_tree().current_scene.scene_file_path
+	get_tree().change_scene_to_file("res://screens/game_over.tscn")
