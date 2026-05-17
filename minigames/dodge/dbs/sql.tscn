@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://buhxji8d2xyyi"]
+
+[ext_resource type="Texture2D" uid="uid://bjr7r3lqclhf" path="res://minigames/dodge/dbs/mysql.png" id="1_286t2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xkgmg"]
+atlas = ExtResource("1_286t2")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hfdsv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xkgmg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_58snu"]
+size = Vector2(25, 24)
+
+[node name="Sql" type="CharacterBody2D" unique_id=598106228]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1356638651]
+sprite_frames = SubResource("SpriteFrames_hfdsv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1629503134]
+shape = SubResource("RectangleShape2D_58snu")

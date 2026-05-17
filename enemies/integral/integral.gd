@@ -7,8 +7,8 @@ const SPEED = 50.0
 func _ready() -> void:
 	add_to_group("enemy")
 	animated_sprite.play("default")
-	collision_layer = 4  # layer 3 — não interage com torres
-	collision_mask = 1   # só colide com layer 1 cérebro
+	collision_layer = 4
+	collision_mask = 16  # só detecta cérebro (layer 5)
 	
 func _physics_process(_delta: float) -> void:
 	var brain := get_tree().get_first_node_in_group("life") as Node2D
@@ -16,13 +16,7 @@ func _physics_process(_delta: float) -> void:
 		return
 
 	var diff := brain.global_position - global_position
-
-	# Move only along dominant axis (4 directions)
-	var direction: Vector2
-	if abs(diff.x) >= abs(diff.y):
-		direction = Vector2(sign(diff.x), 0)
-	else:
-		direction = Vector2(0, sign(diff.y))
+	var direction := diff.normalized()
 
 	velocity = direction * SPEED
 	move_and_slide()

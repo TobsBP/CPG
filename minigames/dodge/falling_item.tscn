@@ -3,8 +3,10 @@
 [ext_resource type="Script" path="res://minigames/dodge/falling_item.gd" id="1_script"]
 [ext_resource type="Texture2D" uid="uid://sy3uc2isxufq" path="res://minigames/dodge/helmet/helmet Protect.png" id="2_helmet"]
 [ext_resource type="Texture2D" uid="uid://coo8xc5pdjkal" path="res://minigames/dodge/glass/glasses rotate.png" id="3_glasses"]
-[ext_resource type="Texture2D" uid="uid://chw2g3t3di7lo" path="res://minigames/dodge/QI/qi_pixel_art.png" id="4_qi"]
 [ext_resource type="Texture2D" uid="uid://be7pd65fql2y5" path="res://minigames/dodge/potion/Potion.png" id="5_potion"]
+[ext_resource type="Texture2D" uid="uid://bleaw1d3bdct7" path="res://minigames/dodge/dbs/mongodb.png" id="6_mongo"]
+[ext_resource type="Texture2D" uid="uid://bxinddwg2i820" path="res://minigames/dodge/dbs/neo4j.png" id="7_neo4j"]
+[ext_resource type="Texture2D" uid="uid://bjr7r3lqclhf" path="res://minigames/dodge/dbs/mysql.png" id="8_sql"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_col"]
 radius = 24.0
@@ -32,21 +34,6 @@ region = Rect2(0, 130, 66, 65)
 [sub_resource type="AtlasTexture" id="AtlasTexture_g5"]
 atlas = ExtResource("3_glasses")
 region = Rect2(66, 130, 66, 65)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qi"]
-atlas = ExtResource("4_qi")
-region = Rect2(0, 0, 28, 24)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_qi"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qi")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_glasses"]
 animations = [{
@@ -102,12 +89,22 @@ visible = false
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_glasses")
 
-[node name="QiSprite" type="AnimatedSprite2D" parent="."]
-visible = false
-scale = Vector2(3, 3)
-sprite_frames = SubResource("SpriteFrames_qi")
-
 [node name="PotionSprite" type="Sprite2D" parent="."]
 visible = false
 scale = Vector2(2, 2)
 texture = ExtResource("5_potion")
+
+[node name="MongoSprite" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(2, 2)
+texture = ExtResource("6_mongo")
+
+[node name="Neo4jSprite" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(2, 2)
+texture = ExtResource("7_neo4j")
+
+[node name="SqlSprite" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(2, 2)
+texture = ExtResource("8_sql")

@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://byrn7qpy2pkqc" path="res://tower/pc/pc.tscn" id="5_gdy0l"]
 [ext_resource type="PackedScene" uid="uid://b0mrmc0mv044r" path="res://tower/box/boxOne.tscn" id="6_57ois"]
 [ext_resource type="PackedScene" uid="uid://b5gcywu5elhna" path="res://tower/boxTwo/boxTwo.tscn" id="7_qj7vj"]
+[ext_resource type="Script" uid="uid://b0nell8u8vg66" path="res://Map/FightRoom/fight_room_spawner.gd" id="8_spawner"]
 
 [node name="FightRoom" type="Node2D" unique_id=32640050]
 position = Vector2(-29, -27)
@@ -78,3 +79,18 @@ position = Vector2(330, 281)
 
 [node name="BoxTwo" parent="." unique_id=2059075292 instance=ExtResource("7_qj7vj")]
 position = Vector2(754, 279)
+
+[node name="Spawner" type="Node" parent="." unique_id=-2094967295]
+script = ExtResource("8_spawner")
+
+[node name="SpawnNW" type="Marker2D" parent="Spawner" unique_id=-2094967294]
+position = Vector2(35, 47)
+
+[node name="SpawnNE" type="Marker2D" parent="Spawner" unique_id=-2094967293]
+position = Vector2(986, 58)
+
+[node name="SpawnSW" type="Marker2D" parent="Spawner" unique_id=-2094967292]
+position = Vector2(64, 499)
+
+[node name="SpawnSE" type="Marker2D" parent="Spawner" unique_id=-2094967291]
+position = Vector2(974, 476)
