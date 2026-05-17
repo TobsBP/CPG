@@ -177,7 +177,7 @@ func _win() -> void:
 	player.set_physics_process(false)
 	await get_tree().create_timer(2.5).timeout
 	GameManager.completar_minigame("DODGE")
-	get_tree().change_scene_to_file("res://Map/StudyRoom/study_room.tscn")
+	get_tree().change_scene_to_file("res://screens/textos/finaljonas/finaljonas.tscn")
 
 func _game_over() -> void:
 	$UI/GameOver.show()
