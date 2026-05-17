@@ -114,7 +114,7 @@ func _on_item_collected(node: Node, type: int) -> void:
 	_active_items.erase(node)
 	match type:
 		0:  # HAZARD
-			if _shielded:
+			if _shielded or player.is_invincible:
 				return
 			_lives -= 1
 			_update_ui()
@@ -142,7 +142,7 @@ func _on_item_collected(node: Node, type: int) -> void:
 				if _score >= WIN_SCORE:
 					_win()
 			else:
-				if _shielded:
+				if _shielded or player.is_invincible:
 					return
 				_lives -= 1
 				_update_ui()
