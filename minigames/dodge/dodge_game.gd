@@ -6,9 +6,16 @@ const HELMET_DURATION := 3.0
 const SPEED_DURATION := 4.0
 const SLOW_DURATION := 5.0
 const SLOW_SCALE := 0.35
+const WIN_SCORE := 300
+const CORRECT_POINTS := 30
+const PROMPT_INTERVAL := 6.0
 
-# Weights: hazard, helmet, speed, life, glasses, qi
-const SPAWN_WEIGHTS := [70, 5, 5, 5, 5, 10]
+# Weights: hazard, helmet, speed, life, glasses, mongo, neo4j, sql
+const SPAWN_WEIGHTS := [65, 5, 5, 5, 5, 5, 5, 5]
+
+# Prompt index maps to DB type index (MONGO=5, NEO4J=6, SQL=7)
+const PROMPT_LABELS := ["Banco Relacional", "Banco Orientado a Grafos", "Banco Orientado a Documentos"]
+const PROMPT_TYPES  := [7, 6, 5]  # SQL, NEO4J, MONGO
 
 @export var falling_item_scene: PackedScene = preload("res://minigames/dodge/falling_item.tscn")
 
@@ -22,20 +29,30 @@ var _speed_timer := 0.0
 var _slowed := false
 var _slow_timer := 0.0
 var _active_items: Array[Node] = []
+var _prompt_idx := 0
+var _prompt_timer := 0.0
 
 @onready var player: CharacterBody2D = $Player
 @onready var score_label: Label = $UI/TopBar/ScoreLabel
 @onready var lives_label: Label = $UI/TopBar/LivesLabel
 @onready var buff_label: Label = $UI/BuffLabel
+@onready var prompt_label: Label = $UI/TopBar/PromptLabel
+@onready var victory_panel: Panel = $UI/Victory
 
 func _ready() -> void:
+	_prompt_idx = randi() % PROMPT_LABELS.size()
+	_update_prompt()
 	_update_ui()
 
 func _process(delta: float) -> void:
-	_score += int(delta * 5)
 	_difficulty += delta * 0.015
 	_spawn_timer += delta
+	_prompt_timer += delta
 
+	if _prompt_timer >= PROMPT_INTERVAL:
+		_prompt_timer = 0.0
+		_next_prompt()
+		
 	var interval := maxf(0.4, BASE_SPAWN_INTERVAL - _difficulty)
 	if _spawn_timer >= interval:
 		_spawn_timer = 0.0
@@ -59,6 +76,13 @@ func _process(delta: float) -> void:
 
 	score_label.text = "Pontos: %d" % _score
 	_update_buff_display()
+	
+func _next_prompt() -> void:
+	_prompt_idx = (_prompt_idx + 1) % PROMPT_LABELS.size()
+	_update_prompt()
+
+func _update_prompt() -> void:
+	prompt_label.text = "Colete: " + PROMPT_LABELS[_prompt_idx]
 
 func _spawn_item() -> void:
 	var type := _weighted_random()
@@ -105,13 +129,25 @@ func _on_item_collected(node: Node, type: int) -> void:
 		3:  # LIFE
 			_lives = mini(_lives + 1, 5)
 			_update_ui()
-		4:  # GLASSES — slow all falling items
+		4:  # GLASSES
 			_slowed = true
 			_slow_timer = SLOW_DURATION
 			_set_all_speed_scale(SLOW_SCALE)
-		5:  # QI
-			_score += 50
-			_update_ui()
+		5, 6, 7:  # MONGO, NEO4J, SQL
+			if type == PROMPT_TYPES[_prompt_idx]:
+				_score += CORRECT_POINTS
+				_update_ui()
+				_prompt_timer = 0.0
+				_next_prompt()
+				if _score >= WIN_SCORE:
+					_win()
+			else:
+				if _shielded:
+					return
+				_lives -= 1
+				_update_ui()
+				if _lives <= 0:
+					_game_over()
 
 func _on_item_missed(node: Node) -> void:
 	_active_items.erase(node)
@@ -134,6 +170,13 @@ func _update_buff_display() -> void:
 	if _slowed:
 		parts.append("🕶 %.1fs" % _slow_timer)
 	buff_label.text = " | ".join(parts)
+
+func _win() -> void:
+	victory_panel.show()
+	set_process(false)
+	player.set_physics_process(false)
+	await get_tree().create_timer(2.5).timeout
+	get_tree().change_scene_to_file("res://Map/StudyRoom/study_room.tscn")
 
 func _game_over() -> void:
 	$UI/GameOver.show()

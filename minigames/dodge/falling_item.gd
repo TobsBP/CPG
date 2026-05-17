@@ -1,6 +1,6 @@
 extends Area2D
 
-enum Type { HAZARD, HELMET, SPEED, LIFE, GLASSES, QI }
+enum Type { HAZARD, HELMET, SPEED, LIFE, GLASSES, MONGO, NEO4J, SQL }
 
 signal collected(node: Node, type: int)
 signal missed(node: Node)
@@ -12,8 +12,10 @@ var speed_scale := 1.0
 @onready var item_label: Label = $ItemLabel
 @onready var helmet_sprite: Sprite2D = $HelmetSprite
 @onready var glasses_sprite: AnimatedSprite2D = $GlassesSprite
-@onready var qi_sprite: AnimatedSprite2D = $QiSprite
 @onready var potion_sprite: Sprite2D = $PotionSprite
+@onready var mongo_sprite: Sprite2D = $MongoSprite
+@onready var neo4j_sprite: Sprite2D = $Neo4jSprite
+@onready var sql_sprite: Sprite2D = $SqlSprite
 
 func _ready() -> void:
 	body_entered.connect(_on_body_entered)
@@ -36,10 +38,15 @@ func setup(type: int, speed: float) -> void:
 			item_label.hide()
 			glasses_sprite.show()
 			glasses_sprite.play("default")
-		Type.QI:
+		Type.MONGO:
 			item_label.hide()
-			qi_sprite.show()
-			qi_sprite.play("default")
+			mongo_sprite.show()
+		Type.NEO4J:
+			item_label.hide()
+			neo4j_sprite.show()
+		Type.SQL:
+			item_label.hide()
+			sql_sprite.show()
 
 func _process(delta: float) -> void:
 	position.y += _speed * speed_scale * delta

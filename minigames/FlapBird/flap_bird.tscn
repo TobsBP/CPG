@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://bsllfbcsn7gpr" path="res://minigames/FlapBird/animated_sprite_2d.gd" id="8_ncvf8"]
 [ext_resource type="Texture2D" uid="uid://h7viqf240860" path="res://screens/buttons/Try Again Button.png" id="9_retry"]
 [ext_resource type="Texture2D" uid="uid://dcf70vf207g3w" path="res://screens/buttons/Button Lobby.png" id="10_lobby"]
+[ext_resource type="AudioStream" uid="uid://sga20m605ohh" path="res://Music/flappy.mp3" id="12_ewy7j"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j1pxs"]
 atlas = ExtResource("5_ncvf8")
@@ -460,6 +461,8 @@ offset_left = -80.0
 offset_top = -80.0
 offset_right = 80.0
 offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
 theme_override_constants/separation = 16
 
 [node name="RetryButton" type="TextureButton" parent="GameOverScreen/Panel/Buttons" unique_id=1963998653]
@@ -471,6 +474,11 @@ texture_normal = ExtResource("9_retry")
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture_normal = ExtResource("10_lobby")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1945210385]
+stream = ExtResource("12_ewy7j")
+volume_db = -20.567
+autoplay = true
 
 [connection signal="body_entered" from="Sprite2D/Sprite2D/Area2D" to="PlayerFlap" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Sprite2D/Sprite2D9/Area2D" to="PlayerFlap" method="_on_area_2d_body_entered"]

@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://c24pxg4kb6jta"]
+
+[ext_resource type="Texture2D" uid="uid://bleaw1d3bdct7" path="res://minigames/dodge/dbs/mongodb.png" id="1_uhm5x"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_stt5g"]
+atlas = ExtResource("1_uhm5x")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2qbcc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_stt5g")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jtiso"]
+
+[node name="Mongo" type="CharacterBody2D" unique_id=2101829040]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1765566050]
+sprite_frames = SubResource("SpriteFrames_2qbcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1284531503]
+shape = SubResource("CircleShape2D_jtiso")

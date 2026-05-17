@@ -63,6 +63,8 @@ func _process(delta: float) -> void:
 	if _spawn_timer >= interval:
 		_spawn_timer = 0.0
 		_spawn_word()
+	if(_score == 100):
+		_on_lobby_pressed()
 
 	score_label.text = "Pontos: %d" % _score
 

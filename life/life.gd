@@ -10,6 +10,8 @@ var hp := MAX_HP
 func _ready() -> void:
 	add_to_group("life")
 	animated_sprite.play("default")
+	collision_layer = 16  # layer 5 — detectado só pela integral
+	collision_mask = 0
 
 func take_damage() -> void:
 	hp -= DAMAGE_PER_HIT
