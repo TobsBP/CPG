@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://bxoj2ii7258bk"]
+
+[ext_resource type="Script" uid="uid://dvnkcfcocw4dc" path="res://screens/textos/finalynogut/finalynogut.gd" id="1_vb8bo"]
+[ext_resource type="FontFile" uid="uid://blhqlordd7ro" path="res://fonts/Peaberry-Font-v2.0/Peaberry Font Family/Peaberry Base/PeaberryBase.ttf" id="2_wpu23"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_qy5ea"]
+font = ExtResource("2_wpu23")
+font_size = 36
+outline_size = 1
+outline_color = Color(18.892157, 18.892157, 18.892157, 1)
+
+[node name="Historia" type="Node2D" unique_id=133873684]
+script = ExtResource("1_vb8bo")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=398400328]
+offset_right = 1163.0
+offset_bottom = 664.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="." unique_id=1559327803]
+offset_left = 21.0
+offset_top = 16.0
+offset_right = 1129.0
+offset_bottom = 630.0
+label_settings = SubResource("LabelSettings_qy5ea")
