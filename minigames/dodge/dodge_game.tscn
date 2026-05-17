@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://bjw3pqfe86qtx" path="res://minigames/dodge/dodge_player.gd" id="4_dodge_player"]
 [ext_resource type="Texture2D" uid="uid://h7viqf240860" path="res://screens/buttons/Try Again Button.png" id="5_retry"]
 [ext_resource type="Texture2D" uid="uid://dcf70vf207g3w" path="res://screens/buttons/Button Lobby.png" id="6_lobby"]
+[ext_resource type="AudioStream" uid="uid://c12l67pvwdjap" path="res://Music/music dodge.mp3" id="7_jfxb7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wleft"]
 size = Vector2(20, 700)
@@ -195,6 +196,11 @@ horizontal_alignment = 1
 [node name="Player" parent="." unique_id=146193485 instance=ExtResource("3_r7ste")]
 position = Vector2(617, 463)
 script = ExtResource("4_dodge_player")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1511069940]
+stream = ExtResource("7_jfxb7")
+volume_db = -20.567
+autoplay = true
 
 [connection signal="pressed" from="UI/GameOver/Buttons/RetryButton" to="." method="_on_retry_pressed"]
 [connection signal="pressed" from="UI/GameOver/Buttons/LobbyButton" to="." method="_on_lobby_pressed"]
