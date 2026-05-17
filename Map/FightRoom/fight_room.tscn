@@ -5,6 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://bq3kpgisx4iak" path="res://tower/Math Tower/calc_tower.tscn" id="3_egjn7"]
 [ext_resource type="PackedScene" uid="uid://w87xccmn35ig" path="res://life/life.tscn" id="4_ohqk8"]
 [ext_resource type="PackedScene" uid="uid://byrn7qpy2pkqc" path="res://tower/pc/pc.tscn" id="5_gdy0l"]
+[ext_resource type="PackedScene" uid="uid://b0mrmc0mv044r" path="res://tower/box/boxOne.tscn" id="6_57ois"]
+[ext_resource type="PackedScene" uid="uid://b5gcywu5elhna" path="res://tower/boxTwo/boxTwo.tscn" id="7_qj7vj"]
 
 [node name="FightRoom" type="Node2D" unique_id=32640050]
 position = Vector2(-29, -27)
@@ -68,4 +70,14 @@ position = Vector2(543, 345)
 scale = Vector2(3, 3)
 
 [node name="Pc" parent="." unique_id=927379330 instance=ExtResource("5_gdy0l")]
-position = Vector2(774, 470)
+position = Vector2(804, 429)
+shot_direction = Vector2(0.707107, 0.707107)
+
+[node name="BoxOne" parent="." unique_id=11375564 instance=ExtResource("6_57ois")]
+position = Vector2(330, 281)
+
+[node name="BoxTwo" parent="." unique_id=2059075292 instance=ExtResource("7_qj7vj")]
+position = Vector2(754, 279)
+
+[node name="Player" parent="." unique_id=146193485 instance=ExtResource("2_jyy57")]
+position = Vector2(554, 205)

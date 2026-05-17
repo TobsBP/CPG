@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cblq7teyifq1q" path="res://tower/Math Tower/Tower math.png" id="2_3fjlj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3fjlj"]
-size = Vector2(19, 12)
+size = Vector2(220, 372)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4ulc0"]
 atlas = ExtResource("2_3fjlj")
@@ -25,7 +25,7 @@ animations = [{
 script = ExtResource("1_script")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1350563734]
-position = Vector2(-0.5, 1)
+position = Vector2(42, -3)
 shape = SubResource("RectangleShape2D_3fjlj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1179346546]
