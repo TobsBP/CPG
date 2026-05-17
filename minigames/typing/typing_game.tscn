@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://ctmwqxmu0mkr6" path="res://minigames/typing/quadronegro.png" id="3_bg"]
 [ext_resource type="Texture2D" uid="uid://h7viqf240860" path="res://screens/buttons/Try Again Button.png" id="4_retry"]
 [ext_resource type="Texture2D" uid="uid://dcf70vf207g3w" path="res://screens/buttons/Button Lobby.png" id="5_lobby"]
+[ext_resource type="AudioStream" uid="uid://cv1nedir7dnfe" path="res://Music/digitação.mp3" id="6_21uqn"]
 
 [sub_resource type="FontVariation" id="FontVariation_1qxbi"]
 base_font = ExtResource("2_fbd1c")
@@ -134,7 +135,7 @@ offset_right = 80.0
 offset_bottom = -16.0
 theme_override_constants/separation = 16
 
-[node name="RetryButton" type="TextureButton" parent="UI/GameOver/Buttons" unique_id=1235299996]
+[node name="RetryButton" type="TextureButton" parent="UI/GameOver/Buttons" unique_id=1581816512]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture_normal = ExtResource("4_retry")
@@ -143,6 +144,11 @@ texture_normal = ExtResource("4_retry")
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture_normal = ExtResource("5_lobby")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1936183715]
+stream = ExtResource("6_21uqn")
+volume_db = -20.567
+autoplay = true
 
 [connection signal="pressed" from="UI/GameOver/Buttons/RetryButton" to="." method="_on_retry_pressed"]
 [connection signal="pressed" from="UI/GameOver/Buttons/LobbyButton" to="." method="_on_lobby_pressed"]

@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://k4px3hutf1rr" path="res://screens/pause/pause_screen.tscn" id="7_pause"]
 [ext_resource type="Texture2D" uid="uid://h7viqf240860" path="res://screens/buttons/Try Again Button.png" id="8_retry"]
 [ext_resource type="Texture2D" uid="uid://dcf70vf207g3w" path="res://screens/buttons/Button Lobby.png" id="9_lobby"]
+[ext_resource type="AudioStream" uid="uid://bx3ct0fl113sg" path="res://Music/luta_renzo.mp3" id="10_l7xo5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ground"]
 size = Vector2(1152, 64)
@@ -575,6 +576,11 @@ animation = &"death"
 
 [node name="PauseScreen" parent="." unique_id=22995449 instance=ExtResource("7_pause")]
 visible = false
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1869971029]
+stream = ExtResource("10_l7xo5")
+volume_db = -20.567
+autoplay = true
 
 [connection signal="pressed" from="UI/GameOver/Buttons/RetryButton" to="." method="_on_retry_pressed"]
 [connection signal="pressed" from="UI/GameOver/Buttons/LobbyButton" to="." method="_on_lobby_pressed"]
