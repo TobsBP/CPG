@@ -2,9 +2,10 @@
 
 [ext_resource type="Script" uid="uid://cyrx1game001" path="res://minigames/regex/regex_game.gd" id="1_script"]
 [ext_resource type="Texture2D" uid="uid://n1gswbl2t4s8" path="res://minigames/regex/Guitar Version 2.png" id="2_gglga"]
-[ext_resource type="PackedScene" uid="uid://cpausescrtsn1" path="res://screens/pause/pause_screen.tscn" id="3_pause"]
-[ext_resource type="Texture2D" uid="uid://tryagainbtn01" path="res://screens/buttons/Try Again Button.png" id="4_retry"]
-[ext_resource type="Texture2D" uid="uid://lobbybtn00001" path="res://screens/buttons/Button Lobby.png" id="5_lobby"]
+[ext_resource type="PackedScene" uid="uid://k4px3hutf1rr" path="res://screens/pause/pause_screen.tscn" id="3_pause"]
+[ext_resource type="Texture2D" uid="uid://h7viqf240860" path="res://screens/buttons/Try Again Button.png" id="4_retry"]
+[ext_resource type="Texture2D" uid="uid://dcf70vf207g3w" path="res://screens/buttons/Button Lobby.png" id="5_lobby"]
+[ext_resource type="AudioStream" uid="uid://b27vfubndg5mt" path="res://Music/regex.mp3" id="6_4axd6"]
 
 [node name="Regex" type="Node2D" unique_id=711585319]
 script = ExtResource("1_script")
@@ -106,7 +107,7 @@ theme_override_font_sizes/font_size = 20
 text = "Pontuacao Final: 0"
 horizontal_alignment = 1
 
-[node name="Buttons" type="HBoxContainer" parent="UI/GameOver"]
+[node name="Buttons" type="HBoxContainer" parent="UI/GameOver" unique_id=880225366]
 layout_mode = 0
 anchor_left = 0.5
 anchor_top = 1.0
@@ -118,22 +119,27 @@ offset_right = 80.0
 offset_bottom = -16.0
 theme_override_constants/separation = 16
 
-[node name="RetryButton" type="TextureButton" parent="UI/GameOver/Buttons"]
+[node name="RetryButton" type="TextureButton" parent="UI/GameOver/Buttons" unique_id=962608591]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture_normal = ExtResource("4_retry")
 
-[node name="LobbyButton" type="TextureButton" parent="UI/GameOver/Buttons"]
+[node name="LobbyButton" type="TextureButton" parent="UI/GameOver/Buttons" unique_id=363394385]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture_normal = ExtResource("5_lobby")
-
-[connection signal="pressed" from="UI/GameOver/Buttons/RetryButton" to="." method="_on_retry_pressed"]
-[connection signal="pressed" from="UI/GameOver/Buttons/LobbyButton" to="." method="_on_lobby_pressed"]
 
 [node name="GuitarVersion2" type="Sprite2D" parent="." unique_id=1230763145]
 position = Vector2(574.25, 321.25)
 scale = Vector2(17.960938, 17.296873)
 texture = ExtResource("2_gglga")
 
-[node name="PauseScreen" parent="." instance=ExtResource("3_pause")]
+[node name="PauseScreen" parent="." unique_id=214662273 instance=ExtResource("3_pause")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=54808461]
+stream = ExtResource("6_4axd6")
+volume_db = -20.567
+autoplay = true
+
+[connection signal="pressed" from="UI/GameOver/Buttons/RetryButton" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="UI/GameOver/Buttons/LobbyButton" to="." method="_on_lobby_pressed"]

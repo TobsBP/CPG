@@ -112,13 +112,23 @@ func _renzo_take_hit() -> void:
 func _renzo_die() -> void:
 	_renzo_teleporting = true
 	renzo_anim.play("death")
+
 	await get_tree().create_timer(1.8).timeout
+	
 	if is_instance_valid(renzo):
 		renzo.queue_free()
+
 	victory_score.text = "Pontuacao Final: %d" % _score
 	victory_panel.show()
+
 	set_process(false)
 	player.set_physics_process(false)
+
+	# ⏳ espera 3 segundos
+	await get_tree().create_timer(3.0).timeout
+
+	# 🔄 volta para o lobby
+	get_tree().change_scene_to_file("res://Map/StudyRoom/study_room.tscn")
 
 func _spawn_item() -> void:
 	var kind := _weighted_random()

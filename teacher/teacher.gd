@@ -41,3 +41,4 @@ func _start_dialogue() -> void:
 
 func _on_dialogue_finished() -> void:
 	_talking = false
+	get_tree().change_scene_to_file("res://minigames/brownie/tela_do_chris.tscn")

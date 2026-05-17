@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bm5fpnhs447x0" path="res://dialog/dialog_box.gd" id="1_script"]
 [ext_resource type="Texture2D" uid="uid://baxt7kgbi56ng" path="res://dialog/Dialog Box.png" id="2_tex"]
+[ext_resource type="AudioStream" uid="uid://dmexj0tk3nqxi" path="res://Music/voice.mp3" id="3_deq3h"]
 
 [node name="DialogBox" type="CanvasLayer" unique_id=2142205419]
 layer = 10
@@ -56,3 +57,7 @@ theme_override_colors/font_color = Color(0.058420584, 0.0584206, 0.058420606, 1)
 theme_override_font_sizes/font_size = 12
 text = "[ ENTER ]"
 horizontal_alignment = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1911685577]
+stream = ExtResource("3_deq3h")
+volume_db = -20.567

@@ -141,8 +141,8 @@ func _update_input_display() -> void:
 	input_label.text = "> " + _current_input + "█"
 
 func _game_over() -> void:
-	$UI/GameOver.show()
-	$UI/GameOver/FinalScore.text = "Pontuação Final: %d" % _score
+	GameManager.last_scene_path = get_tree().current_scene.scene_file_path
+	get_tree().change_scene_to_file("res://screens/game_over.tscn")
 	set_process(false)
 
 func _on_retry_pressed() -> void:

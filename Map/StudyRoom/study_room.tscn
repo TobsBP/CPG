@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bsv42pg4nrsmd" path="res://teacher/Renzo.tscn" id="7_bb6jf"]
 [ext_resource type="PackedScene" uid="uid://d3waohanuu1c4" path="res://teacher/mosca.tscn" id="8_1sctq"]
 [ext_resource type="PackedScene" uid="uid://cb56nl8ct6jsg" path="res://dialog/dialog_box.tscn" id="8_r1ur4"]
+[ext_resource type="AudioStream" uid="uid://do3btjc1epbjf" path="res://Music/saladeaula.mp3" id="9_1sctq"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6gcom"]
 load_path = "res://.godot/imported/Sala_de_aula.png-b12d67572c1df19a9cd840382bf0f64c.ctex"
@@ -90,5 +91,10 @@ visible = false
 
 [node name="Mosca" parent="." unique_id=1666583189 instance=ExtResource("8_1sctq")]
 position = Vector2(423, 398)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1998934774]
+stream = ExtResource("9_1sctq")
+volume_db = -20.567
+autoplay = true
 
 [connection signal="body_entered" from="Colissions/Area2" to="Player" method="_on_area_2_body_entered"]

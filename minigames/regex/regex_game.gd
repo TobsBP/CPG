@@ -63,7 +63,7 @@ func _process(delta: float) -> void:
 	if _spawn_timer >= interval:
 		_spawn_timer = 0.0
 		_spawn_word()
-	if(_score == 100):
+	if(_score >= 100):
 		_on_lobby_pressed()
 
 	score_label.text = "Pontos: %d" % _score
@@ -132,8 +132,8 @@ func _update_ui() -> void:
 	lives_label.text = "Vidas: %s" % "# ".repeat(_lives).strip_edges()
 
 func _game_over() -> void:
-	$UI/GameOver.show()
-	$UI/GameOver/FinalScore.text = "Pontuacao Final: %d" % _score
+	GameManager.last_scene_path = get_tree().current_scene.scene_file_path
+	get_tree().change_scene_to_file("res://screens/game_over.tscn")
 	set_process(false)
 	set_process_input(false)
 
