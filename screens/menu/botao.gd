@@ -8,12 +8,12 @@ func _ready():
 func _input(event):
 	if event is InputEventMouseButton and event.pressed:
 		print("botão clicado!")
-		get_tree().change_scene_to_file("res://Map/StudyRoom/study_room.tscn")
+		get_tree().change_scene_to_file("res://screens/textos/inicial/inicial.tscn")
 	
 # Quando o botão Play é clicado
 func _on_play_button_pressed():
 	print("botão clicado!")
-	var err = get_tree().change_scene_to_file("res://Map/StudyRoom/study_room.tscn")
+	var err = get_tree().change_scene_to_file("res://screens/textos/inicial/inicial.tscn")
 	print("erro: ", err)
 # Quando o mouse entra na zona perto do sprite
 func _on_detection_area_mouse_entered():
