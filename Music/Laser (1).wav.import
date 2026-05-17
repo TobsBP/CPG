@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dlbhu6fxnaptr"
+path="res://.godot/imported/Laser (1).wav-e513191d6b6d617112ccd693ac92265a.sample"
+
+[deps]
+
+source_file="res://Music/Laser (1).wav"
+dest_files=["res://.godot/imported/Laser (1).wav-e513191d6b6d617112ccd693ac92265a.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
