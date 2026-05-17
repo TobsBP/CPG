@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://dgy7xmfdk74hk"]
+
+[ext_resource type="Texture2D" uid="uid://bxinddwg2i820" path="res://minigames/dodge/dbs/neo4j.png" id="1_k2xkm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8vg3n"]
+radius = 17.117243
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1he18"]
+atlas = ExtResource("1_k2xkm")
+region = Rect2(0, 0, 32, 36)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3enwe"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1he18")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Neo4j" type="CharacterBody2D" unique_id=2079678987]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=410082759]
+shape = SubResource("CircleShape2D_8vg3n")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=234803210]
+sprite_frames = SubResource("SpriteFrames_3enwe")

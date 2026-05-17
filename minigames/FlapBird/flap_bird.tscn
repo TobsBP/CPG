@@ -460,6 +460,8 @@ offset_left = -80.0
 offset_top = -80.0
 offset_right = 80.0
 offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
 theme_override_constants/separation = 16
 
 [node name="RetryButton" type="TextureButton" parent="GameOverScreen/Panel/Buttons" unique_id=1963998653]
