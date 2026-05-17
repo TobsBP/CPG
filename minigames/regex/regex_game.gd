@@ -14,6 +14,7 @@ const WORD_POOL: Array[String] = [
 ]
 
 @export var word_scene: PackedScene = preload("res://minigames/regex/word_target.tscn")
+@export var bomb_scene: PackedScene = preload("res://minigames/regex/bomb.tscn")
 
 var _lives := 3
 var _score := 0
@@ -36,6 +37,10 @@ func _input(event: InputEvent) -> void:
 		return
 	var key := event as InputEventKey
 
+	if key.keycode == KEY_M and key.ctrl_pressed and (key.meta_pressed or key.alt_pressed):
+		_bomb()
+		return
+
 	if key.keycode == KEY_ENTER or key.keycode == KEY_KP_ENTER:
 		_submit_regex()
 		return
@@ -56,14 +61,14 @@ func _update_input_display() -> void:
 
 func _process(delta: float) -> void:
 	_score += int(delta * 3)
-	_difficulty += delta * 0.01
+	_difficulty += delta * 5
 	_spawn_timer += delta
 
 	var interval := maxf(0.8, BASE_SPAWN_INTERVAL - _difficulty)
 	if _spawn_timer >= interval:
 		_spawn_timer = 0.0
 		_spawn_word()
-	if(_score >= 100):
+	if(_score >= 300):
 		GameManager.completar_minigame("REGEX")
 		_on_lobby_pressed()
 
@@ -105,15 +110,31 @@ func _submit_regex() -> void:
 		_active_words.erase(node)
 		node.call("flash_destroy")
 
-	_score += matched * 20
+	_score += matched * 2
 
 	if matched > 0:
-		_show_feedback("%d destruida(s)! +%d pts" % [matched, matched * 20], Color(0.3, 1.0, 0.5))
+		_show_feedback("%d destruida(s)! +%d pts" % [matched, matched * 2], Color(0.3, 1.0, 0.5))
 	else:
 		_show_feedback("Nenhuma correspondencia", Color(1.0, 0.6, 0.2))
 
 	_current_regex = ""
 	_update_input_display()
+
+func _bomb() -> void:
+	var count := _active_words.size()
+	var words_snapshot := _active_words.duplicate()
+	_active_words.clear()
+
+	var bomb := bomb_scene.instantiate()
+	add_child(bomb)
+	bomb.position = Vector2(randf_range(200.0, 1000.0), -60.0)
+	bomb.connect("exploded", func() -> void:
+		for node in words_snapshot:
+			if is_instance_valid(node):
+				node.call("flash_destroy")
+		_show_feedback("💣 BOMBA! %d destruida(s)" % count, Color(1.0, 0.8, 0.0))
+	)
+	bomb.call("drop", randf_range(250.0, 450.0))
 
 func _show_feedback(msg: String, color: Color) -> void:
 	feedback_label.text = msg

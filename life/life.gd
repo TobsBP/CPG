@@ -14,6 +14,10 @@ func _ready() -> void:
 	collision_mask = 0
 
 func take_damage() -> void:
+	var player := get_tree().get_first_node_in_group("player")
+	if player != null and player.get("is_invincible"):
+		return
+
 	hp -= DAMAGE_PER_HIT
 	animated_sprite.play("damage")
 

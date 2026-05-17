@@ -1,7 +1,7 @@
 extends Node2D
 
-const BASE_SPAWN_INTERVAL := 1.2
-const BASE_FALL_SPEED := 130.0
+const BASE_SPAWN_INTERVAL := 0.0
+const BASE_FALL_SPEED := 300.0
 const SHIELD_DURATION := 3.0
 const SLOW_DURATION := 5.0
 const SLOW_SCALE := 0.35
@@ -49,7 +49,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	_score += int(delta * 5)
-	_difficulty += delta * 0.015
+	_difficulty += delta * 0.5
 	_spawn_timer += delta
 
 	var interval := maxf(0.4, BASE_SPAWN_INTERVAL - _difficulty)
@@ -161,7 +161,7 @@ func _on_item_collected(node: Node, kind: int) -> void:
 	_active_items.erase(node)
 	match kind:
 		0:
-			if _shielded:
+			if _shielded or player.is_invincible:
 				return
 			_lives -= 1
 			_update_ui()
