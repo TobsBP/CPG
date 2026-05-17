@@ -8,7 +8,7 @@ func iniciar_cutscene() -> void:
 	label.add_theme_font_size_override("font_size", 36)
 	label.add_theme_color_override("font_color", Color.WHITE)
 	
-	await _digitar("Você é um estudante...\nVc tem como objetivo conseguir o maximo de conhecimento sobre matematica e Programação...\n Existem professores espalhados pela sala de aula...")
+	await _digitar("Você é um estudante...\nVc tem como objetivo conseguir o maximo de \n conhecimento sobre matematica e Programação...\n Existem professores espalhados pela sala de aula...")
 	await get_tree().create_timer(2.0).timeout
 	
 	print("Trocando de cena...")
