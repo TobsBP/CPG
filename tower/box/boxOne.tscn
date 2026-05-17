@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://b0mrmc0mv044r"]
+
+[ext_resource type="Script" path="res://tower/box_shooter.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://b0ek7vndbv1pg" path="res://tower/box/torretas_de_onda.png" id="2_nynu7"]
+[ext_resource type="PackedScene" uid="uid://clu5pr523xnk8" path="res://tower/box/fire.tscn" id="3_fire"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_40mra"]
+atlas = ExtResource("2_nynu7")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gvtug"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_40mra")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bbd0i"]
+size = Vector2(27, 24)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_detect"]
+radius = 80.0
+
+[node name="BoxOne" type="CharacterBody2D" unique_id=11375564]
+script = ExtResource("1_script")
+shot_direction = Vector2(-0.707107, -0.707107)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1634493515]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_gvtug")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1316826876]
+position = Vector2(0, 2.3841858e-07)
+rotation = -0.68416905
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_bbd0i")
+
+[node name="Fire" parent="." unique_id=1478763048 instance=ExtResource("3_fire")]
+rotation = -1.5550884
+
+[node name="DetectionArea" type="Area2D" parent="." unique_id=1316826877]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=1316826878]
+shape = SubResource("CircleShape2D_detect")

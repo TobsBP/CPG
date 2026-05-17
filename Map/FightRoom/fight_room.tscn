@@ -5,6 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://bq3kpgisx4iak" path="res://tower/Math Tower/calc_tower.tscn" id="3_egjn7"]
 [ext_resource type="PackedScene" uid="uid://w87xccmn35ig" path="res://life/life.tscn" id="4_ohqk8"]
 [ext_resource type="PackedScene" uid="uid://byrn7qpy2pkqc" path="res://tower/pc/pc.tscn" id="5_gdy0l"]
+[ext_resource type="PackedScene" uid="uid://b0mrmc0mv044r" path="res://tower/box/boxOne.tscn" id="6_57ois"]
+[ext_resource type="PackedScene" uid="uid://b5gcywu5elhna" path="res://tower/boxTwo/boxTwo.tscn" id="7_qj7vj"]
 
 [node name="FightRoom" type="Node2D" unique_id=32640050]
 
@@ -45,9 +47,6 @@ polygon = PackedVector2Array(3.9768066, 4.2197876, -185.58618, -101.27472, -246.
 position = Vector2(0.3314847, -371.34064)
 polygon = PackedVector2Array(7.9536743, -4.196167e-05, 14.581726, 203.956, -29.163574, 229.27466, -31.814758, 236.30765, -401.6614, 378.37357, -412.26633, 181.4505)
 
-[node name="Player" parent="." unique_id=146193485 instance=ExtResource("2_jyy57")]
-position = Vector2(554, 205)
-
 [node name="Node2D3" parent="." unique_id=1836849349 instance=ExtResource("3_egjn7")]
 position = Vector2(323, 396.99997)
 rotation = -0.07679449
@@ -59,4 +58,14 @@ position = Vector2(543, 345)
 scale = Vector2(3, 3)
 
 [node name="Pc" parent="." unique_id=927379330 instance=ExtResource("5_gdy0l")]
-position = Vector2(774, 470)
+position = Vector2(804, 429)
+shot_direction = Vector2(0.707107, 0.707107)
+
+[node name="BoxOne" parent="." unique_id=11375564 instance=ExtResource("6_57ois")]
+position = Vector2(330, 281)
+
+[node name="BoxTwo" parent="." unique_id=2059075292 instance=ExtResource("7_qj7vj")]
+position = Vector2(754, 279)
+
+[node name="Player" parent="." unique_id=146193485 instance=ExtResource("2_jyy57")]
+position = Vector2(554, 205)

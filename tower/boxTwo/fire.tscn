@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://b61i4mr7efikk"]
+
+[ext_resource type="Texture2D" uid="uid://b0ek7vndbv1pg" path="res://tower/box/torretas_de_onda.png" id="1_iby8m"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ul30j"]
+atlas = ExtResource("1_iby8m")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8vprc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ul30j")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_86glr"]
+size = Vector2(11, 11)
+
+[node name="Fire" type="CharacterBody2D" unique_id=1482960243]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=27086305]
+sprite_frames = SubResource("SpriteFrames_8vprc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1118335811]
+position = Vector2(-0.5, -1.5)
+shape = SubResource("RectangleShape2D_86glr")
