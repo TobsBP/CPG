@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://b4nvlew8vtyp3"]
+
+[ext_resource type="Texture2D" uid="uid://8t27yoologx5" path="res://tower/pc/Tower PC full.png" id="1_r5m6q"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d7ggi"]
+atlas = ExtResource("1_r5m6q")
+region = Rect2(1344, 0, 192, 341)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4i6vv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d7ggi")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1n27q"]
+radius = 47.169907
+
+[node name="Fire" type="CharacterBody2D" unique_id=141420090]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=415363823]
+position = Vector2(14, -42)
+scale = Vector2(1, 0.7140762)
+sprite_frames = SubResource("SpriteFrames_4i6vv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=43840855]
+position = Vector2(3, 7)
+shape = SubResource("CircleShape2D_1n27q")

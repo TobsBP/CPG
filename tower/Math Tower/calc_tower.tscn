@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://bq3kpgisx4iak"]
+
+[ext_resource type="Script" uid="uid://c2ejp2yvg1prh" path="res://tower/Math Tower/tower.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://cblq7teyifq1q" path="res://tower/Math Tower/Tower math.png" id="2_3fjlj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3fjlj"]
+size = Vector2(220, 372)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ulc0"]
+atlas = ExtResource("2_3fjlj")
+region = Rect2(0, 0, 500, 500)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4ulc0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ulc0")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="Node2D" type="CharacterBody2D" unique_id=1500003702]
+script = ExtResource("1_script")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1350563734]
+position = Vector2(42, -3)
+shape = SubResource("RectangleShape2D_3fjlj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1179346546]
+position = Vector2(5, 1)
+sprite_frames = SubResource("SpriteFrames_4ulc0")
+animation = &"idle"

@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://byrn7qpy2pkqc"]
+
+[ext_resource type="Texture2D" uid="uid://8t27yoologx5" path="res://tower/pc/Tower PC full.png" id="1_f56sq"]
+[ext_resource type="Script" path="res://tower/pc/pc_shooter.gd" id="2_pcshoot"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s3as5"]
+atlas = ExtResource("1_f56sq")
+region = Rect2(0, 512, 438, 512)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qnlaj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s3as5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4sn36"]
+size = Vector2(109.10321, 113.787155)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pc"]
+radius = 66.0303
+
+[node name="Pc" type="CharacterBody2D" unique_id=927379330]
+position = Vector2(-1, -1)
+script = ExtResource("2_pcshoot")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1655518554]
+position = Vector2(1, 1)
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_qnlaj")
+frame_progress = 0.23566383
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=299816454]
+visible = false
+position = Vector2(21.206392, -49.971172)
+rotation = -0.49741888
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_4sn36")
+
+[node name="DetectionArea" type="Area2D" parent="." unique_id=927379331]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=927379332]
+position = Vector2(1, -1)
+shape = SubResource("CircleShape2D_pc")

@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://w87xccmn35ig"]
+
+[ext_resource type="Script" path="res://life/life.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://bsdxdn2lrg2lm" path="res://life/Brain.png" id="1_s325f"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vbqe7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vkkkr"]
+atlas = ExtResource("1_s325f")
+region = Rect2(0, 0, 32, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r38rl"]
+atlas = ExtResource("1_s325f")
+region = Rect2(32, 0, 32, 33)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1ufjm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vkkkr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r38rl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r38rl")
+}],
+"loop": false,
+"name": &"damage",
+"speed": 8.0
+}]
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1654760741]
+script = ExtResource("1_script")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1082333703]
+shape = SubResource("CircleShape2D_vbqe7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=24413111]
+position = Vector2(2, 0)
+sprite_frames = SubResource("SpriteFrames_1ufjm")
+animation = &"default"

@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://jhlaser00001"]
+
+[ext_resource type="Script" uid="uid://jhlasergd001" path="res://minigames/JudgmentHall/laser.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://bhyunu2ejk5ht" path="res://minigames/JudgmentHall/lazer.png" id="2_lazer"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_laser"]
+size = Vector2(20, 6)
+
+[node name="Laser" type="Area2D"]
+collision_layer = 16
+collision_mask = 8
+script = ExtResource("1_script")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_lazer")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_laser")

@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://b5t8fsooxtesq"]
+
+[ext_resource type="Script" uid="uid://csonedgd0001" path="res://teacher/soned.gd" id="2_script"]
+[ext_resource type="Texture2D" uid="uid://bua3ovtmc2dg2" path="res://teacher/Characters_32x32(6).png" id="1_jjkul"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_onm4e"]
+atlas = ExtResource("1_jjkul")
+region = Rect2(350, 624, 50, 78)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tnhax"]
+atlas = ExtResource("1_jjkul")
+region = Rect2(350, 390, 50, 78)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hi27a"]
+atlas = ExtResource("1_jjkul")
+region = Rect2(350, 156, 50, 78)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_of1e5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_onm4e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tnhax")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hi27a")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_61586"]
+radius = 16.0
+height = 52.0
+
+[node name="Soned" type="CharacterBody2D" unique_id=257366994]
+script = ExtResource("2_script")
+teacher_name = "Soned"
+dialogue_lines = Array[String](["Olá! Eu sou o professor Soned.", "Defendam o cérebro a todo custo!"])
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=882951419]
+sprite_frames = SubResource("SpriteFrames_of1e5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1562527725]
+shape = SubResource("CapsuleShape2D_61586")

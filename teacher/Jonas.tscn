@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://ce0egjdvm68tb"]
+
+[ext_resource type="Script" uid="uid://cjonasgd00001" path="res://teacher/jonas.gd" id="2_script"]
+[ext_resource type="Texture2D" uid="uid://bua3ovtmc2dg2" path="res://teacher/Characters_32x32(6).png" id="1_ewb84"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j6683"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wbu7y"]
+atlas = ExtResource("1_ewb84")
+region = Rect2(250, 624, 50, 78)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8mhn4"]
+atlas = ExtResource("1_ewb84")
+region = Rect2(250, 390, 50, 78)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hk5pi"]
+atlas = ExtResource("1_ewb84")
+region = Rect2(250, 156, 50, 78)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rjjng"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wbu7y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8mhn4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hk5pi")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Jonas" type="CharacterBody2D" unique_id=1308902939]
+script = ExtResource("2_script")
+teacher_name = "Jonas"
+dialogue_lines = Array[String](["Olá! Eu sou o professor Jonas.", "Vamos estudar juntos?"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1409237317]
+shape = SubResource("CapsuleShape2D_j6683")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=556891557]
+sprite_frames = SubResource("SpriteFrames_rjjng")

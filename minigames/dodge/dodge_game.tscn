@@ -1,0 +1,166 @@
+[gd_scene format=3 uid="uid://ddodgegame001"]
+
+[ext_resource type="Script" uid="uid://bbkm40chl6veo" path="res://minigames/dodge/dodge_game.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://ib64aatbol4v" path="res://minigames/dodge/tela_blueprint.png" id="2_r7ste"]
+[ext_resource type="PackedScene" uid="uid://d1ucxt6cg1t68" path="res://player/player.tscn" id="3_r7ste"]
+[ext_resource type="Script" uid="uid://bjw3pqfe86qtx" path="res://minigames/dodge/dodge_player.gd" id="4_dodge_player"]
+[ext_resource type="Texture2D" uid="uid://tryagainbtn01" path="res://screens/buttons/Try Again Button.png" id="5_retry"]
+[ext_resource type="Texture2D" uid="uid://lobbybtn00001" path="res://screens/buttons/Button Lobby.png" id="6_lobby"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wleft"]
+size = Vector2(20, 700)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wright"]
+size = Vector2(20, 700)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wtop"]
+size = Vector2(1200, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wbottom"]
+size = Vector2(1200, 20)
+
+[node name="DodgeGame" type="Node2D" unique_id=483255032]
+script = ExtResource("1_script")
+
+[node name="TelaBlueprint" type="Sprite2D" parent="." unique_id=10430850]
+position = Vector2(581, 295.49997)
+scale = Vector2(2.9514287, 2.8350785)
+texture = ExtResource("2_r7ste")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=691671111]
+position = Vector2(576, 324)
+
+[node name="WallLeft" type="StaticBody2D" parent="." unique_id=975204583]
+position = Vector2(-10, 324)
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallLeft" unique_id=598426439]
+shape = SubResource("RectangleShape2D_wleft")
+
+[node name="WallRight" type="StaticBody2D" parent="." unique_id=1300248044]
+position = Vector2(1162, 324)
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallRight" unique_id=1316999773]
+shape = SubResource("RectangleShape2D_wright")
+
+[node name="WallTop" type="StaticBody2D" parent="." unique_id=1759066091]
+position = Vector2(576, -10)
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallTop" unique_id=1445916571]
+shape = SubResource("RectangleShape2D_wtop")
+
+[node name="WallBottom" type="StaticBody2D" parent="." unique_id=1809454771]
+position = Vector2(576, 658)
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallBottom" unique_id=425196485]
+position = Vector2(574, -1109)
+shape = SubResource("RectangleShape2D_wbottom")
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=234885637]
+
+[node name="TopBar" type="Panel" parent="UI" unique_id=1301761858]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 44.0
+
+[node name="ScoreLabel" type="Label" parent="UI/TopBar" unique_id=496851877]
+layout_mode = 0
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 10.0
+offset_top = -12.0
+offset_right = 300.0
+offset_bottom = 12.0
+theme_override_font_sizes/font_size = 18
+text = "Pontos: 0"
+
+[node name="LivesLabel" type="Label" parent="UI/TopBar" unique_id=636123344]
+layout_mode = 0
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -220.0
+offset_top = -12.0
+offset_right = -10.0
+offset_bottom = 12.0
+theme_override_font_sizes/font_size = 18
+text = "Vidas: ❤ ❤ ❤"
+horizontal_alignment = 2
+
+[node name="BuffLabel" type="Label" parent="UI" unique_id=1729560114]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -200.0
+offset_top = 50.0
+offset_right = 200.0
+offset_bottom = 80.0
+theme_override_font_sizes/font_size = 18
+horizontal_alignment = 1
+
+[node name="GameOver" type="Panel" parent="UI" unique_id=1044345693]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -130.0
+offset_right = 200.0
+offset_bottom = 130.0
+
+[node name="Title" type="Label" parent="UI/GameOver" unique_id=1208361512]
+layout_mode = 0
+anchor_right = 1.0
+offset_top = 20.0
+offset_bottom = 56.0
+theme_override_font_sizes/font_size = 28
+text = "GAME OVER"
+horizontal_alignment = 1
+
+[node name="FinalScore" type="Label" parent="UI/GameOver" unique_id=1530638488]
+layout_mode = 0
+anchor_right = 1.0
+offset_top = 66.0
+offset_bottom = 100.0
+theme_override_font_sizes/font_size = 20
+text = "Pontuação Final: 0"
+horizontal_alignment = 1
+
+[node name="Buttons" type="HBoxContainer" parent="UI/GameOver"]
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -80.0
+offset_top = -80.0
+offset_right = 80.0
+offset_bottom = -16.0
+theme_override_constants/separation = 16
+
+[node name="RetryButton" type="TextureButton" parent="UI/GameOver/Buttons"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture_normal = ExtResource("5_retry")
+
+[node name="LobbyButton" type="TextureButton" parent="UI/GameOver/Buttons"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture_normal = ExtResource("6_lobby")
+
+[connection signal="pressed" from="UI/GameOver/Buttons/RetryButton" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="UI/GameOver/Buttons/LobbyButton" to="." method="_on_lobby_pressed"]
+
+[node name="Player" parent="." unique_id=146193485 instance=ExtResource("3_r7ste")]
+position = Vector2(617, 463)
+script = ExtResource("4_dodge_player")

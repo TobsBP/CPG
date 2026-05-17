@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://bker25lj7f8yt"]
+
+[ext_resource type="Script" uid="uid://cynogutgd0001" path="res://teacher/ynogut.gd" id="2_script"]
+[ext_resource type="Texture2D" uid="uid://bua3ovtmc2dg2" path="res://teacher/Characters_32x32(6).png" id="1_gg72x"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gg72x"]
+atlas = ExtResource("1_gg72x")
+region = Rect2(300, 390, 50, 78)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t625g"]
+atlas = ExtResource("1_gg72x")
+region = Rect2(300, 156, 50, 78)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_en66p"]
+atlas = ExtResource("1_gg72x")
+region = Rect2(300, 624, 50, 78)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3yg50"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gg72x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t625g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_en66p")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_104cc"]
+radius = 15.0
+height = 52.0
+
+[node name="Ynoguti" type="CharacterBody2D" unique_id=110407667]
+script = ExtResource("2_script")
+teacher_name = "Ynoguti"
+dialogue_lines = Array[String](["Olá! Eu sou o professor Ynoguti.", "Use os canhões para defender o cérebro!"])
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=21598665]
+sprite_frames = SubResource("SpriteFrames_3yg50")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=785735474]
+shape = SubResource("CapsuleShape2D_104cc")

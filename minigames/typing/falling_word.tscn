@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cwrdfall1typi"]
+
+[ext_resource type="Script" uid="uid://xpgjdkqiktya" path="res://minigames/typing/falling_word.gd" id="1_script"]
+
+[node name="FallingWord" type="Node2D" unique_id=1220638829]
+position = Vector2(131, 69)
+script = ExtResource("1_script")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1863347554]
+offset_left = -43.0
+offset_top = -17.0
+offset_right = 77.0
+offset_bottom = 23.0
+theme_override_font_sizes/normal_font_size = 22
+bbcode_enabled = true
+text = "[color=white]palavra[/color]"
+fit_content = true
+scroll_active = false

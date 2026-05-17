@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://csp6noj0q80xk"]
+
+[ext_resource type="Script" uid="uid://cvkgaro5phqx4" path="res://tower/shot/shot.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://b13lt3v5k48ix" path="res://tower/shot/shot-pre.png" id="1_yueg8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w5f51"]
+size = Vector2(57, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w5f51"]
+atlas = ExtResource("1_yueg8")
+region = Rect2(133, 124, 133, 124)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jc0j0"]
+atlas = ExtResource("1_yueg8")
+region = Rect2(0, 124, 133, 124)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5f3qh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w5f51")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jc0j0")
+}],
+"loop": true,
+"name": &"shot",
+"speed": 5.0
+}]
+
+[node name="shot" type="CharacterBody2D" unique_id=418026741]
+script = ExtResource("1_script")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1643470388]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_w5f51")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=911559604]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_5f3qh")
+animation = &"shot"

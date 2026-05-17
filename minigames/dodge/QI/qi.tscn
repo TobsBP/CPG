@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://csytjq5f4t08b"]
+
+[ext_resource type="Texture2D" uid="uid://chw2g3t3di7lo" path="res://minigames/dodge/QI/qi_pixel_art.png" id="1_hf8hc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6v3vo"]
+atlas = ExtResource("1_hf8hc")
+region = Rect2(0, 0, 28, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mxkt3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6v3vo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yo40o"]
+size = Vector2(22.5, 12)
+
+[node name="Qi" type="CharacterBody2D" unique_id=1525329938]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1098726611]
+sprite_frames = SubResource("SpriteFrames_mxkt3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=270021698]
+position = Vector2(0.75, 4)
+shape = SubResource("RectangleShape2D_yo40o")

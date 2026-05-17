@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://bsv42pg4nrsmd"]
+
+[ext_resource type="Script" uid="uid://crenzogd00001" path="res://teacher/renzo.gd" id="2_script"]
+[ext_resource type="Texture2D" uid="uid://bua3ovtmc2dg2" path="res://teacher/Characters_32x32(6).png" id="1_qaenn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j6kqv"]
+atlas = ExtResource("1_qaenn")
+region = Rect2(150, 156, 50, 78)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j0u6f"]
+atlas = ExtResource("1_qaenn")
+region = Rect2(150, 390, 50, 78)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1qped"]
+atlas = ExtResource("1_qaenn")
+region = Rect2(150, 624, 50, 78)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1u0ga"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j6kqv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j0u6f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1qped")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lk3uh"]
+radius = 15.0
+height = 52.0
+
+[node name="Renzo" type="CharacterBody2D" unique_id=1396681111]
+script = ExtResource("2_script")
+teacher_name = "Renzo"
+dialogue_lines = Array[String](["Olá! Eu sou o professor Renzo.", "Preste atenção nas aulas!"])
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=358023311]
+sprite_frames = SubResource("SpriteFrames_1u0ga")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=16867146]
+shape = SubResource("CapsuleShape2D_lk3uh")
