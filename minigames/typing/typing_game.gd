@@ -17,6 +17,7 @@ const BASE_SPEED := 60.0
 const MAX_ACTIVE_WORDS := 6
 
 @export var falling_word_scene: PackedScene = preload("res://minigames/typing/falling_word.tscn")
+@export var ynoguti_drop_scene: PackedScene = preload("res://minigames/typing/ynoguti_drop.tscn")
 
 var _active_words: Array[Node] = []
 var _target: Node = null
@@ -49,6 +50,11 @@ func _input(event: InputEvent) -> void:
 		return
 
 	var key := event as InputEventKey
+
+	if key.keycode == KEY_M and key.ctrl_pressed and (key.meta_pressed or key.alt_pressed):
+		_summon_ynoguti()
+		return
+
 	if key.keycode == KEY_BACKSPACE:
 		_reset_input()
 		return
@@ -61,6 +67,21 @@ func _input(event: InputEvent) -> void:
 		return
 
 	_handle_char(c)
+
+func _summon_ynoguti() -> void:
+	var words_snapshot := _active_words.duplicate()
+	_active_words.clear()
+	_reset_input()
+
+	var ynog := ynoguti_drop_scene.instantiate()
+	add_child(ynog)
+	ynog.position = Vector2(randf_range(150.0, 1000.0), -80.0)
+	ynog.connect("landed", func() -> void:
+		for node in words_snapshot:
+			if is_instance_valid(node):
+				node.queue_free()
+	)
+	ynog.call("drop", randf_range(250.0, 450.0))
 
 func _handle_char(c: String) -> void:
 	if _target == null:
