@@ -52,7 +52,7 @@ func _process(delta: float) -> void:
 	if _prompt_timer >= PROMPT_INTERVAL:
 		_prompt_timer = 0.0
 		_next_prompt()
-
+		
 	var interval := maxf(0.4, BASE_SPAWN_INTERVAL - _difficulty)
 	if _spawn_timer >= interval:
 		_spawn_timer = 0.0
@@ -76,7 +76,7 @@ func _process(delta: float) -> void:
 
 	score_label.text = "Pontos: %d" % _score
 	_update_buff_display()
-
+	
 func _next_prompt() -> void:
 	_prompt_idx = (_prompt_idx + 1) % PROMPT_LABELS.size()
 	_update_prompt()

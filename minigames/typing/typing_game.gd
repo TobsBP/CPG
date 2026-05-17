@@ -1,13 +1,15 @@
 extends Node2D
 
 const WORDS: Array[String] = [
-	"integral", "derivada", "limite", "funcao", "equacao",
-	"matriz", "vetor", "soma", "produto", "divisao",
-	"fracao", "algebra", "calculo", "geometria", "logaritmo",
-	"potencia", "raiz", "formula", "angulo", "media",
-	"moda", "mediana", "grafico", "eixo", "plano",
-	"curva", "tangente", "seno", "cosseno", "ponto",
-	"numero", "primo", "fatorial", "conjunto", "subconjunto"
+	"classe", "objeto", "heranca", "polimorfismo", "encapsulamento",
+"template", "ponteiro", "referencia", "namespace", "biblioteca",
+"compilador", "header", "struct", "vector", "string",
+"iostream", "cout", "cin", "while", "for",
+"if", "switch", "case", "funcao", "sobrecarga",
+"construtor", "destrutor", "malloc", "new", "delete",
+"memoria", "thread", "arquivo", "stream", "lambda",
+"iterador", "algoritmo", "fila", "pilha", "lista",
+"map", "set", "debug", "compilacao", "otimizacao"
 ]
 
 const BASE_SPAWN_INTERVAL := 2.5
@@ -33,12 +35,14 @@ func _ready() -> void:
 	_update_ui()
 
 func _process(delta: float) -> void:
-	_difficulty += delta * 0.01
+	_difficulty += delta * 0.50
 	_spawn_timer += delta
 	var interval := maxf(1.0, BASE_SPAWN_INTERVAL - _difficulty)
 	if _spawn_timer >= interval and _active_words.size() < MAX_ACTIVE_WORDS:
 		_spawn_timer = 0.0
 		_spawn_word()
+	if(_score == 100):
+		_on_lobby_pressed()
 
 func _input(event: InputEvent) -> void:
 	if not event is InputEventKey or not event.pressed or event.echo:
@@ -125,6 +129,9 @@ func _spawn_word() -> void:
 	node.word_typed.connect(_on_word_typed)
 	node.reached_ground.connect(_on_word_missed.bind(node))
 	_active_words.append(node)
+
+
+	
 
 func _update_ui() -> void:
 	score_label.text = "Pontos: %d" % _score
