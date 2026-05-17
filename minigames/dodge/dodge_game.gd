@@ -6,7 +6,7 @@ const HELMET_DURATION := 3.0
 const SPEED_DURATION := 4.0
 const SLOW_DURATION := 5.0
 const SLOW_SCALE := 0.35
-const WIN_SCORE := 300
+const WIN_SCORE := 100
 const CORRECT_POINTS := 30
 const PROMPT_INTERVAL := 6.0
 

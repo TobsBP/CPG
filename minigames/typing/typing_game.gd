@@ -35,13 +35,13 @@ func _ready() -> void:
 	_update_ui()
 
 func _process(delta: float) -> void:
-	_difficulty += delta * 0.50
+	_difficulty += delta * 0.30
 	_spawn_timer += delta
 	var interval := maxf(1.0, BASE_SPAWN_INTERVAL - _difficulty)
 	if _spawn_timer >= interval and _active_words.size() < MAX_ACTIVE_WORDS:
 		_spawn_timer = 0.0
 		_spawn_word()
-	if(_score == 100):
+	if(_score >= 150):
 		_on_lobby_pressed()
 
 func _input(event: InputEvent) -> void:
