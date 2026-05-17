@@ -8,7 +8,7 @@ func iniciar_cutscene() -> void:
 	label.add_theme_font_size_override("font_size", 36)
 	label.add_theme_color_override("font_color", Color.WHITE)
 	
-	await _digitar("Parabéns...\nAgora você consegue diferenciar um banco de dados...\nAgora tome cuidado para não apagar todas as tabelas...")
+	await _digitar("Parabéns...\nAgora você consegue diferenciar um banco de dados...\nAgora tome cuidado para não apagar todas as tabelas...\n+1 Aura de Professor")
 	await get_tree().create_timer(2.0).timeout
 	
 	print("Trocando de cena...")
