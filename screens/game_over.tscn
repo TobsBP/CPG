@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://c1bqetfsd2cu0" path="res://screens/GameOverV2.jpeg" id="1_11mxd"]
 [ext_resource type="Script" uid="uid://ch7vxnaf7jmgq" path="res://screens/game_over.gd" id="1_skulm"]
+[ext_resource type="AudioStream" uid="uid://bbbrp3aso2513" path="res://Music/game over (1).mp3" id="3_x01cv"]
 
 [node name="GameOver" type="Control" unique_id=1539387357]
 layout_mode = 3
@@ -52,6 +53,11 @@ offset_top = 437.0
 offset_right = 886.0
 offset_bottom = 505.0
 text = "Lobby"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1412772794]
+stream = ExtResource("3_x01cv")
+volume_db = -20.567
+autoplay = true
 
 [connection signal="pressed" from="try_again_button" to="." method="_on_try_again_button_pressed"]
 [connection signal="pressed" from="lobby_button" to="." method="_on_lobby_button_pressed"]

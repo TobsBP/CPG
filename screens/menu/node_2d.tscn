@@ -1,12 +1,13 @@
-[gd_scene format=3 uid="uid://4i8yf0f88agc"]
+[gd_scene format=3 uid="uid://cqyymgk6gfixe"]
 
 [ext_resource type="Texture2D" uid="uid://d03nabpaemw40" path="res://screens/menu/inatel.png" id="1_ul235"]
 [ext_resource type="Texture2D" uid="uid://cqyjydfusbs4l" path="res://screens/menu/titulo.png" id="2_g6ke3"]
-[ext_resource type="Shader" uid="uid://cij8hvj1ektyu" path="res://screens/menu/botão.gdshader" id="2_ghujx"]
-[ext_resource type="Script" uid="uid://h250nk3rvcfr" path="res://screens/menu/botao.gd" id="3_qc1j4"]
+[ext_resource type="Shader" path="res://screens/menu/botão.gdshader" id="2_ghujx"]
+[ext_resource type="Script" path="res://screens/menu/botao.gd" id="3_qc1j4"]
 [ext_resource type="Texture2D" uid="uid://cwawuderalf2t" path="res://screens/menu/botãoinicial.png" id="4_4f6bi"]
-[ext_resource type="Shader" uid="uid://cih7ri4k5t66h" path="res://screens/menu/titulo.gdshader" id="5_4f6bi"]
+[ext_resource type="Shader" path="res://screens/menu/titulo.gdshader" id="5_4f6bi"]
 [ext_resource type="FontFile" uid="uid://c20cd0dd55ebr" path="res://fonts/Peaberry-Font-v2.0/Peaberry Font Family/Peaberry Base/PeaberryBase.woff" id="5_ghujx"]
+[ext_resource type="AudioStream" uid="uid://cir1lfirh5aye" path="res://Music/menu.mp3" id="8_qlluo"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8srrs"]
 radius = 52.00003
@@ -127,6 +128,11 @@ material = SubResource("ShaderMaterial_4f6bi")
 position = Vector2(576, 200)
 scale = Vector2(0.652832, 0.6337209)
 texture = ExtResource("2_g6ke3")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=363488836]
+stream = ExtResource("8_qlluo")
+volume_db = -20.567
+autoplay = true
 
 [connection signal="mouse_entered" from="botao/CanvasLayer/CenterContainer/VBoxContainer/Control/DetectionArea" to="botao" method="_on_detection_area_mouse_entered"]
 [connection signal="mouse_exited" from="botao/CanvasLayer/CenterContainer/VBoxContainer/Control/DetectionArea" to="botao" method="_on_detection_area_mouse_exited"]

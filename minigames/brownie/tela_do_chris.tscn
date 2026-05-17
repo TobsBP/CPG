@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://c77y00hwv0n12"]
 
 [ext_resource type="Texture2D" uid="uid://xha7357ofs5k" path="res://minigames/brownie/tela_do_chris.jpg" id="1_mg8nk"]
-[ext_resource type="Script" path="res://minigames/brownie/tela_do_chris.gd" id="2_script"]
+[ext_resource type="Script" uid="uid://dh2r7wbg6t3e2" path="res://minigames/brownie/tela_do_chris.gd" id="2_script"]
+[ext_resource type="AudioStream" uid="uid://cv6mer1xvg7wd" path="res://Music/Musica cris.mp3" id="3_ad5xx"]
 
 [node name="TelaDoChris" type="Node2D" unique_id=1737720654]
 script = ExtResource("2_script")
@@ -14,7 +15,7 @@ texture = ExtResource("1_mg8nk")
 [node name="UI" type="CanvasLayer" parent="." unique_id=1737720656]
 
 [node name="Bar" type="PanelContainer" parent="UI" unique_id=1737720657]
-anchor_left = 0.0
+anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -35,7 +36,11 @@ text = "Confirmar"
 
 [node name="Feedback" type="Label" parent="UI/Bar/HBox" unique_id=1737720661]
 layout_mode = 2
-text = ""
 
-[connection signal="pressed" from="UI/Bar/HBox/Confirm" to="." method="_on_confirm_pressed"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1688344636]
+stream = ExtResource("3_ad5xx")
+volume_db = -20.567
+autoplay = true
+
 [connection signal="text_submitted" from="UI/Bar/HBox/LineEdit" to="." method="_on_line_edit_text_submitted"]
+[connection signal="pressed" from="UI/Bar/HBox/Confirm" to="." method="_on_confirm_pressed"]
