@@ -78,6 +78,3 @@ position = Vector2(330, 281)
 
 [node name="BoxTwo" parent="." unique_id=2059075292 instance=ExtResource("7_qj7vj")]
 position = Vector2(754, 279)
-
-[node name="Player" parent="." unique_id=146193485 instance=ExtResource("2_jyy57")]
-position = Vector2(554, 205)
