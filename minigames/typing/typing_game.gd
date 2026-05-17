@@ -42,6 +42,7 @@ func _process(delta: float) -> void:
 		_spawn_timer = 0.0
 		_spawn_word()
 	if(_score == 100):
+		GameManager.completar_minigame("TYPE")
 		_on_lobby_pressed()
 
 func _input(event: InputEvent) -> void:

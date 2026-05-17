@@ -64,6 +64,7 @@ func _process(delta: float) -> void:
 		_spawn_timer = 0.0
 		_spawn_word()
 	if(_score >= 100):
+		GameManager.completar_minigame("REGEX")
 		_on_lobby_pressed()
 
 	score_label.text = "Pontos: %d" % _score
