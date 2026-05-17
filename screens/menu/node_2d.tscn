@@ -2,10 +2,10 @@
 
 [ext_resource type="Texture2D" uid="uid://d03nabpaemw40" path="res://screens/menu/inatel.png" id="1_ul235"]
 [ext_resource type="Texture2D" uid="uid://cqyjydfusbs4l" path="res://screens/menu/titulo.png" id="2_g6ke3"]
-[ext_resource type="Shader" path="res://screens/menu/botão.gdshader" id="2_ghujx"]
-[ext_resource type="Script" path="res://screens/menu/botao.gd" id="3_qc1j4"]
+[ext_resource type="Shader" uid="uid://cij8hvj1ektyu" path="res://screens/menu/botão.gdshader" id="2_ghujx"]
+[ext_resource type="Script" uid="uid://h250nk3rvcfr" path="res://screens/menu/botao.gd" id="3_qc1j4"]
 [ext_resource type="Texture2D" uid="uid://cwawuderalf2t" path="res://screens/menu/botãoinicial.png" id="4_4f6bi"]
-[ext_resource type="Shader" path="res://screens/menu/titulo.gdshader" id="5_4f6bi"]
+[ext_resource type="Shader" uid="uid://cih7ri4k5t66h" path="res://screens/menu/titulo.gdshader" id="5_4f6bi"]
 [ext_resource type="FontFile" uid="uid://c20cd0dd55ebr" path="res://fonts/Peaberry-Font-v2.0/Peaberry Font Family/Peaberry Base/PeaberryBase.woff" id="5_ghujx"]
 [ext_resource type="AudioStream" uid="uid://cir1lfirh5aye" path="res://Music/menu.mp3" id="8_qlluo"]
 

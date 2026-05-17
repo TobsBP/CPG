@@ -129,7 +129,7 @@ func _renzo_die() -> void:
 
 	# 🔄 volta para o lobby
 	GameManager.completar_minigame("JUDGE")
-	get_tree().change_scene_to_file("res://Map/StudyRoom/study_room.tscn")
+	get_tree().change_scene_to_file("res://screens/textos/finalrenzo/finalrenzo.tscn")
 
 func _spawn_item() -> void:
 	var kind := _weighted_random()

@@ -2,13 +2,19 @@ extends Node2D
 @onready var label: Label = $Label
 
 func _ready():
+	iniciar_cutscene()
+
+func iniciar_cutscene() -> void:
 	label.add_theme_font_size_override("font_size", 36)
 	label.add_theme_color_override("font_color", Color.WHITE)
-	await _digitar("Parabéns...\nAgora você consegue diferenciar um banco de dados... \nAgora tome cuidado para não apagar toda as tabelas...")
-	await get_tree().create_timer(2.0).timeout  # espera 2 segundos
+	
+	await _digitar("Parabéns...\nAgora você consegue diferenciar um banco de dados...\nAgora tome cuidado para não apagar todas as tabelas...")
+	await get_tree().create_timer(2.0).timeout
+	
+	print("Trocando de cena...")
 	get_tree().change_scene_to_file("res://Map/StudyRoom/study_room.tscn")
 
-func _digitar(t: String):
+func _digitar(t: String) -> void:
 	label.text = ""
 	for c in t:
 		label.text += c
