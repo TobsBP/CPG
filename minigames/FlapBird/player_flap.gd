@@ -40,4 +40,5 @@ func die():
 
 func _on_area_infinito_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
+		GameManager.completar_minigame("FLAP")
 		get_tree().change_scene_to_file("res://Map/StudyRoom/study_room.tscn")

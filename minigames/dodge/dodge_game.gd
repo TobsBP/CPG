@@ -176,6 +176,7 @@ func _win() -> void:
 	set_process(false)
 	player.set_physics_process(false)
 	await get_tree().create_timer(2.5).timeout
+	GameManager.completar_minigame("DODGE")
 	get_tree().change_scene_to_file("res://Map/StudyRoom/study_room.tscn")
 
 func _game_over() -> void:

@@ -128,6 +128,7 @@ func _renzo_die() -> void:
 	await get_tree().create_timer(3.0).timeout
 
 	# 🔄 volta para o lobby
+	GameManager.completar_minigame("JUDGE")
 	get_tree().change_scene_to_file("res://Map/StudyRoom/study_room.tscn")
 
 func _spawn_item() -> void:
