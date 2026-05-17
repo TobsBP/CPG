@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ddodgegame001"]
 
 [ext_resource type="Script" uid="uid://bbkm40chl6veo" path="res://minigames/dodge/dodge_game.gd" id="1_script"]
-[ext_resource type="Texture2D" uid="uid://ib64aatbol4v" path="res://minigames/dodge/tela_blueprint.png" id="2_r7ste"]
+[ext_resource type="Texture2D" uid="uid://bpw367em2akol" path="res://minigames/dodge/telahorizontaljonas.png" id="2_m2jbo"]
 [ext_resource type="PackedScene" uid="uid://d1ucxt6cg1t68" path="res://player/player.tscn" id="3_r7ste"]
 [ext_resource type="Script" uid="uid://bjw3pqfe86qtx" path="res://minigames/dodge/dodge_player.gd" id="4_dodge_player"]
 [ext_resource type="Texture2D" uid="uid://h7viqf240860" path="res://screens/buttons/Try Again Button.png" id="5_retry"]
@@ -22,10 +22,9 @@ size = Vector2(1200, 20)
 [node name="DodgeGame" type="Node2D" unique_id=483255032]
 script = ExtResource("1_script")
 
-[node name="TelaBlueprint" type="Sprite2D" parent="." unique_id=10430850]
-position = Vector2(581, 295.49997)
-scale = Vector2(2.9514287, 2.8350785)
-texture = ExtResource("2_r7ste")
+[node name="Telahorizontaljonas" type="Sprite2D" parent="." unique_id=535018314]
+position = Vector2(582, 299)
+texture = ExtResource("2_m2jbo")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=691671111]
 position = Vector2(576, 324)
