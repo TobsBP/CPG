@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://c53b1goptvmb5"]
+
+[ext_resource type="Texture2D" uid="uid://c1bqetfsd2cu0" path="res://screens/GameOverV2.jpeg" id="1_11mxd"]
+[ext_resource type="Script" uid="uid://ch7vxnaf7jmgq" path="res://screens/game_over.gd" id="1_skulm"]
+
+[node name="GameOver" type="Control" unique_id=1539387357]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_skulm")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=5035367]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=864488598]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_11mxd")
+expand_mode = 1
+
+[node name="try_again_button" type="Button" parent="." unique_id=1124269799]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 282.0
+offset_top = 115.0
+offset_right = -646.0
+offset_bottom = 181.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Try Again"
+
+[node name="lobby_button" type="Button" parent="." unique_id=1534459651]
+layout_mode = 0
+offset_left = 646.0
+offset_top = 437.0
+offset_right = 886.0
+offset_bottom = 505.0
+text = "Lobby"
+
+[connection signal="pressed" from="try_again_button" to="." method="_on_try_again_button_pressed"]
+[connection signal="pressed" from="lobby_button" to="." method="_on_lobby_button_pressed"]
