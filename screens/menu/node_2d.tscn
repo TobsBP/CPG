@@ -74,10 +74,10 @@ script = ExtResource("3_qc1j4")
 anchors_preset = -1
 anchor_right = 1.059
 anchor_bottom = 1.09
-offset_left = 606.0
-offset_top = 474.0
-offset_right = -573.968
-offset_bottom = -192.32
+offset_left = 370.0
+offset_top = 400.0
+offset_right = -425.96802
+offset_bottom = -179.32
 
 [node name="VBoxContainer" type="VBoxContainer" parent="botao/CanvasLayer/CenterContainer" unique_id=1671174466]
 layout_mode = 2
@@ -93,7 +93,6 @@ shape = SubResource("CapsuleShape2D_8srrs")
 
 [node name="MenuSprite" type="AnimatedSprite2D" parent="botao/CanvasLayer/CenterContainer/VBoxContainer/Control/DetectionArea" unique_id=340685846]
 material = SubResource("ShaderMaterial_qlluo")
-position = Vector2(-1.9999771, -11)
 scale = Vector2(4.433334, 5.233333)
 sprite_frames = SubResource("SpriteFrames_xd55v")
 animation = &"perto"
@@ -102,7 +101,7 @@ animation = &"perto"
 offset_left = -169.0
 offset_top = -42.0
 offset_right = 152.0
-offset_bottom = 47.0
+offset_bottom = 59.0
 theme_override_font_sizes/font_size = 16
 text = "START"
 label_settings = SubResource("LabelSettings_gs8x1")
@@ -125,7 +124,7 @@ texture = ExtResource("1_ul235")
 
 [node name="Titulo" type="Sprite2D" parent="titulo" unique_id=591895768]
 material = SubResource("ShaderMaterial_4f6bi")
-position = Vector2(605, 214)
+position = Vector2(576, 200)
 scale = Vector2(0.652832, 0.6337209)
 texture = ExtResource("2_g6ke3")
 
