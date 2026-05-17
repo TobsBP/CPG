@@ -388,9 +388,9 @@ scale = Vector2(2.1659184, -4.598565)
 sprite_frames = SubResource("SpriteFrames_tlanl")
 script = ExtResource("8_ncvf8")
 
-[node name="Area2D" type="Area2D" parent="Sprite2D/TheITEM" unique_id=1831147932]
+[node name="AreaInfinito" type="Area2D" parent="Sprite2D/TheITEM" unique_id=1831147932]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite2D/TheITEM/Area2D" unique_id=920384379]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite2D/TheITEM/AreaInfinito" unique_id=920384379]
 position = Vector2(-0.3786621, 1.3961258)
 polygon = PackedVector2Array(1.1359863, 7.678684, -13.253052, 7.4459953, -17.039673, 0.23268509, -14.389038, -8.376751, 1.8933105, -11.401684, 15.525024, -8.144062, 20.068909, 3.2576218, 11.738403, 6.9806213)
 
@@ -494,6 +494,7 @@ autoplay = true
 [connection signal="body_entered" from="Sprite2D/Sprite2D4/Area2D" to="PlayerFlap" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Sprite2D/Sprite2D8/Area2D" to="PlayerFlap" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Sprite2D/Sprite2D13/Area2D" to="PlayerFlap" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Sprite2D/TheITEM/AreaInfinito" to="PlayerFlap" method="_on_area_infinito_body_entered"]
 [connection signal="body_entered" from="Sprite2D/Area2D" to="PlayerFlap" method="_on_area_2d_body_entered"]
 [connection signal="pressed" from="GameOverScreen/Panel/Buttons/RetryButton" to="GameOverScreen" method="_on_retry_pressed"]
 [connection signal="pressed" from="GameOverScreen/Panel/Buttons/LobbyButton" to="GameOverScreen" method="_on_lobby_pressed"]

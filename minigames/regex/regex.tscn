@@ -119,7 +119,7 @@ offset_right = 80.0
 offset_bottom = -16.0
 theme_override_constants/separation = 16
 
-[node name="RetryButton" type="TextureButton" parent="UI/GameOver/Buttons" unique_id=1793402337]
+[node name="RetryButton" type="TextureButton" parent="UI/GameOver/Buttons" unique_id=962608591]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture_normal = ExtResource("4_retry")

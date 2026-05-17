@@ -123,7 +123,7 @@ theme_override_font_sizes/font_size = 20
 text = "Pontuação Final: 0"
 horizontal_alignment = 1
 
-[node name="Buttons" type="HBoxContainer" parent="UI/GameOver" unique_id=678978830]
+[node name="Buttons" type="HBoxContainer" parent="UI/GameOver" unique_id=1016569805]
 layout_mode = 0
 anchor_left = 0.5
 anchor_top = 1.0
@@ -140,7 +140,7 @@ custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture_normal = ExtResource("4_retry")
 
-[node name="LobbyButton" type="TextureButton" parent="UI/GameOver/Buttons" unique_id=11529855]
+[node name="LobbyButton" type="TextureButton" parent="UI/GameOver/Buttons" unique_id=2097923823]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture_normal = ExtResource("5_lobby")

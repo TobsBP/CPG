@@ -183,6 +183,8 @@ func _game_over() -> void:
 	$UI/GameOver/FinalScore.text = "Pontuação Final: %d" % _score
 	set_process(false)
 	player.set_physics_process(false)
+	GameManager.last_scene_path = get_tree().current_scene.scene_file_path
+	get_tree().change_scene_to_file("res://screens/game_over.tscn")
 
 func _on_retry_pressed() -> void:
 	get_tree().reload_current_scene()
