@@ -4,12 +4,133 @@
 [ext_resource type="Texture2D" uid="uid://1tgsk8fviwx2" path="res://Map/assets/Lapis1.png" id="2_m3451"]
 [ext_resource type="Script" uid="uid://qbu7mdcj7c80" path="res://death_area.gd" id="3_6wep3"]
 [ext_resource type="Texture2D" uid="uid://dp6y4qc5w70me" path="res://Map/assets/lapis2.png" id="3_uhlgt"]
-[ext_resource type="Texture2D" uid="uid://cfad6sojk4je1" path="res://Map/assets/InfinitoPIXEL.png" id="4_6wep3"]
+[ext_resource type="Texture2D" uid="uid://dawh787vph2pn" path="res://Map/assets/infinite.png" id="5_ncvf8"]
 [ext_resource type="Script" uid="uid://cvdt7vyupq7t2" path="res://minigames/FlapBird/player_flap.gd" id="6_ybypa"]
 [ext_resource type="Texture2D" uid="uid://can3tm2fjkypg" path="res://player/bird.png" id="7_ue8sp"]
-[ext_resource type="Script" uid="uid://cflapgameover1" path="res://minigames/FlapBird/flap_game_over.gd" id="8_gameover"]
-[ext_resource type="Texture2D" uid="uid://tryagainbtn01" path="res://screens/buttons/Try Again Button.png" id="9_retry"]
-[ext_resource type="Texture2D" uid="uid://lobbybtn00001" path="res://screens/buttons/Button Lobby.png" id="10_lobby"]
+[ext_resource type="Script" uid="uid://d0w1s82ui8m5a" path="res://minigames/FlapBird/flap_game_over.gd" id="8_gameover"]
+[ext_resource type="Script" uid="uid://bsllfbcsn7gpr" path="res://minigames/FlapBird/animated_sprite_2d.gd" id="8_ncvf8"]
+[ext_resource type="Texture2D" uid="uid://h7viqf240860" path="res://screens/buttons/Try Again Button.png" id="9_retry"]
+[ext_resource type="Texture2D" uid="uid://dcf70vf207g3w" path="res://screens/buttons/Button Lobby.png" id="10_lobby"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j1pxs"]
+atlas = ExtResource("5_ncvf8")
+region = Rect2(0, 0, 36, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xdt1k"]
+atlas = ExtResource("5_ncvf8")
+region = Rect2(0, 31, 36, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lv753"]
+atlas = ExtResource("5_ncvf8")
+region = Rect2(0, 62, 36, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_74314"]
+atlas = ExtResource("5_ncvf8")
+region = Rect2(0, 93, 36, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w575b"]
+atlas = ExtResource("5_ncvf8")
+region = Rect2(0, 124, 36, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_inrcs"]
+atlas = ExtResource("5_ncvf8")
+region = Rect2(0, 155, 36, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vccng"]
+atlas = ExtResource("5_ncvf8")
+region = Rect2(0, 186, 36, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_clh5o"]
+atlas = ExtResource("5_ncvf8")
+region = Rect2(0, 217, 36, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wkuph"]
+atlas = ExtResource("5_ncvf8")
+region = Rect2(0, 248, 36, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tyenj"]
+atlas = ExtResource("5_ncvf8")
+region = Rect2(0, 279, 36, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ds8iu"]
+atlas = ExtResource("5_ncvf8")
+region = Rect2(0, 310, 36, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gqxi2"]
+atlas = ExtResource("5_ncvf8")
+region = Rect2(0, 341, 36, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l52il"]
+atlas = ExtResource("5_ncvf8")
+region = Rect2(0, 372, 36, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oqmpm"]
+atlas = ExtResource("5_ncvf8")
+region = Rect2(0, 403, 36, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b5thk"]
+atlas = ExtResource("5_ncvf8")
+region = Rect2(0, 434, 36, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o2b12"]
+atlas = ExtResource("5_ncvf8")
+region = Rect2(0, 465, 36, 31)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tlanl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j1pxs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xdt1k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lv753")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_74314")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w575b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_inrcs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vccng")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_clh5o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wkuph")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tyenj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ds8iu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gqxi2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l52il")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oqmpm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b5thk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o2b12")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uxgr3"]
 radius = 18.0
@@ -68,7 +189,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_yofbu")
 }],
 "loop": true,
-"name": &"flying",
+"name": &"default",
 "speed": 5.0
 }]
 
@@ -260,16 +381,17 @@ script = ExtResource("3_6wep3")
 position = Vector2(8.142334, 532.60126)
 polygon = PackedVector2Array(4.071289, 8.069702, -175.05615, -325.47864, -146.5586, -1159.3495, 154.70068, -1159.3495, 162.84277, -260.9209)
 
-[node name="TheITEM" type="Sprite2D" parent="Sprite2D" unique_id=458997489]
+[node name="TheITEM" type="AnimatedSprite2D" parent="Sprite2D" unique_id=1272575816]
 position = Vector2(596.2446, -78.11209)
 scale = Vector2(2.1659184, -4.598565)
-texture = ExtResource("4_6wep3")
+sprite_frames = SubResource("SpriteFrames_tlanl")
+script = ExtResource("8_ncvf8")
 
 [node name="Area2D" type="Area2D" parent="Sprite2D/TheITEM" unique_id=1831147932]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite2D/TheITEM/Area2D" unique_id=920384379]
 position = Vector2(-0.3786621, 1.3961258)
-polygon = PackedVector2Array(1.1359558, -1.1634369, -7.194519, 5.5844955, -14.7677, -0.6980667, -10.223785, -7.911377, -0.3786621, -3.2576294, 9.466461, -6.74794, 15.146332, -0.2326889, 7.5731506, 4.8864365)
+polygon = PackedVector2Array(1.1359863, 7.678684, -13.253052, 7.4459953, -17.039673, 0.23268509, -14.389038, -8.376751, 1.8933105, -11.401684, 15.525024, -8.144062, 20.068909, 3.2576218, 11.738403, 6.9806213)
 
 [node name="Area2D" type="Area2D" parent="Sprite2D" unique_id=1925814835]
 script = ExtResource("3_6wep3")
@@ -291,7 +413,7 @@ shape = SubResource("CapsuleShape2D_uxgr3")
 position = Vector2(-4, 1.0000095)
 scale = Vector2(0.76, 0.657895)
 sprite_frames = SubResource("SpriteFrames_j1pxs")
-animation = &"flying"
+script = ExtResource("8_ncvf8")
 
 [node name="Camera2D" type="Camera2D" parent="PlayerFlap" unique_id=173888411]
 position = Vector2(4, 1)
@@ -300,12 +422,12 @@ limit_top = 0
 limit_right = 1650
 limit_bottom = 700
 
-[node name="GameOverScreen" type="CanvasLayer" parent="."]
-layer = 10
+[node name="GameOverScreen" type="CanvasLayer" parent="." unique_id=1366796812]
 process_mode = 3
+layer = 10
 script = ExtResource("8_gameover")
 
-[node name="Panel" type="Panel" parent="GameOverScreen"]
+[node name="Panel" type="Panel" parent="GameOverScreen" unique_id=1085986876]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -315,8 +437,10 @@ offset_left = -160.0
 offset_top = -110.0
 offset_right = 160.0
 offset_bottom = 110.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Title" type="Label" parent="GameOverScreen/Panel"]
+[node name="Title" type="Label" parent="GameOverScreen/Panel" unique_id=691474622]
 layout_mode = 0
 anchor_right = 1.0
 offset_top = 16.0
@@ -325,8 +449,9 @@ theme_override_font_sizes/font_size = 28
 text = "GAME OVER"
 horizontal_alignment = 1
 
-[node name="Buttons" type="HBoxContainer" parent="GameOverScreen/Panel"]
-layout_mode = 0
+[node name="Buttons" type="HBoxContainer" parent="GameOverScreen/Panel" unique_id=2068111960]
+layout_mode = 1
+anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -337,18 +462,15 @@ offset_right = 80.0
 offset_bottom = -16.0
 theme_override_constants/separation = 16
 
-[node name="RetryButton" type="TextureButton" parent="GameOverScreen/Panel/Buttons"]
+[node name="RetryButton" type="TextureButton" parent="GameOverScreen/Panel/Buttons" unique_id=1963998653]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture_normal = ExtResource("9_retry")
 
-[node name="LobbyButton" type="TextureButton" parent="GameOverScreen/Panel/Buttons"]
+[node name="LobbyButton" type="TextureButton" parent="GameOverScreen/Panel/Buttons" unique_id=1231641528]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture_normal = ExtResource("10_lobby")
-
-[connection signal="pressed" from="GameOverScreen/Panel/Buttons/RetryButton" to="GameOverScreen" method="_on_retry_pressed"]
-[connection signal="pressed" from="GameOverScreen/Panel/Buttons/LobbyButton" to="GameOverScreen" method="_on_lobby_pressed"]
 
 [connection signal="body_entered" from="Sprite2D/Sprite2D/Area2D" to="PlayerFlap" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Sprite2D/Sprite2D9/Area2D" to="PlayerFlap" method="_on_area_2d_body_entered"]
@@ -365,3 +487,5 @@ texture_normal = ExtResource("10_lobby")
 [connection signal="body_entered" from="Sprite2D/Sprite2D8/Area2D" to="PlayerFlap" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Sprite2D/Sprite2D13/Area2D" to="PlayerFlap" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Sprite2D/Area2D" to="PlayerFlap" method="_on_area_2d_body_entered"]
+[connection signal="pressed" from="GameOverScreen/Panel/Buttons/RetryButton" to="GameOverScreen" method="_on_retry_pressed"]
+[connection signal="pressed" from="GameOverScreen/Panel/Buttons/LobbyButton" to="GameOverScreen" method="_on_lobby_pressed"]

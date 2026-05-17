@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://b5gcywu5elhna" path="res://tower/boxTwo/boxTwo.tscn" id="7_qj7vj"]
 
 [node name="FightRoom" type="Node2D" unique_id=32640050]
+position = Vector2(-29, -27)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1505408342]
 position = Vector2(546.74994, 302)
@@ -46,6 +47,17 @@ polygon = PackedVector2Array(3.9768066, 4.2197876, -185.58618, -101.27472, -246.
 [node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="Sprite2D/Colissions/Box" unique_id=812012066]
 position = Vector2(0.3314847, -371.34064)
 polygon = PackedVector2Array(7.9536743, -4.196167e-05, 14.581726, 203.956, -29.163574, 229.27466, -31.814758, 236.30765, -401.6614, 378.37357, -412.26633, 181.4505)
+
+[node name="Player" parent="." unique_id=146193485 instance=ExtResource("2_jyy57")]
+position = Vector2(554, 205)
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=2013097538]
+position = Vector2(0, 1)
+zoom = Vector2(1.5, 1.5)
+limit_left = 1
+limit_top = 1
+limit_right = 1035
+limit_bottom = 545
 
 [node name="Node2D3" parent="." unique_id=1836849349 instance=ExtResource("3_egjn7")]
 position = Vector2(323, 396.99997)
