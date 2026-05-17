@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://4i8yf0f88agc"]
+[gd_scene format=3 uid="uid://cqyymgk6gfixe"]
 
 [ext_resource type="Texture2D" uid="uid://d03nabpaemw40" path="res://screens/menu/inatel.png" id="1_ul235"]
 [ext_resource type="Texture2D" uid="uid://cqyjydfusbs4l" path="res://screens/menu/titulo.png" id="2_g6ke3"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cwawuderalf2t" path="res://screens/menu/botãoinicial.png" id="4_4f6bi"]
 [ext_resource type="Shader" uid="uid://cih7ri4k5t66h" path="res://screens/menu/titulo.gdshader" id="5_4f6bi"]
 [ext_resource type="FontFile" uid="uid://c20cd0dd55ebr" path="res://fonts/Peaberry-Font-v2.0/Peaberry Font Family/Peaberry Base/PeaberryBase.woff" id="5_ghujx"]
+[ext_resource type="AudioStream" uid="uid://cir1lfirh5aye" path="res://Music/menu.mp3" id="8_qlluo"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8srrs"]
 radius = 52.00003
@@ -74,10 +75,10 @@ script = ExtResource("3_qc1j4")
 anchors_preset = -1
 anchor_right = 1.059
 anchor_bottom = 1.09
-offset_left = 606.0
-offset_top = 474.0
-offset_right = -573.968
-offset_bottom = -192.32
+offset_left = 370.0
+offset_top = 400.0
+offset_right = -425.96802
+offset_bottom = -179.32
 
 [node name="VBoxContainer" type="VBoxContainer" parent="botao/CanvasLayer/CenterContainer" unique_id=1671174466]
 layout_mode = 2
@@ -93,7 +94,6 @@ shape = SubResource("CapsuleShape2D_8srrs")
 
 [node name="MenuSprite" type="AnimatedSprite2D" parent="botao/CanvasLayer/CenterContainer/VBoxContainer/Control/DetectionArea" unique_id=340685846]
 material = SubResource("ShaderMaterial_qlluo")
-position = Vector2(-1.9999771, -11)
 scale = Vector2(4.433334, 5.233333)
 sprite_frames = SubResource("SpriteFrames_xd55v")
 animation = &"perto"
@@ -102,7 +102,7 @@ animation = &"perto"
 offset_left = -169.0
 offset_top = -42.0
 offset_right = 152.0
-offset_bottom = 47.0
+offset_bottom = 59.0
 theme_override_font_sizes/font_size = 16
 text = "START"
 label_settings = SubResource("LabelSettings_gs8x1")
@@ -125,9 +125,14 @@ texture = ExtResource("1_ul235")
 
 [node name="Titulo" type="Sprite2D" parent="titulo" unique_id=591895768]
 material = SubResource("ShaderMaterial_4f6bi")
-position = Vector2(605, 214)
+position = Vector2(576, 200)
 scale = Vector2(0.652832, 0.6337209)
 texture = ExtResource("2_g6ke3")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=363488836]
+stream = ExtResource("8_qlluo")
+volume_db = -20.567
+autoplay = true
 
 [connection signal="mouse_entered" from="botao/CanvasLayer/CenterContainer/VBoxContainer/Control/DetectionArea" to="botao" method="_on_detection_area_mouse_entered"]
 [connection signal="mouse_exited" from="botao/CanvasLayer/CenterContainer/VBoxContainer/Control/DetectionArea" to="botao" method="_on_detection_area_mouse_exited"]

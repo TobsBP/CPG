@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://typing_ynoguti_drop"]
+
+[ext_resource type="Script" path="res://minigames/typing/ynoguti_drop.gd" id="1_ynog"]
+[ext_resource type="Texture2D" uid="uid://bua3ovtmc2dg2" path="res://teacher/Characters_32x32(6).png" id="2_ynog"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y1"]
+atlas = ExtResource("2_ynog")
+region = Rect2(300, 390, 50, 78)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y2"]
+atlas = ExtResource("2_ynog")
+region = Rect2(300, 156, 50, 78)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y3"]
+atlas = ExtResource("2_ynog")
+region = Rect2(300, 624, 50, 78)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ynog"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[node name="YnogutiDrop" type="Node2D"]
+script = ExtResource("1_ynog")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2.0, 2.0)
+sprite_frames = SubResource("SpriteFrames_ynog")
+animation = &"default"
+autoplay = "default"

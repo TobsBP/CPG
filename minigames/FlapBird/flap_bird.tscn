@@ -480,6 +480,29 @@ stream = ExtResource("12_ewy7j")
 volume_db = -20.567
 autoplay = true
 
+[node name="StartScreen" type="CanvasLayer" parent="." unique_id=1111111111]
+layer = 5
+
+[node name="StartLabel" type="Label" parent="StartScreen" unique_id=1111111112]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -50.0
+offset_right = 300.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 36
+text = "Pressione ↑ ou Espaço para começar"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="body_entered" from="Sprite2D/Sprite2D/Area2D" to="PlayerFlap" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Sprite2D/Sprite2D9/Area2D" to="PlayerFlap" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Sprite2D/Sprite2D7/Area2D" to="PlayerFlap" method="_on_area_2d_body_entered"]

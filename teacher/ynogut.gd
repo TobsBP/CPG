@@ -7,11 +7,13 @@ func _start_dialogue() -> void:
 		dialogue_lines = ["Olá, meu nome é Ynoguti ,eu sou professor de Algoritmos I"]
 	if _visit_count == 1:
 		dialogue_lines = ["Gostaria de jogar meu mini game sobre sintaxe  C++ ?"]
+	if _visit_count == 2:
+		dialogue_lines = ["Dica: pressione Ctrl + Cmd/Alt + M para eu aparecer e destruir todas as palavras!", "E digitar 'vida' te dá um coração extra!"]
 	super._start_dialogue()
 
 func _on_dialogue_finished() -> void:
 	_talking = false
 	_visit_count += 1
-	if _visit_count == 2:
+	if _visit_count == 3:
 		await get_tree().create_timer(0.4).timeout
 		get_tree().change_scene_to_file("res://minigames/typing/typing_game.tscn")

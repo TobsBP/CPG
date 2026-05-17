@@ -8,7 +8,8 @@ func _on_confirm_pressed() -> void:
 		$UI/Bar/HBox/Feedback.text = "Correto!"
 		$UI/Bar/HBox/Feedback.modulate = Color.GREEN
 		await get_tree().create_timer(0.8).timeout
-		get_tree().change_scene_to_file("res://Map/StudyRoom/study_room.tscn")
+		GameManager.completar_minigame("COOKIE")
+		get_tree().change_scene_to_file("res://screens/textos/finalchris/finalchris.tscn")
 	else:
 		$UI/Bar/HBox/Feedback.text = "Incorreto, tente novamente."
 		$UI/Bar/HBox/Feedback.modulate = Color.RED

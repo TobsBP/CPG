@@ -15,8 +15,12 @@ const WORDS: Array[String] = [
 const BASE_SPAWN_INTERVAL := 2.5
 const BASE_SPEED := 60.0
 const MAX_ACTIVE_WORDS := 6
+const LIFE_WORD := "vida"
+const MAX_LIVES := 5
+const LIFE_WORD_INTERVAL := 18.0
 
 @export var falling_word_scene: PackedScene = preload("res://minigames/typing/falling_word.tscn")
+@export var ynoguti_drop_scene: PackedScene = preload("res://minigames/typing/ynoguti_drop.tscn")
 
 var _active_words: Array[Node] = []
 var _target: Node = null
@@ -25,6 +29,7 @@ var _score := 0
 var _lives := 3
 var _spawn_timer := 0.0
 var _difficulty := 0.0
+var _life_word_timer := LIFE_WORD_INTERVAL
 
 @onready var score_label: Label = $UI/TopBar/ScoreLabel
 @onready var lives_label: Label = $UI/TopBar/LivesLabel
@@ -35,13 +40,17 @@ func _ready() -> void:
 	_update_ui()
 
 func _process(delta: float) -> void:
-	_difficulty += delta * 0.50
+	_difficulty += delta * 0.30
 	_spawn_timer += delta
+	_life_word_timer -= delta
 	var interval := maxf(1.0, BASE_SPAWN_INTERVAL - _difficulty)
 	if _spawn_timer >= interval and _active_words.size() < MAX_ACTIVE_WORDS:
 		_spawn_timer = 0.0
 		_spawn_word()
-	if(_score == 100):
+	if _life_word_timer <= 0.0:
+		_life_word_timer = LIFE_WORD_INTERVAL
+		_spawn_life_word()
+	if(_score >= 150):
 		_on_lobby_pressed()
 
 func _input(event: InputEvent) -> void:
@@ -49,6 +58,11 @@ func _input(event: InputEvent) -> void:
 		return
 
 	var key := event as InputEventKey
+
+	if key.keycode == KEY_M and key.ctrl_pressed and (key.meta_pressed or key.alt_pressed):
+		_summon_ynoguti()
+		return
+
 	if key.keycode == KEY_BACKSPACE:
 		_reset_input()
 		return
@@ -61,6 +75,21 @@ func _input(event: InputEvent) -> void:
 		return
 
 	_handle_char(c)
+
+func _summon_ynoguti() -> void:
+	var words_snapshot := _active_words.duplicate()
+	_active_words.clear()
+	_reset_input()
+
+	var ynog := ynoguti_drop_scene.instantiate()
+	add_child(ynog)
+	ynog.position = Vector2(randf_range(150.0, 1000.0), -80.0)
+	ynog.connect("landed", func() -> void:
+		for node in words_snapshot:
+			if is_instance_valid(node):
+				node.queue_free()
+	)
+	ynog.call("drop", randf_range(250.0, 450.0))
 
 func _handle_char(c: String) -> void:
 	if _target == null:
@@ -95,7 +124,10 @@ func _reset_input() -> void:
 	_update_input_display()
 
 func _on_word_typed(node: Node) -> void:
-	_score += 10 + _target.word.length() * 2
+	if node.is_life_word:
+		_lives = mini(_lives + 1, MAX_LIVES)
+	else:
+		_score += 10 + _target.word.length() * 2
 	_active_words.erase(node)
 	_target = null
 	_current_input = ""
@@ -116,7 +148,6 @@ func _on_word_missed(node: Node) -> void:
 
 func _spawn_word() -> void:
 	var w := WORDS[randi() % WORDS.size()]
-	# Evita duplicatas
 	for active in _active_words:
 		if active.word == w:
 			return
@@ -130,8 +161,18 @@ func _spawn_word() -> void:
 	node.reached_ground.connect(_on_word_missed.bind(node))
 	_active_words.append(node)
 
-
-	
+func _spawn_life_word() -> void:
+	for active in _active_words:
+		if active.word == LIFE_WORD:
+			return
+	var node := falling_word_scene.instantiate()
+	word_container.add_child(node)
+	node.position.x = randf_range(80.0, 1080.0)
+	node.position.y = -20.0
+	node.setup(LIFE_WORD, BASE_SPEED * 0.8, true)
+	node.word_typed.connect(_on_word_typed)
+	node.reached_ground.connect(_on_word_missed.bind(node))
+	_active_words.append(node)
 
 func _update_ui() -> void:
 	score_label.text = "Pontos: %d" % _score
@@ -149,4 +190,4 @@ func _on_retry_pressed() -> void:
 	get_tree().reload_current_scene()
 
 func _on_lobby_pressed() -> void:
-	get_tree().change_scene_to_file("res://Map/StudyRoom/study_room.tscn")
+	get_tree().change_scene_to_file("res://screens/textos/finalynogut/finalynogut.tscn")

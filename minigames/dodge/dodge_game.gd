@@ -6,7 +6,7 @@ const HELMET_DURATION := 3.0
 const SPEED_DURATION := 4.0
 const SLOW_DURATION := 5.0
 const SLOW_SCALE := 0.35
-const WIN_SCORE := 300
+const WIN_SCORE := 100
 const CORRECT_POINTS := 30
 const PROMPT_INTERVAL := 6.0
 
@@ -114,7 +114,7 @@ func _on_item_collected(node: Node, type: int) -> void:
 	_active_items.erase(node)
 	match type:
 		0:  # HAZARD
-			if _shielded:
+			if _shielded or player.is_invincible:
 				return
 			_lives -= 1
 			_update_ui()
@@ -142,7 +142,7 @@ func _on_item_collected(node: Node, type: int) -> void:
 				if _score >= WIN_SCORE:
 					_win()
 			else:
-				if _shielded:
+				if _shielded or player.is_invincible:
 					return
 				_lives -= 1
 				_update_ui()
@@ -176,7 +176,8 @@ func _win() -> void:
 	set_process(false)
 	player.set_physics_process(false)
 	await get_tree().create_timer(2.5).timeout
-	get_tree().change_scene_to_file("res://Map/StudyRoom/study_room.tscn")
+	GameManager.completar_minigame("DODGE")
+	get_tree().change_scene_to_file("res://screens/textos/finaljonas/finaljonas.tscn")
 
 func _game_over() -> void:
 	$UI/GameOver.show()
