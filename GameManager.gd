@@ -19,4 +19,4 @@ func completar_minigame(id: String):
 		todos_completos()
 
 func todos_completos():
-	get_tree().change_scene_to_file("res://final.tscn") # MUDA AQUI IGOR, PFV LEIA ESSE COMENTARIO!!!!
+	get_tree().change_scene_to_file("res://screens/textos/finalfinal/finalfinal.tscn") # MUDA AQUI IGOR, PFV LEIA ESSE COMENTARIO!!!!
